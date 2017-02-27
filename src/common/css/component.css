@@ -1,0 +1,41 @@
+.g-main .desc .title{
+    color: #444;
+    line-height: 1.7;
+    font-size: 14px;
+}
+.g-main a{
+    color: inherit;
+}
+.g-main .handel{
+    margin-top: 5px;
+}
+.g-main .desc span{
+    font-size: 12px;
+    color: #888;
+}
+.g-main .desc span+span{
+    margin-left: 10px;
+}
+.g-main .desc span:before{
+    content: " ";
+    display: inline-block;
+    margin-right: 2px;
+    height: 16px;
+    background: url('./../img/icon.png') no-repeat;
+}
+.g-main .desc .good:before{
+    width: 19px;
+    background-position: -54px 0;
+}
+.g-main .desc .discuss:before{
+    width: 15px;
+    background-position: -75px 0;
+}
+.g-main .desc .fen:before{
+    width: 18px;
+    background-position: -91px 0;
+}
+.g-main .desc .time:before{
+    width: 16px;
+    background-position: -109px 0;
+}

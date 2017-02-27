@@ -1,0 +1,90 @@
+.g-main .m-header,
+.g-main .m-page,
+.g-main .m-zpList{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+    .g-main .m-header,
+    .g-main .m-page,
+    .g-main .m-List{
+        width: 90%;
+    }
+}
+.g-main .m-header img{
+    width: 100px;
+    border-radius: 50%;
+}
+.g-main .m-header .name{
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444444;
+}
+@media all and (max-width: 600px){
+    .g-main .m-header img{
+        width: 64px;
+    }
+}
+.g-main .m-header{
+    padding: 0 5%;
+}
+
+.g-main .desc .title{
+    color: #444;
+    line-height: 1.7;
+    font-size: 14px;
+}
+.g-main a{
+    color: inherit;
+}
+.g-main .handel{
+    margin-top: 5px;
+}
+.g-main .desc span{
+    font-size: 12px;
+    color: #888;
+}
+.g-main .desc span+span{
+    margin-left: 10px;
+}
+.g-main .desc span:before{
+    content: " ";
+    display: inline-block;
+    margin-right: 2px;
+    height: 16px;
+    background: url('./../img/icon.png') no-repeat;
+}
+.g-main .desc .good:before{
+    width: 19px;
+    background-position: -54px 0;
+}
+.g-main .desc .discuss:before{
+    width: 15px;
+    background-position: -75px 0;
+}
+.g-main .desc .fen:before{
+    width: 18px;
+    background-position: -91px 0;
+}
+.g-main .desc .time:before{
+    width: 16px;
+    background-position: -109px 0;
+}
+.g-main .desc .zp:before{
+    width: 18px;
+    background-position: -255px 0;
+}
+.g-main .m-zpList img{
+    width: 100%;
+}
+
+/*·­Ò³*/
+.g-main .m-page .page{
+    height: 30px;
+    width: 70px;
+    background-color: #888888;
+    color: #ffffff;
+    font-size: 14px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+}

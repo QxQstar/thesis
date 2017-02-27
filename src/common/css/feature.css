@@ -1,0 +1,80 @@
+/* ************
+    ======功能样式======
+* *************/
+.f-float-l{
+    float: left;
+}
+.f-float-r{
+    float: right;
+}
+.f-text-c{
+    text-align: center;
+}
+.f-text-l{
+    text-align: left;
+}
+.f-text-r{
+    text-align: right;
+}
+.f-clearfix:after{
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.f-fill{
+    width: 100%;
+    height: 100%;
+}
+.f-marTop-60{
+    margin-top: 60px;
+}
+.f-marBtm-60{
+    margin-bottom: 60px;
+}
+.f-marBtm-10{
+    margin-bottom: 10px;
+}
+.f-marTop-20{
+     margin-top: 20px;
+ }
+.f-marTop-30{
+    margin-top: 30px;
+}
+.f-show{
+    min-height: 100%;
+    margin-top: -60px;
+    padding-top: 60px;
+}
+.f-paddBtm-60{
+    padding-bottom: 60px;
+}
+.f-paddTopBtm-20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.f-paddLR-30{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.f-marTop-40{
+    margin-top: 40px;
+}
+.f-center{
+    margin-left:auto ;
+    margin-right: auto;
+}
+@media all and (max-width: 600px) {
+    .f-show{
+        margin-top: -50px;
+        padding-top: 50px;
+    }
+}
+.f-main-bg{
+    background-color: #ededef;
+}
+.f-area-bg{
+    background-color: #ffffff;
+}

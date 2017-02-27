@@ -1,0 +1,121 @@
+
+.g-main .m-carousel,
+.g-main .m-hotProduce,
+.g-main .m-hotDesigner,
+.g-main .m-newProduce{
+    width: 85%;
+    max-width: 1552px;
+}
+@media all and (max-width: 1000px) {
+    .g-main .m-carousel,
+    .g-main .m-hotProduce,
+    .g-main .m-hotDesigner,
+    .g-main .m-newProduce{
+        width: 95%;
+    }
+}
+.g-main .m-carousel img{
+    width: 100%;
+}
+.g-main .list{
+    margin-left: -2%;
+}
+.g-main .item{
+    width: 23%;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.g-main .img{
+    display: block;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+@media all and (max-width: 900px) {
+    .g-main .item.padItem{
+        display: none;
+    }
+    .g-main .item{
+        width: 31.333%;
+        margin-left: 2%;
+    }
+}
+@media all and (max-width: 600px) {
+    .g-main .item.padItem{
+        display: block;
+    }
+    .g-main .item{
+        width: 43%;
+        margin-left: 2%;
+    }
+}
+.g-main .header{
+    height: 60px;
+    line-height: 60px;
+}
+.g-main .header .title{
+    font-size: 18px;
+    color: #333333;
+    font-weight: normal;
+}
+.g-main .header .more{
+    width: 63px;
+    height: 14px;
+    background: url("./../img/icon.png") no-repeat;
+    background-position: -127px 0;
+    margin-right: 2%;
+    margin-top: 25px;
+    cursor: pointer;
+}
+.g-main .header .more:hover{
+    background-position: -191px 0;
+}
+@media all and (max-width: 1000px) {
+    .g-main .header .title{
+        font-size: 16px;
+        color: #333333;
+    }
+}
+
+.g-main .desc .title{
+    color: #444;
+    line-height: 1.7;
+    font-size: 14px;
+}
+.g-main a{
+    color: inherit;
+}
+.g-main .handel{
+    margin-top: 5px;
+}
+.g-main .desc span{
+    font-size: 12px;
+    color: #888;
+}
+.g-main .desc span+span{
+    margin-left: 10px;
+}
+.g-main .desc span:before{
+    content: " ";
+    display: inline-block;
+    margin-right: 2px;
+    height: 16px;
+    background: url('./../img/icon.png') no-repeat;
+}
+.g-main .desc .good:before{
+    width: 19px;
+    background-position: -54px 0;
+}
+.g-main .desc .discuss:before{
+    width: 15px;
+    background-position: -75px 0;
+}
+.g-main .desc .fen:before{
+    width: 18px;
+    background-position: -91px 0;
+}
+.g-main .desc .time:before{
+    width: 16px;
+    background-position: -109px 0;
+}

@@ -1,0 +1,183 @@
+.g-header{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #333333;
+    line-height: 60px;
+}
+/*返字*/
+@media all and (max-width: 600px){
+    .g-header{
+        height: 50px;
+        line-height: 50px;
+    }
+}
+.g-header .m-content{
+    position: relative;
+    height: 100%;
+    width: 85%;
+    max-width: 1152px;
+    margin: 0 auto;
+}
+.g-header .logo{
+    position: absolute;
+    left: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+}
+/*pad and 返字*/
+@media all and (max-width: 1000px) {
+    .g-header .m-content{
+        width: 90%;
+    }
+}
+.g-header .navList{
+    position: absolute;
+    left: 0;
+    top:0;
+    right: 0;
+    margin: auto;
+    width: 790px;
+}
+@media all and (max-width: 1000px) {
+    .g-header .navList{
+        left: 160px;
+        width: auto;
+    }
+}
+.g-header .navList .phone{
+    display: none;
+}
+.g-header .rightNav{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.g-header .icon{
+    display: inline-block;
+    vertical-align: text-bottom;
+    height: 27px;
+    background: url('./../img/icon.png') no-repeat;
+}
+.g-header .signup .icon{
+    width: 25px;
+    background-position: 0 0;
+}
+.g-header .signin .icon{
+    width: 27px;
+    background-position: -27px 0;
+}
+
+/*返字*/
+@media all and (max-width: 600px) {
+    .g-header .navList{
+        position: fixed;
+        right: 0;
+        left: auto;
+        width: 260px;
+        top: 0;;
+        bottom: 0;
+        padding-top: 50px;
+        z-index: 11;
+        background-color: #000;
+    }
+    .g-header .navList .item{
+        width: 85%;
+        float: none;
+        margin-left:10%;
+        padding-left: .5em;
+        height: 45px;
+        line-height: 45px;
+        border-bottom: 1px solid #ebebeb;
+    }
+    .g-header .navList .phone{
+        display: block;
+    }
+    .g-header .rightNav{
+        display: none;
+    }
+}
+.g-header .item{
+    padding: 0 10px;
+}
+.g-header a{
+    display: block;
+    color: #f1f1f1;
+    font-size: 18px;
+}
+@media all and (max-width: 1000px) {
+    .g-header a{
+        font-size: 16px;
+    }
+}
+.g-header .item:hover{
+    background-color: #2d2d2d;
+}
+.g-header .mask{
+    display: none;
+}
+@media all and (max-width: 600px) {
+    .g-header .mask{
+        display: block;
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.4);
+    }
+}
+
+.g-header .control{
+    display: none;
+}
+@media all and (max-width: 600px) {
+    .g-header .control{
+        display: block;
+        position: absolute;
+        z-index: 12;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+        height: 30px;
+        margin: auto;
+    }
+    .g-header .control span{
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #f1f1f1;
+        margin: 5px 0;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s ;
+        -ms-transition: all 1s ;
+        -o-transition: all 1s ;
+        transition: all 1s ;
+        -webkit-transform: rotateZ(0deg);
+        -moz-transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -o-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+
+    .g-header .control span.one{
+        display: none;
+    }
+    .g-header .control span.two{
+        -webkit-transform: rotateZ(45deg) translate(5px,5px);
+        -moz-transform: rotateZ(45deg) translate(5px,5px);
+        -ms-transform: rotateZ(45deg) translate(5px,5px);
+        -o-transform: rotateZ(45deg) translate(5px,5px);
+        transform: rotateZ(45deg) translate(5px,5px);
+    }
+    .g-header .control span.three{
+        -webkit-transform: rotateZ(-45deg);
+        -moz-transform: rotateZ(-45deg);
+        -ms-transform: rotateZ(-45deg);
+        -o-transform: rotateZ(-45deg);
+        transform: rotateZ(-45deg);
+    }
+}
+
+
