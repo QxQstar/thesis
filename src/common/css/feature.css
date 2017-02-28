@@ -37,6 +37,9 @@
 .f-marBtm-10{
     margin-bottom: 10px;
 }
+.f-marBtm-20{
+    margin-bottom: 20px;
+}
 .f-marTop-20{
      margin-top: 20px;
  }
@@ -55,9 +58,21 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .f-paddLR-30{
     padding-left: 30px;
     padding-right: 30px;
+}
+@media all and (max-width: 600px) {
+    .f-paddTopBtm-20{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .f-paddLR-30{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 .f-marTop-40{
     margin-top: 40px;
@@ -68,7 +83,7 @@
 }
 @media all and (max-width: 600px) {
     .f-show{
-        margin-top: -50px;
+        margin-top: 0;
         padding-top: 50px;
     }
 }

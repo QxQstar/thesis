@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>活动列表</title>
+    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
+
+    <!-- 页面样式-->
+    <link type="text/css" rel="stylesheet" href="./../user/css/activeList.css">
+</head>
+<body>
+<!-- 导航条-->
+<header class="g-header" id="header">
+    <div class="m-content f-clearfix">
+        <img src="./../user/img/logo.png" class="logo">
+        <div class="control" id="control">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navList f-clearfix" id="navList">
+            <li class="item f-float-l">
+                <a href="#">首页</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">作品</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">设计师</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">活动</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">投稿</a>
+            </li>
+            <!-- 在手机上显示,登录之后将改成个人中心-->
+            <li class="item f-float-l phone">
+                <a href="#">登录</a>
+            </li>
+        </ul>
+
+        <!-- 在手机上这块区域不存在-->
+        <ul class="rightNav f-clearfix">
+            <!--<li class="item f-float-r">-->
+            <!--<a href="#">个人中心</a>-->
+            <!--</li>-->
+            <li class="item f-float-r">
+                <a href="#" class="signup">
+                    <span class="icon"></span>登录
+                </a>
+            </li>
+            <li class="item f-float-r">
+                <a href="#" class="signin">
+                    <span class="icon"></span>注册
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mask"></div>
+</header>
+<!-- 主要内容-->
+<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+    <!-- 活动列表-->
+    <ul class="m-list f-marTop-30 f-center">
+        <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20">
+            <div class="head f-marBtm-10">
+                <h1 class="title">
+                    <a href="#">活动标题</a>
+                    <span class="status">(进行中)</span>
+                </h1>
+                <div class="desc">
+                    <div class="handle">
+                        <span class="time">2016.2.3-2016.4.3</span>
+                        <span class="zp">20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="imgBox">
+                <a class="img" href="#">
+                    <img src="./../user/img/active.jpg">
+                </a>
+            </div>
+        </li>
+
+        <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20">
+            <div class="head f-marBtm-10">
+                <h1 class="title">
+                    <a href="#">活动标题</a>
+                    <span class="status">(进行中)</span>
+                </h1>
+                <div class="desc">
+                    <div class="handle">
+                        <span class="time">2016.2.3-2016.4.3</span>
+                        <span class="zp">20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="imgBox">
+                <a class="img" href="#">
+                    <img src="./../user/img/active.jpg">
+                </a>
+            </div>
+        </li>
+
+    </ul>
+    <!-- 翻页-->
+    <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
+        <button type="button" class="page" id="prev">上一页</button>
+        <button type="button" class="page" id="next">下一页</button>
+    </div>
+</div>
+<!-- 页脚-->
+<div class="g-footer"></div>
+</body>
+</html>

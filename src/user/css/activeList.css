@@ -1,33 +1,28 @@
-.g-main .m-header,
-.g-main .m-page,
-.g-main .m-zpList{
+.g-main .m-list,
+.g-main .m-page{
     width: 790px;
+    font-size: 16px;
 }
 @media all and (max-width: 800px) {
-    .g-main .m-header,
-    .g-main .m-page,
-    .g-main .m-zpList{
+    .g-main .m-list,
+    .g-main .m-page{
         width: 90%;
     }
 }
-.g-main .m-header img{
-    width: 100px;
-    border-radius: 50%;
-}
-.g-main .m-header .name{
-    font-size: 14px;
-    line-height: 1.7;
+.g-main .m-list .title{
+    display: inline;
+    font-size: inherit;
     color: #444444;
+    font-weight: normal;
+    line-height: 1.7;
 }
-@media all and (max-width: 600px){
-    .g-main .m-header img{
-        width: 64px;
-    }
+.g-main .m-list .title:hover{
+    color: #ff3300;
 }
-.g-main .m-header{
-    padding: 0 5%;
+.g-main .m-list .status{
+    font-size: 14px;
+    color: #000000;
 }
-
 .g-main .desc .title{
     color: #444;
     line-height: 1.7;
@@ -73,10 +68,12 @@
     width: 18px;
     background-position: -255px 0;
 }
-.g-main .m-zpList img{
+.g-main .m-list img{
     width: 100%;
 }
 
+
+/*·­Ò³*/
 /*·­Ò³*/
 .g-main .m-page .page{
     height: 30px;

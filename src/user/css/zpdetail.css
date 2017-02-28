@@ -1,0 +1,188 @@
+.g-main .m-curZp,
+.g-main .m-otherZp,
+.g-main .m-discuss{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+    .g-main .m-curZp,
+    .g-main .m-otherZp,
+    .g-main .m-discuss {
+        width: 90%;
+    }
+}
+.g-main .m-curZp{
+    position: relative;
+
+}
+.g-main .m-curZp img{
+    width: 100%;
+}
+.g-main .desc .title{
+    color: #444;
+    line-height: 1.7;
+    font-size: 14px;
+}
+.g-main a{
+    color: inherit;
+}
+.g-main .handel{
+    margin-top: 5px;
+}
+.g-main .desc span{
+    font-size: 12px;
+    color: #888;
+}
+.g-main .desc span+span{
+    margin-left: 10px;
+}
+.g-main .desc span:before{
+    content: " ";
+    display: inline-block;
+    margin-right: 2px;
+    height: 16px;
+    background-image: url('./../img/icon.png');
+}
+.g-main .desc .good:before{
+    width: 16px;
+    background-position: -275px 0;
+}
+.g-main .desc .good:hover:before{
+    background-position: -293px 0;
+}
+.g-main .desc .good.on:before{
+    background-position: -293px 0;
+}
+.g-main .desc .discuss:before{
+    width: 15px;
+    background-position: -75px 0;
+}
+.g-main .desc .fen:before{
+    width: 18px;
+    background-position: -91px 0;
+}
+.g-main .desc .time:before{
+    width: 16px;
+    background-position: -109px 0;
+}
+.g-main .m-curZp .detail{
+    font-size: 14px;
+    line-height: 2.0;
+    color: #777;
+}
+.g-main .m-curZp .authorBox{
+    position: absolute;
+    width: 100px;
+    top:0;
+    left: -120px;
+}
+@media all and (max-width: 800px){
+    .g-main .m-curZp .authorBox{
+        position: relative;
+        top:0;
+        left: 0;
+        width: auto;
+        padding-top: 30px;
+        margin: 0 -30px;
+        background-color: #ededef;
+    }
+    .g-main .m-curZp .interBox{
+        padding-top: 20px;
+        background-color: #ffffff;
+    }
+    .g-main .m-curZp .interBox img{
+        width: 100px;
+        border-radius: 50%;
+    }
+}
+.g-main .m-curZp .name{
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.7;
+}
+.g-main .m-curZp .focus{
+    color: #ff3300;
+    font-size: 14px;
+    padding: 8px 0;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid #ff3300;
+    background-color: transparent;
+}
+.g-main .m-curZp .focus:hover{
+    color: #f1f1f1;
+    background-color: #ff3300;
+}
+.g-main .m-otherZp .item{
+    width: 33.333%;
+}
+@media all and (max-width: 500px) {
+    .g-main .m-otherZp .item{
+        width: 50%;
+    }
+}
+
+.g-main .m-discuss .title{
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+}
+.g-main .m-discuss .num{
+    font-size: 12px;
+    color: #888888;
+}
+.g-main .m-discuss .discBox div{
+    position: relative;
+}
+.g-main .m-discuss .import{
+    width: 100%;
+    max-width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #b5b5b5;
+    height: 100px;
+    color: #888888;
+    font-size: 14px;
+    padding: 10px ;
+}
+.g-main .m-discuss .notice{
+    position: absolute;
+    color: #888888;
+    font-size: 12px;
+    right: 10px;
+    bottom: 10px;
+}
+.g-main .m-discuss .discBtn{
+    background-color: #888888;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 14px;
+    border: none;
+}
+.g-main .m-discuss .discList{
+    border-top: 1px double #b5b5b5;
+}
+.g-main .m-discuss .item{
+    font-size: 14px;
+    border-bottom: solid 1px #b5b5b5
+}
+.g-main .m-discuss img{
+    width: 64px;
+    margin-right: 10px;
+}
+@media all and (max-width: 500px) {
+    .g-main .m-discuss img{
+        width: 50px;
+    }
+}
+.g-main .m-discuss .content{
+
+    color: #888;
+    line-height: 1.5;
+}
+.g-main .m-discuss .name{
+    color: #28a9ab;
+}
+.g-main .m-discuss .time{
+    color: #888;
+    font-size: 12px;
+}
