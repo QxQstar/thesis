@@ -1,0 +1,60 @@
+html,body{
+    height: 100%;
+}
+body{
+    background: url('./../img/signBg.jpg') no-repeat;
+    background-size: cover;
+}
+.g-main{
+    min-height: 100%;
+    padding-top: 100px;
+}
+.g-main .m-head{
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: normal;
+}
+.g-main .m-fromBox{
+    width: 350px;
+}
+@media all and (max-width: 400px) {
+    .g-main .m-fromBox{
+        width: 95%;
+    }
+    .g-main .m-head{
+        font-size: 20px;
+    }
+}
+.g-main .m-fromBox .title *{
+    font-size: 18px;
+    color: #333333;
+    font-weight: normal;
+}
+.g-main .m-fromBox input{
+    height: 35px;
+    width: 100%;
+    border: 1px solid #cfcfcf;
+    padding-left:.5em ;
+    font-size: 14px;
+    color: #888888;
+}
+.g-main .m-fromBox a{
+    position: relative;
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+}
+.g-main .m-fromBox a+a:before{
+    content: "|";
+    position: absolute;
+    font-size: 15px;
+    color: #333333;
+    top: -2px;
+    left: -10px;
+}
+.g-main .m-fromBox .submit input{
+    background-color: #ff3300;
+    border: none;
+    color: #ffffff;
+
+}

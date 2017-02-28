@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>注册</title>
+    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+
+    <!-- 页面样式-->
+    <link type="text/css" rel="stylesheet" href="./../user/css/signin.css">
+</head>
+<body>
+    <div class="g-main">
+        <h1 class="m-head f-text-c f-marBtm-20">
+            <img src="./../user/img/logo.png">
+            平面设计师站
+        </h1>
+        <div class="m-fromBox f-area-bg f-paddLR-30 f-paddTopBtm-20 f-center">
+            <h2 class="title f-marBtm-10">
+                会员注册
+            </h2>
+            <!-- 基本信息-->
+            <div class="baseMess">
+                <span class="info f-marBtm-10">
+                    基本信息
+                    <span class="icon">*</span>
+                </span>
+                <div class="userName f-marBtm-10">
+                    <input type="text" placeholder="电子邮箱" id="userName">
+                </div>
+                <div class="userName f-marBtm-10">
+                    <input type="text" placeholder="登录密码" id="password">
+                </div>
+                <div class="yzm f-marBtm-10">
+                    <input type="text" placeholder="验证码" id="yzm">
+                    <div class="num f-float-r"></div>
+                </div>
+                <div class="surePW f-marBtm-10">
+                    <input type="text" placeholder="确认密码" id="surePW">
+                </div>
+            </div>
+            <!-- 附加信息-->
+            <div class="addMess">
+                <span class="info f-marBtm-10">
+                    附加信息
+
+                </span>
+                <div class="list" id="questions">
+                    <div class="question question_1 f-marBtm-10">
+                        <div class="questionBox f-marBtm-10">
+                            <select class="Q1" id="Q1">
+                                <option value="code1">问题一</option>
+                                <option value="code2">问题二</option>
+                                <option value="code3">问题三</option>
+                                <option value="code4">问题四</option>
+                                <option value="code5">问题五</option>
+                            </select>
+                        </div>
+                        <div class="answer">
+                            <input type="text" id="A1" placeholder="问题一的答案">
+                        </div>
+                    </div>
+                    <div class="question question_2 f-marBtm-10">
+                        <div class="questionBox f-marBtm-10">
+                            <select class="Q1" id="Q2">
+                                <option value="code1">问题一</option>
+                                <option value="code2">问题二</option>
+                                <option value="code3">问题三</option>
+                                <option value="code4">问题四</option>
+                                <option value="code5">问题五</option>
+                            </select>
+                        </div>
+                        <div class="answer">
+                            <input type="text" id="A2" placeholder="问题一的答案">
+                        </div>
+                    </div>
+                    <span class="notice">安全保护问题可用于找回密码</span>
+                </div>
+
+            </div>
+            <div class="bottom ">
+                <label for="agree">
+                    <input type="checkbox" id="agree">同意xxx协议
+                </label>
+                <div class=" f-marTop-10">
+                    <input type="button" id="submit" value="注册" class="submit">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
