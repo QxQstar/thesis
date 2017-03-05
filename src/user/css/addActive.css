@@ -1,0 +1,66 @@
+.g-main .m-addActive{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+    .g-main .m-addActive{
+        width: 90%;
+    }
+}
+.m-addActive .head{
+    color: #444444;
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: normal;
+}
+.m-addActive .body .info{
+    width: 63px;
+    margin-right: -63px;
+    font-size: 14px;
+    color: #444444;
+    vertical-align: top;
+}
+.m-addActive .body .insert{
+    width: 100%;
+    margin-left: 63px;
+    padding-right: 60px;
+}
+.m-addActive .body input{
+    height: 35px;
+    width: 100%;
+    padding-left: .5em;
+}
+.m-addActive .body textarea{
+    width: 100%;
+    height: 100px;
+    padding: .5em;
+}
+.m-addActive .body textarea:focus{
+    outline: none;
+}
+.m-addActive .body .time{
+    width: 45%;
+}
+.m-addActive .body .gap{
+    vertical-align: middle;
+}
+.m-addActive .body .choice{
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    width: 100px;
+    background-color: #888888;
+    color: #ffffff;
+    font-size: 14px;
+    box-shadow: 2px 2px 0 #ebebeb;
+}
+.m-addActive .footer button{
+    height: 35px;
+    padding: 0 30px;
+    background-color: #ff3300;
+    color: #ffffff;
+    font-size: 14px;
+    border: none;
+}
+.m-addActive .preview img{
+    max-width:100% ;
+}

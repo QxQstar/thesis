@@ -1,0 +1,146 @@
+.g-main .m-process,
+.g-main .m-form{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+    .g-main .m-process,
+    .g-main .m-form{
+        width: 90%;
+    }
+}
+.m-process .item{
+    width: 46.5%;
+}
+.m-process .info span{
+    display: block;
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: #888;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.m-process .info{
+    font-size: 12px;
+    color: #888888;
+}
+.m-process .item .bar{
+    background-color: #888888;
+    height: 2px;
+    width: 86%;
+    margin-top: 10px;
+}
+@media all and (max-width: 800px) {
+    .m-process .item{
+        width: 45.5%;
+    }
+    .m-process .item .bar{
+        background-color: #888888;
+        height: 2px;
+        width: 80%;
+        margin-top: 10px;
+    }
+}
+@media all and (max-width: 600px) {
+    .m-process{
+        display: none;
+    }
+}
+.m-process .item .bar.on{
+    background-color: #ff3300;
+}
+.m-process .item.on span{
+    background-color: #ff3300;
+}
+.m-form{
+    padding-bottom: 30px;
+}
+.m-form .head{
+    border-bottom: 1px solid #ebebeb;
+    margin: 0 30px;
+    font-size: 16px;
+    color: #444444;
+    font-weight: normal;
+}
+.m-form .body{
+    padding-left:10%;
+}
+.m-form .body .item{
+    font-size: 14px;
+    color: #444444;
+}
+.m-form .info{
+    display: inline-block;
+    margin-right: 5px;
+    width: 100px;
+    vertical-align: middle;
+}
+.m-form .item .answer{
+    height: 35px;
+    width: 300px;
+}
+.m-form .footer{
+    margin-left: 10%;
+}
+.m-form .next{
+    border: none;
+    background-color: #ff3300;
+    /*margin-left: 17%;*/
+    color: #ffffff;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+@media all and (max-width: 600px) {
+    .m-form .body{
+        padding-left: 10px;
+    }
+    .m-form .info{
+        width: 70px;
+    }
+    .m-form .item .answer{
+        width: 180px;
+    }
+    .m-form .footer{
+        margin-left: 10px;
+    }
+    .m-form .next{
+        margin-right: 10px;
+    }
+}
+.m-form .forget{
+    font-size: 12px;
+}
+.m-form .forget:hover{
+    text-decoration: underline;
+}
+.m-form .notice{
+    font-size: 11px;
+    color: #888888;
+    margin-left: 105px;
+}
+@media all and (max-width: 600px) {
+    .m-form .forget{
+        display: block;
+        margin-left: 75px;
+        margin-top: 10px;
+    }
+    .m-form .notice{
+        margin-left: 75px;
+    }
+}
+.m-form select{
+    width: 300px;
+    height: 35px;
+    background-color: #f4f4f4;
+}
+.m-form select:focus{
+    outline: none;
+}
+@media all and (max-width: 600px) {
+    .m-form select{
+        width: 180px;
+    }
+}

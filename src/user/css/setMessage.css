@@ -1,0 +1,114 @@
+.g-main .m-setMessage{
+    width: 790px;
+}
+@media all and (max-width: 800px){
+    .g-main .m-setMessage{
+        width: 90%;
+    }
+}
+.g-main .m-setMessage .head h1{
+    font-size: 18px;
+    color: #333333;
+    font-weight: normal;
+    line-height: 1.7;
+}
+.g-main .m-setMessage .head{
+    width: 100%;
+    border-bottom: 1px solid #888888;
+}
+.g-main .m-setMessage .save{
+    background-color: #ff3300;
+    padding: 5px 20px;
+    font-size: 14px;
+    color: #ffffff;
+}
+.g-main .m-setMessage .img{
+    width: 150px;
+    margin-right: 20px;
+}
+.g-main .m-setMessage img{
+    width: 100%;
+}
+.g-main .m-setMessage .upload{
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.7;
+    cursor: pointer;
+}
+.g-main .m-setMessage .upload:hover{
+    color: #ff3300;
+}
+.g-main .m-setMessage .item{
+    position: relative;
+    font-size: 15px;
+    color: #444444;margin-bottom: 15px;
+}
+.g-main .m-setMessage .item input{
+    height: 35px;
+    width: 300px;
+    padding-left: .5em;
+    color: #888888;
+}
+.g-main .m-setMessage .item span{
+    vertical-align: top;
+}
+.g-main .m-setMessage .info{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    color: #444;
+    font-size: 12px;
+
+}
+.g-main .m-setMessage .item textarea{
+    height: 100px;
+    width: 300px;
+    max-width: 300px;
+    max-height: 100px;
+    padding-left: .5em;
+    padding-top: .5em;
+    color: #888888;
+}
+.g-main .m-setMessage .link a+a{
+    margin-left: 5px;
+}
+.g-main .m-setMessage .link a{
+    font-size: 14px;
+    color: #444444;
+    text-decoration: underline;
+}
+.g-main .m-setMessage .link a:hover{
+    color: #ff3300;
+}
+@media all and (max-width: 600px) {
+    .g-main .m-setMessage .img,
+    .g-main .m-setMessage .from{
+        float: none;
+        margin: auto;
+    }
+    .g-main .m-setMessage .img{
+        width: 100px;
+        margin-bottom: 20px;
+    }
+    .g-main .m-setMessage img{
+        border-radius: 50%;
+    }
+    .g-main .m-setMessage .upload{
+        display: none;
+    }
+    .g-main .m-setMessage .item input{
+        width: 180px;
+    }
+    .g-main .m-setMessage .item textarea{
+        width:180px;
+        max-width: 180px;
+        height: 200px;
+        max-height: 150px;
+    }
+    .g-main .m-setMessage .link{
+        text-align: center;
+    }
+    .g-main .m-setMessage .link a{
+        color: #ff3300;
+    }
+}

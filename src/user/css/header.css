@@ -8,8 +8,11 @@
 /*返字*/
 @media all and (max-width: 600px){
     .g-header{
+        position: fixed;
         height: 50px;
         line-height: 50px;
+        top:0;
+        z-index: 12;
     }
 }
 .g-header .m-content{
@@ -29,7 +32,7 @@
 /*pad and 返字*/
 @media all and (max-width: 1000px) {
     .g-header .m-content{
-        width: 90%;
+        width: 95%;
     }
 }
 .g-header .navList{
@@ -40,10 +43,25 @@
     margin: auto;
     width: 790px;
 }
+
 @media all and (max-width: 1000px) {
     .g-header .navList{
         left: 160px;
         width: auto;
+    }
+}
+.g-header .adminNav{
+     width: auto;
+    left: 0;
+     margin-left: 190px;
+ }
+@media all and (max-width: 850px) {
+    .g-header .logo{
+        display: none;
+    }
+    .g-header .navList{
+        left: 0;
+        margin-left: 0;
     }
 }
 .g-header .navList .phone{
@@ -71,11 +89,14 @@
 
 /*返字*/
 @media all and (max-width: 600px) {
+    .g-header .logo{
+        display: block;
+    }
     .g-header .navList{
         position: fixed;
         right: 0;
         left: auto;
-        width: 260px;
+        width: 0;
         top: 0;;
         bottom: 0;
         padding-top: 50px;
@@ -119,8 +140,9 @@
 }
 @media all and (max-width: 600px) {
     .g-header .mask{
-        display: block;
+        display: none;
         position: fixed;
+        top:0;
         z-index: 10;
         width: 100%;
         height: 100%;
@@ -134,11 +156,10 @@
 @media all and (max-width: 600px) {
     .g-header .control{
         display: block;
-        position: absolute;
+        position: fixed;
         z-index: 12;
-        top: 0;
-        bottom: 0;
-        right: 0;
+        top: 10px;
+        right: 10px;
         width: 40px;
         height: 30px;
         margin: auto;
@@ -149,11 +170,11 @@
         width: 100%;
         background-color: #f1f1f1;
         margin: 5px 0;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s ;
-        -ms-transition: all 1s ;
-        -o-transition: all 1s ;
-        transition: all 1s ;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s ;
+        -ms-transition: all .4s ;
+        -o-transition: all .4s ;
+        transition: all .4s ;
         -webkit-transform: rotateZ(0deg);
         -moz-transform: rotateZ(0deg);
         -ms-transform: rotateZ(0deg);

@@ -1,13 +1,29 @@
 .g-main .m-header,
 .g-main .m-page,
-.g-main .m-zpList{
+.g-main .m-zpList,
+.g-main .m-type{
     width: 790px;
+}
+/*zpBox*/
+.g-main .m-zpListBox{
+    position: relative;
+    width: 950px;
+}
+@media all and (max-width: 950px) {
+    .g-main .m-zpListBox{
+        width: 90%;
+    }
 }
 @media all and (max-width: 800px) {
     .g-main .m-header,
     .g-main .m-page,
-    .g-main .m-zpList{
+    .g-main .m-zpList,
+    .g-main .m-zpListBox,
+    .g-main .m-type{
         width: 90%;
+    }
+    .g-main .m-zpListBox .zpList{
+        width: 100%;
     }
 }
 .g-main .m-header img{
@@ -43,7 +59,8 @@
     font-size: 12px;
     color: #888;
 }
-.g-main .desc span+span{
+.g-main .desc span+span,
+.g-main .desc a{
     margin-left: 10px;
 }
 .g-main .desc span:before{
@@ -73,6 +90,27 @@
     width: 18px;
     background-position: -255px 0;
 }
+.g-main .desc .message:before{
+    width: 24px;
+    background-position: -321px 0;
+}
+.g-main .desc .message:hover:before{
+    background-position: -347px 0;
+}
+.g-main .desc .edit:before{
+    width: 16px;
+    background-position: -436px 0;
+}
+.g-main .desc .edit:hover:before{
+    background-position: -418px 0;
+}
+.g-main .desc .delete:before{
+    width: 15px;
+    background-position: -373px 0;
+}
+.g-main .desc .delete:hover:before{
+    background-position: -390px 0;
+}
 .g-main .m-zpList img{
     width: 100%;
 }
@@ -87,4 +125,117 @@
     margin-left: 10px;
     border: none;
     cursor: pointer;
+}
+
+.g-main .m-zpListBox .m-page{
+    position: absolute;
+    left: 0;
+}
+.g-main .m-zpListBox {
+    padding-bottom: 70px;
+}
+/*作品类型*/
+.g-main .m-type{
+    margin-bottom: -10px;
+    width: 790px;
+    height: 40px;
+    line-height: 40px;
+}
+.g-main .m-type .item{
+    position: relative;
+    font-size: 16px;
+    color: #444;
+    margin-right: 8px ;
+    cursor: pointer;
+}
+.g-main .m-type .item:after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    background-color: #ff3300;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -ms-transition: all .8s;
+    -o-transition: all .8s;
+    transition: all .8s;
+}
+.g-main .m-type .item:hover:after{
+    width: 100%;
+}
+.g-main .m-type .item.on:after{
+    width: 100%;
+}
+
+
+
+
+.g-main .m-focus{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 150px;
+}
+.g-main .m-focus{
+    margin-top: -5px;
+}
+.g-main .m-focus .list{
+    margin-left: -2%;
+}
+.g-main .m-focus .item{
+    position: relative;
+    width: 31.333%;
+    margin-left: 2%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.g-main .m-focus img{
+    width: 100%;
+    border-radius: 3px;
+}
+.g-main .m-focus .title{
+    font-size: 15px;
+    color: #444444;
+    font-weight: normal;
+    line-height: 1.75;
+}
+.g-main .m-focus .name{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0px;
+    font-size: 11px;
+    color: #ffffff;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    background-color: rgba(0,0,0,0.6);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.g-main .m-focus .item:hover .name{
+    height: 15px;
+}
+.g-main .m-focus .delete{
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 0;
+    background: url("./../img/icon.png") no-repeat -407px 0;
+    width: 10px ;
+    height: 10px;
+}
+.g-main .m-focus .item:hover .delete{
+    display: block;
+}
+@media all and (max-width: 960px) {
+    .g-main .m-focus{
+        display: none;
+    }
 }

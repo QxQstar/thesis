@@ -4,72 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>首页</title>
-    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
-    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
-    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
-
+    <!--<link type="text/css" rel="stylesheet" href="../common/css/normalize.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="../common/css/base.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="../common/css/feature.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="./../user/css/header.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="./../user/css/footer.css">-->
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/common.css">
     <!-- 页面样式-->
-    <link type="text/css" rel="stylesheet" href="./../user/css/index.css">
-
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/index.css">
+    <script type="text/javascript" src="./../user/build/js/jquery.js"></script>
 </head>
 <body>
     <!-- 导航条-->
     <header class="g-header" id="header">
-    <div class="m-content f-clearfix">
-        <img src="./../user/img/logo.png" class="logo">
-        <div class="control" id="control">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="navList f-clearfix" id="navList">
-            <li class="item f-float-l">
-                <a href="#">首页</a>
-            </li>
-            <li class="item f-float-l">
-                <a href="#">作品</a>
-            </li>
-            <li class="item f-float-l">
-                <a href="#">设计师</a>
-            </li>
-            <li class="item f-float-l">
-                <a href="#">活动</a>
-            </li>
-            <li class="item f-float-l">
-                <a href="#">投稿</a>
-            </li>
-            <!-- 在手机上显示,登录之后将改成个人中心-->
-            <li class="item f-float-l phone">
-                <a href="#">登录</a>
-            </li>
-        </ul>
+        <div class="m-content f-clearfix">
+            <img src="./../user/img/logo.png" class="logo">
+            <div class="control" id="control">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navList f-clearfix" id="navList">
+                <li class="item f-float-l">
+                    <a href="#">首页</a>
+                </li>
+                <li class="item f-float-l">
+                    <a href="#">作品</a>
+                </li>
+                <li class="item f-float-l">
+                    <a href="#">设计师</a>
+                </li>
+                <li class="item f-float-l">
+                    <a href="#">活动</a>
+                </li>
+                <li class="item f-float-l">
+                    <a href="#">投稿</a>
+                </li>
+                <!-- 在手机上显示,登录之后将改成个人中心-->
+                <li class="item f-float-l phone">
+                    <a href="#">登录</a>
+                </li>
+            </ul>
 
-        <!-- 在手机上这块区域不存在-->
-        <ul class="rightNav f-clearfix">
-            <!--<li class="item f-float-r">-->
-            <!--<a href="#">个人中心</a>-->
-            <!--</li>-->
-            <li class="item f-float-r">
-                <a href="#" class="signup">
-                    <span class="icon"></span>登录
-                </a>
-            </li>
-            <li class="item f-float-r">
-                <a href="#" class="signin">
-                    <span class="icon"></span>注册
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="mask"></div>
-</header>
+            <!-- 在手机上这块区域不存在-->
+            <ul class="rightNav f-clearfix">
+                <!--<li class="item f-float-r">-->
+                <!--<a href="#">个人中心</a>-->
+                <!--</li>-->
+                <li class="item f-float-r">
+                    <a href="#" class="signup">
+                        <span class="icon"></span>登录
+                    </a>
+                </li>
+                <li class="item f-float-r">
+                    <a href="#" class="signin">
+                        <span class="icon"></span>注册
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mask"></div>
+    </header>
     <!-- 主要内容-->
     <div class="g-main f-show f-main-bg f-paddBtm-60">
         <!-- 轮播-->
         <div class="m-carousel f-marTop-20 f-center">
-            <img src="./../user/img/carousel.jpg">
+            <div class="owl-carousel owl-theme" id="carousel">
+                <div class="item">
+                    <a href="#">
+                        <img src="./../user/img/carousel.jpg">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="./../user/img/carousel.jpg">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <img src="./../user/img/carousel.jpg">
+                    </a>
+                </div>
+            </div>
+
+
         </div>
         <!-- 热门作品-->
         <div class="m-hotProduce f-marTop-30 f-area-bg f-center">
@@ -427,5 +445,7 @@
     </div>
     <!-- 页脚-->
     <div class="g-footer"></div>
+    <script type="text/javascript" src="./../user/build/js/common.js"></script>
+    <script type="text/javascript" src="./../user/build/js/index.js"></script>
 </body>
 </html>

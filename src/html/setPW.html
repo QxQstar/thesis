@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>设置新密码</title>
+    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
+
+    <!-- 页面样式-->
+    <link type="text/css" rel="stylesheet" href="./../user/css/question.css">
+</head>
+<body>
+<!-- 导航条-->
+<header class="g-header" id="header">
+    <div class="m-content f-clearfix">
+        <img src="./../user/img/logo.png" class="logo">
+        <div class="control" id="control">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navList f-clearfix" id="navList">
+            <li class="item f-float-l">
+                <a href="#">首页</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">作品</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">设计师</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">活动</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">投稿</a>
+            </li>
+            <!-- 在手机上显示,登录之后将改成个人中心-->
+            <li class="item f-float-l phone">
+                <a href="#">登录</a>
+            </li>
+        </ul>
+
+        <!-- 在手机上这块区域不存在-->
+        <ul class="rightNav f-clearfix">
+            <!--<li class="item f-float-r">-->
+            <!--<a href="#">个人中心</a>-->
+            <!--</li>-->
+            <li class="item f-float-r">
+                <a href="#" class="signup">
+                    <span class="icon"></span>登录
+                </a>
+            </li>
+            <li class="item f-float-r">
+                <a href="#" class="signin">
+                    <span class="icon"></span>注册
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mask"></div>
+</header>
+<!-- 主要内容-->
+<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+    <!--进度条-->
+    <ul class="m-process f-clearfix f-center f-marTop-60">
+        <li class="item f-float-l on">
+            <div class="info f-float-l f-text-c">
+                <span>1</span>
+                验证身份
+            </div>
+            <div class="bar f-float-l on"></div>
+        </li>
+        <li class="item f-float-l on">
+            <div class="info f-float-l f-text-c">
+                <span>2</span>
+                修改信息
+            </div>
+            <div class="bar f-float-l"></div>
+        </li>
+        <li class="f-float-l last">
+            <div class="info  f-text-c">
+                <span>3</span>
+                修改完成
+            </div>
+        </li>
+    </ul>
+    <div class="m-form f-marTop-30 f-area-bg f-center">
+        <h1 class="head f-paddTopBtm-20">
+            你正在重置登录密码
+        </h1>
+        <div class="body f-marTop-30">
+            <p class="item f-marBtm-10">
+                <span class="info  f-text-r">账号</span>
+                <span class="col2">xxxxxx</span>
+            </p>
+            <p class="item f-marBtm-20">
+                <span class="info  f-text-r">新密码</span>
+                <span class="col2 f-text-r">
+                    <input type="text" class="answer" id="answer1"/>
+                        <br>
+                    <span class="notice">必须是6-24个字符，不能是纯数字</span>
+                </span>
+            </p>
+            <p class="item f-marBtm-20">
+                <span class="info  f-text-r">确认新密码</span>
+                <span class="col2">
+                     <input type="text" class="answer" id="answer2"/>
+                </span>
+            </p>
+        </div>
+        <div class="footer f-martop-20">
+            <span class="info"></span>
+            <button class="next" id="next">下一步</button>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<div class="f-footer"></div>
+</body>
+</html>

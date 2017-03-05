@@ -1,0 +1,90 @@
+.g-main .m-form{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+   .g-main .m-form{
+       width: 90%;
+   }
+}
+.m-form h1{
+    font-weight: normal;
+    color: #444444;
+    font-size: 16px;
+}
+.m-form h1 span{
+    color: #ff3300;
+}
+.m-form .item{
+    position: relative;
+    font-size: 16px;
+    width: 85%;
+    line-height: 5em;
+    border: 1px solid #f4f4f4;
+    box-shadow: 0 0 5px #f4f4f4;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.m-form .item:hover{
+        background-color: #fafafa;
+}
+
+.m-form .item_1 p:before{
+    content: '';
+    display: inline-block;
+    width: 37px;
+    height: 44px;
+    background: url('./../img/icon.png') no-repeat -454px 0;
+}
+.m-form .item_2 p:before{
+    content: '';
+    display: inline-block;
+    width: 39px;
+    height: 46px;
+    background: url('./../img/icon.png') no-repeat -493px 0;
+}
+.m-form .item p:before{
+    position: absolute;
+    top:0;
+    left: 20px;
+    bottom: 0;
+    margin: auto;
+}
+.m-form .item p{
+    padding-left: 40px;
+}
+.m-form a{
+    display: block;
+    color: inherit;
+}
+.m-form .item span
+{
+    background-color: #ff3300;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: normal;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+@media all and (max-width: 600px) {
+    .m-form h1{
+        font-size: 14px;
+    }
+    .m-form .item{
+        width: 100%;
+    }
+    .m-form .item span{
+        display: none;
+    }
+    .m-form .item{
+        border: 1px solid #ff4c33;
+        border-radius: 3px;
+    }
+    .m-form .item p{
+        float: none;
+        text-align: center;
+    }
+}

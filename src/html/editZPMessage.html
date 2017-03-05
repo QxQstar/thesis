@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>修改作品信息</title>
+
+    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
+
+    <!-- 页面样式-->
+    <link type="text/css" rel="stylesheet" href="./../user/css/upload.css">
+</head>
+<body>
+<!-- 导航条-->
+<header class="g-header" id="header">
+    <div class="m-content f-clearfix">
+        <img src="./../user/img/adminlogo.png" class="logo">
+        <div class="control" id="control">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navList adminNav f-clearfix" id="navList">
+            <li class="item f-float-l">
+                <a href="#">作品管理</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">用户管理</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">活动管理</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">上传作品</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">数据统计</a>
+            </li>
+            <!-- 在手机上显示,登录之后将改成个人中心和退出登录-->
+            <li class="item f-float-l phone">
+                <a href="#">登录</a>
+            </li>
+        </ul>
+
+        <!-- 在手机上这块区域不存在-->
+        <ul class="rightNav f-clearfix">
+            <!--<li class="item f-float-r">-->
+            <!--<a href="#">个人中心</a>-->
+            <!--</li>-->
+            <!--<li class="item f-text-r">-->
+            <!--<a href="#">退出登录</a>-->
+            <!--</li>-->
+            <li class="item f-float-r">
+                <a href="#" class="signup">
+                    <span class="icon"></span>登录
+                </a>
+            </li>
+            <li class="item f-float-r">
+                <a href="#" class="signin">
+                    <span class="icon"></span>注册
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mask"></div>
+</header>
+<!-- 主要内容-->
+<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+    <div class="m-upload f-marTop-30 f-center f-area-bg f-paddTopBtm-20 f-paddLR-30">
+        <h1 class="title">修改作品信息</h1>
+        <p class="info f-marBtm-10">该作品属于活动：xxxxxx</p>
+        <div class="formBox">
+            <div class="inputTitle">
+                <input type="text" placeholder="输入作品标题" id="title" value="xxxxxx">
+            </div>
+            <div class="choiceImg f-marTop-20 f-marBtm-20">
+                <label for="img">
+                    选择图片
+                    <input type="file" id="img" hidden>
+                </label>
+            </div>
+            <!-- 图片预览-->
+            <div class="preview" id="preview">
+                <img src="./../user/img/produce.jpg">
+            </div>
+            <div class="intro f-marBtm-10 f-marTop-20">
+                <textarea id="intro" placeholder="图片介绍">介绍介绍</textarea>
+            </div>
+            <div class="upload f-text-r">
+                <button type="button" >确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页脚-->
+<div class="g-footer"></div>
+</body>
+</html>

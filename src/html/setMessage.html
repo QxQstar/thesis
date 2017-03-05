@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>设置个人信息</title>
+    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
+    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
+
+    <!-- 页面样式-->
+    <link type="text/css" rel="stylesheet" href="./../user/css/setMessage.css">
+</head>
+<body>
+<!-- 导航条-->
+<header class="g-header" id="header">
+    <div class="m-content f-clearfix">
+        <img src="./../user/img/logo.png" class="logo">
+        <div class="control" id="control">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navList f-clearfix" id="navList">
+            <li class="item f-float-l">
+                <a href="#">首页</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">作品</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">设计师</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">活动</a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#">投稿</a>
+            </li>
+            <!-- 在手机上显示,登录之后将改成个人中心-->
+            <li class="item f-float-l phone">
+                <a href="#">登录</a>
+            </li>
+        </ul>
+
+        <!-- 在手机上这块区域不存在-->
+        <ul class="rightNav f-clearfix">
+            <!--<li class="item f-float-r">-->
+            <!--<a href="#">个人中心</a>-->
+            <!--</li>-->
+            <li class="item f-float-r">
+                <a href="#" class="signup">
+                    <span class="icon"></span>登录
+                </a>
+            </li>
+            <li class="item f-float-r">
+                <a href="#" class="signin">
+                    <span class="icon"></span>注册
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mask"></div>
+</header>
+<!-- 主要内容-->
+<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+    <div class="m-setMessage f-marTop-30 f-center f-paddLR-30 f-paddTopBtm-20 f-area-bg">
+        <div class="head f-clearfix f-marBtm-10">
+            <h1 class="f-float-l">我的资料</h1>
+            <a href="#" class="save f-float-r">保存</a>
+        </div>
+        <div class="body f-clearfix">
+            <div class="img f-float-l">
+                <img src="./../user/img/header.jpg"/>
+                <p class="f-text-c upload">[上传头像]</p>
+            </div>
+            <div class="form f-float-l">
+                <p class="item ">
+                    <span>账号：</span>
+                    <span class="zhanghao">xxxxx</span>
+                </p>
+                <p class="item ">
+                    <span>昵称：</span>
+                    <input type="text" class="data" placeholder="昵称"/>
+                </p>
+                <p class="item ">
+                    <span>简介：</span>
+                    <textarea class="value" placeholder="个人简介"></textarea>
+                    <span class="info">0/300</span>
+                </p>
+                <div class="link">
+                    <a href="#">修改密码</a>
+                    <a href="#">修改安全问题</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页脚-->
+<div class="g-footer"></div>
+</body>
+</html>

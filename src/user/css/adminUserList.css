@@ -1,0 +1,238 @@
+.g-main .m-search,
+.g-main .m-list,
+.m-page{
+
+    width: 790px;
+
+}
+@media all and (max-width: 800px) {
+    .g-main .m-search,
+    .g-main .m-list,
+    .m-page{
+        width: 90%;
+    }
+}
+@media all and (max-width: 500px) {
+    .g-main .m-search,
+    .g-main .m-list,
+    .m-page{
+        width: auto;
+        margin-left: 5px ;
+        margin-right: 5px;
+    }
+}
+.g-main .m-search{
+    position: relative;
+    font-size: 0;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 5px;
+}
+.g-main .m-search h1{
+    position: relative;
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline;
+}
+.g-main .m-search h1.on{
+    color: #ff3300;
+}
+.g-main .m-search h1+h1{
+    margin-left: 20px;
+}
+.g-main .m-search h1+h1:before{
+    content: "|";
+    position: absolute;
+    display: block;
+    color: #888;
+    font-size: 20px;
+    left: -15px;
+    top: -1px;
+    height: 20px;
+    line-height: normal;
+}
+.g-main .m-search .searchBox{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    height: 30px;
+    right: 10px;
+}
+.g-main .m-search .content{
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    color: #888888;
+    font-size: 14px;
+    border: 1px solid #666;
+    padding-left: 1em;
+}
+.g-main .m-search .btn{
+    height: 100%;
+    width: 70px;
+    background-color: #666666;
+    color: #ffffff;
+    font-size: 14px;
+    border: 1px solid #666666;
+}
+.g-main .m-search .addBtn{
+    width: auto;
+    padding: 0 5px;
+    margin-left: 5px;
+    background-color: #ff3300;
+    border: 1px solid#ff3300;
+}
+@media all and (max-width: 650px) {
+    .g-main .m-search{
+        height: auto;
+        line-height: normal;
+        padding: 20px 0;
+    }
+    .g-main .m-search .info{
+        margin-top: 20px;
+        float: none;
+        text-align: center;
+    }
+
+    .g-main .m-search .searchBox{
+        position: relative;
+        width: 300px;
+        margin: auto;
+        height: auto;
+        text-align: center;
+        right: 0;
+    }
+    .g-main .m-search .content{
+        width: 250px;
+        height: 30px;
+
+    }
+    .g-main .m-search .btn{
+        width: 50px;
+        height: 30px;
+    }
+    .g-main .m-search .addBtn{
+        width: 150px;
+        float: none;
+        margin-top: 20px;
+
+    }
+}
+.g-main .m-list .head{
+    border-bottom: 1px solid #888888;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #444444;
+}
+.m-list .right{
+    width: 34%;
+}
+.m-list .left{
+    width: 66%;
+}
+.m-list .left .item{
+    width: 33.333%;
+}
+.m-list .right .item{
+    width: 64.8%;
+}
+.m-list  .item{
+    font-size: 14px;
+    padding-right: .5em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.m-list .item a{
+    color: inherit;
+}
+.m-list  .right .icon{
+    width: 17.6%;
+    overflow: visible;
+    text-align: center;
+}
+.m-list .body .items{
+    padding: 10px 0;
+    border-bottom: 1px solid #dcdcdc;
+
+}
+.m-list button{
+    border: none;
+    background: url('./../img/icon.png') no-repeat;
+}
+.m-list .body .delete{
+    height: 16px;
+    width: 15px;
+    background-position: -373px 0;
+}
+.m-list .body .edit{
+    height: 16px;
+    width: 16px;
+    background-position: -436px 0;
+}
+.m-list .body .delete:hover{
+    background-position: -390px 0;
+}
+.m-list .body .edit:hover{
+    background-position: -418px 0;
+}
+.m-list .info{
+    display: none;
+}
+@media all and (max-width: 600px) {
+    .m-list .info{
+        display: inline;
+    }
+    .m-list .head{
+        display: none;
+    }
+    .m-list .right,
+    .m-list .left{
+        float: none;
+        width: 100%;
+    }
+    .m-list {
+        background-color: transparent;
+        padding: 0;
+    }
+    .m-list .body .items{
+        background-color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #e1e1e1;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    .m-list .body .right{
+        border-bottom: 1px solid #bebebe;
+        line-height: 1.7;
+    }
+    .m-list .left{
+        padding: 10px 0;
+    }
+    .m-list .left .item{
+        float: none;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+/*·­Ò³*/
+.g-main .m-page{
+    position: absolute;
+    bottom: 20px;
+    left: 5px;
+    right: 5px;
+    margin: auto;
+}
+.g-main .m-page .page{
+
+    height: 30px;
+    width: 70px;
+    background-color: #888888;
+    color: #ffffff;
+    font-size: 14px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+}

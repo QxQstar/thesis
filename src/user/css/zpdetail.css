@@ -113,12 +113,38 @@
     color: #f1f1f1;
     background-color: #ff3300;
 }
+.g-main .m-otherZp .list{
+    margin-left: -1%;
+}
 .g-main .m-otherZp .item{
-    width: 33.333%;
+    width: 32.333%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+.g-main .m-otherZp .img{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+.g-main .m-otherZp img{
+    position: absolute;
+    width: auto;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
 }
 @media all and (max-width: 500px) {
+    .g-main .m-otherZp .list{
+        margin-left: -2%;
+    }
     .g-main .m-otherZp .item{
-        width: 50%;
+        width: 48%;
+        margin-left: 2%;
+        margin-top: 2%;
     }
 }
 

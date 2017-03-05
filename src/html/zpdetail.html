@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>作品详情页</title>
-    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
-    <link type="text/css" rel="stylesheet" href="./../user/css/header.css">
-    <link type="text/css" rel="stylesheet" href="./../user/css/footer.css">
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/common.css">
 
     <!-- 页面样式-->
-    <link type="text/css" rel="stylesheet" href="./../user/css/zpdetail.css">
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/zpDetail.css">
+    <script type="text/javascript" src="./../user/build/js/jquery.js"></script>
 </head>
 <body>
 <!-- 导航条-->
@@ -91,38 +88,41 @@
     </div>
 
     <!-- 其他作品-->
-    <ul class="m-otherZp f-area-bg f-center f-paddLR-30 f-paddTopBtm-20 f-clearfix">
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-        <li class="item f-float-l">
-            <a href="#" class="img">
-                <img src="./../user/img/produce.jpg">
-            </a>
-        </li>
-    </ul>
+    <div class="m-otherZp f-area-bg f-center f-paddLR-30 f-paddTopBtm-20 f-clearfix" id="otherZP">
+        <ul class="list">
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+            <li class="item f-float-l">
+                <a href="#" class="img">
+                    <img src="./../user/img/produce.jpg">
+                </a>
+            </li>
+        </ul>
+
+    </div>
 
     <!-- 评价-->
     <div class="m-discuss f-marTop-30 f-center">
@@ -182,5 +182,7 @@
 </div>
 <!-- 页脚-->
 <div class="g-footer"></div>
+<script type="text/javascript" src="./../user/build/js/common.js"></script>
+<script type="text/javascript" src="./../user/build/js/zpDetail.js"></script>
 </body>
 </html>

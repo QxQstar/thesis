@@ -45,3 +45,6 @@
     padding: 10px 30px;
     border: none;
 }
+.g-main .m-upload .preview img{
+    max-width: 100%;
+}

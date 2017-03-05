@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>注册</title>
-    <link type="text/css" rel="stylesheet" href="../common/css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/base.css">
-    <link type="text/css" rel="stylesheet" href="../common/css/feature.css">
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/common.css">
 
     <!-- 页面样式-->
-    <link type="text/css" rel="stylesheet" href="./../user/css/signin.css">
+    <link type="text/css" rel="stylesheet" href="./../user/build/css/signin.css">
+    <script type="text/javascript" src="./../user/build/js/jquery.js"></script>
 </head>
 <body>
     <div class="g-main">
@@ -43,10 +42,9 @@
             </div>
             <!-- 附加信息-->
             <div class="addMess">
-                <span class="info f-marBtm-10">
+                <button class="info f-marBtm-10" id="spread">
                     附加信息
-
-                </span>
+                </button>
                 <div class="list" id="questions">
                     <div class="question question_1 f-marBtm-10">
                         <div class="questionBox f-marBtm-10">
@@ -90,5 +88,6 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="./../user/build/js/signin.js"></script>
 </body>
 </html>

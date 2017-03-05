@@ -13,6 +13,15 @@
        width: 90%;
    }
 }
+@media all and (max-width: 500px) {
+    .g-main .m-search,
+    .g-main .m-list,
+    .m-page{
+        width: auto;
+        margin-left: 5px ;
+        margin-right: 5px;
+    }
+}
 .g-main .m-search{
     position: relative;
     font-size: 0;
@@ -37,7 +46,7 @@
     content: "|";
     position: absolute;
     display: block;
-    color: #333333;
+    color: #888;
     font-size: 20px;
     left: -15px;
     top: -1px;
@@ -86,6 +95,7 @@
         width: 300px;
         margin: auto;
         height: 30px;
+        right: 0;
     }
     .g-main .m-search .content{
         width: 250px;
