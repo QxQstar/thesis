@@ -9,17 +9,25 @@ var $ = require('jquery');
  */
 function Preview(boxElem) {
     this.boxElem = null;
+    this.fileParent = null;
+    this.callback = null;
 }
 /**
  * 入口
- * @param boxElem 父元素，通常是一个表单
+ * @param boxElem 预览元素的父元素，通常是一个表单
+ * @param fileParent file的父元素
+ * @param callback 预览结束的回调函数
  */
-Preview.prototype.start = function (boxElem) {
+Preview.prototype.start = function (boxElem,fileParent,callback) {
     this.boxElem = boxElem;
+    fileParent ? this.fileParent = fileParent : this.fileParent = boxElem;
+    if(typeof callback === 'function'){
+        this.callback = callback;
+    }
     var chooseFile,me;
     me = this;
     if(this.__isSupport() && this.boxElem){
-        chooseFile = boxElem.find('input[type="file"]');
+        chooseFile = this.fileParent.find('input[type="file"]');
         chooseFile
             .on('change',me.fileChange.bind(me))
     }
@@ -29,10 +37,19 @@ Preview.prototype.start = function (boxElem) {
  * @param event
  */
 Preview.prototype.fileChange = function (event) {
-    var target,reader,file,me;
+    var target,reader,file,me,type;
     target =  event.target;
-    file = target.files[0];
     me = this;
+    file = target.files[0];
+    type = file.type;
+    if(type !== 'image/png' && type !== 'image/jpg' && type !== 'image/jpeg'){
+        alert('文件格式不正确');
+        if(this.boxElem.attr('id') !== this.fileParent.attr('id')){
+            this.fileParent.find('#warp').show();
+        }
+        return this;
+    }
+
     reader = new FileReader();
     if(file){
         reader.readAsDataURL(file);
@@ -47,12 +64,19 @@ Preview.prototype.fileChange = function (event) {
  */
 Preview.prototype.show = function (reader) {
     var preView,img;
+    this.boxElem.show();
+    if(this.fileParent.attr('id') !== this.boxElem.attr('id')){
+        this.fileParent.find('#warp').hide();
+    }
     preView = this.boxElem.find('#preview');
-    img = preView.find('img');
+    img = preView.find('#preImg');
     if(img.length > 0 ){
         img.attr('src',reader.result);
     }else{
-        preView.append($('<img src="'+ reader.result +'"/>'));
+        preView.append($('<img id="preImg" src="'+ reader.result +'"/>'));
+    }
+    if(this.callback){
+        this.callback();
     }
 
 };
