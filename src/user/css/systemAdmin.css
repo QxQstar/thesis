@@ -1,0 +1,213 @@
+.g-main .m-type,
+.g-main .m-handle,
+.g-main .m-list{
+    width: 790px;
+}
+@media all and (max-width: 800px) {
+    .g-main .m-type,
+    .g-main .m-handle,
+    .g-main .m-list{
+        width: 90%;
+    }
+}
+.g-main .m-type .item{
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 8px;
+
+}
+.g-main .m-type a{
+    font-size: 16px;
+    color: #444444;
+    cursor: pointer;
+}
+.g-main .m-type .item:after{
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: #ff3300;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.g-main .m-type .item:hover:after{
+    width: 100%;
+}
+.g-main .m-type .item.on:after{
+    width: 100%;
+}
+.g-main .m-handle .noSupport{
+    display: none;
+}
+.g-main .m-handle .addImg,
+.g-main .m-handle .addSafe,
+.g-main .m-handle .addRole{
+    height: 30px;
+    background-color: #888888;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #fff;
+}
+.g-main .m-handle .addImg.on,
+.g-main .m-handle .addSafe.on,
+.g-main .m-handle .addRole.on{
+    background-color: #ff3300;
+}
+.g-main .m-handle .item{
+    font-size: 14px;
+    color: #444444;
+}
+.g-main .m-handle .question,
+.g-main .m-handle .role{
+    height: 30px;
+    width: 250px;
+    font-size: 14px;
+    color: #444444;
+    padding-left: .5em;
+    margin-left: .5em;
+}
+.g-main .m-handle .head{
+    padding: 10px 0 20px ;
+}
+.g-main .m-handle{
+    border-bottom: 2px dashed #ebebeb;
+}
+.g-main .m-handle .bottom{
+    display: none;
+}
+@media all and (max-device-width: 1090px) {
+    .g-main .m-handle .noSupport{
+        display: block;
+        font-size: 12px;
+        color: #888888;
+    }
+    .g-main .m-handle .addImg{
+        display: none;
+    }
+}
+.g-main .m-handle .body{
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.g-main .m-list{
+    min-height: 300px;
+}
+.g-main .m-list ul{
+    margin-left: -2%;
+    padding-bottom: 20px;
+}
+ .g-main .m-list .item{
+     position: relative;
+     width: 23%;
+    margin-top: 10px;
+     margin-left: 2%;
+ }
+ .g-main .m-handle .roleBtn{
+     margin-left: 70px;
+     margin-top:0 ;
+ }
+ @media all and (max-width: 600px) {
+     .g-main .m-list .item{
+         width: 48%;
+     }
+     .g-main .m-handle{
+         padding: 20px 5px;
+     }
+     .g-main .m-handle .question,
+     .g-main .m-handle .role{
+         width: 200px;
+     }
+     .g-main .m-handle button{
+         margin-top: 10px;
+         margin-left: 70px;
+     }
+     .g-main .m-roles{
+         padding-left: 10px;
+         padding-right: 10px;
+     }
+
+ }
+.g-main .m-questions .item,
+.g-main .m-roles .item{
+    width: 100%;
+    margin-left: 0;
+    font-size: 16px;
+    color: #333;
+}
+.g-main .m-roles .code{
+    margin-right: 10px;
+}
+ .g-main .m-list p{
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     background-color: rgba(255,255,255,.8);
+     height: 0;
+     overflow: hidden;
+     -webkit-transition: all .4s;
+     -moz-transition: all .4s;
+     -ms-transition: all .4s;
+     -o-transition: all .4s;
+     transition: all .4s;
+ }
+ @media all and (max-device-width: 1090px){
+    .g-main .m-list p{
+        height: 30px;
+    }
+ }
+ .g-main .m-list img{
+     width: 100%;
+ }
+ .g-main .m-list .item:hover p{
+     height: 30px;
+ }
+ .g-main .m-list .delete{
+     position: absolute;
+     height: 16px;
+     width: 15px;
+     background: url("./../img/icon.png") no-repeat -373px 0;
+     bottom: 5px;
+     right: 10px;
+ }
+ .g-main .m-list .delete:hover{
+     background-position: -390px 0;
+ }
+ .g-main .m-handle .info{
+     color: #888888;
+     font-size: 12px;
+    margin-left: 10px;
+ }
+ .g-main .m-handle label{
+     display: inline-block;
+     background-color: #ff3300;
+     color: #FFFFFF;
+     font-size: 14px;
+     padding: 5px 10px;
+ }
+ .g-main .m-handle button{
+     height: 30px;
+     color: #fff;
+     font-size: 14px;
+     padding: 0 10px;
+ }
+ .g-main .m-handle .submit{
+     background-color: #ff3300;
+ }
+ .g-main .m-handle .reset{
+     background-color: #888888;
+ }
+
+
+
