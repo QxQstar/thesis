@@ -4,10 +4,9 @@
 var $ = require('jquery');
 /**
  * 预览类
- * @param boxElem
  * @constructor
  */
-function Preview(boxElem) {
+function Preview() {
     this.boxElem = null;
     this.fileParent = null;
     this.callback = null;
@@ -49,7 +48,6 @@ Preview.prototype.fileChange = function (event) {
         }
         return this;
     }
-
     reader = new FileReader();
     if(file){
         reader.readAsDataURL(file);
@@ -63,17 +61,63 @@ Preview.prototype.fileChange = function (event) {
  * @param reader fileReader对象
  */
 Preview.prototype.show = function (reader) {
-    var preView,img;
+    var preView,img,controlW,controlH,checkSize;
     this.boxElem.show();
     if(this.fileParent.attr('id') !== this.boxElem.attr('id')){
         this.fileParent.find('#warp').hide();
     }
     preView = this.boxElem.find('#preview');
+    //规定的尺寸
+    controlH = preView.attr('data-height') ;
+    controlW = preView.attr('data-width') ;
+    //检查图片的尺寸
+    checkSize = function(img,has){
+        if(controlH && img[0].naturalHeight !== ( controlH |0 )){
+            //如果预览框还没有图片
+            if(!has){
+                img.attr('src','');
+            }else{
+                img.attr('src',img.attr('presrc'))
+            }
+            alert('图片尺寸不符合规定');
+            return false;
+        }
+        if(controlW &&img[0].naturalWidth !== ( controlW |0 )){
+            if(!has){
+                img.attr('src','');
+            }else{
+                img.attr('src',img.attr('presrc'))
+            }
+            alert('图片尺寸不符合规定');
+            return false;
+        }
+        return true;
+    };
     img = preView.find('#preImg');
-    if(img.length > 0 ){
-        img.attr('src',reader.result);
+    if(img.length > 0 && img.attr('src')){
+        img
+            .attr({
+                'presrc': img.attr('src'),
+                'src':reader.result
+            });
+
+        img.attr('style','');
+        if(!checkSize(img,true)){
+            return this;
+        }
+
     }else{
-        preView.append($('<img id="preImg" src="'+ reader.result +'"/>'));
+        if(img.length < 1){
+            preView.append($('<img id="preImg" src="'+ reader.result +'"/>'));
+            img = preView.find('#preImg');
+        }else{
+            img = preView.find('#preImg');
+            img.attr('src',reader.result);
+        }
+
+        if(!checkSize(img,false)){
+            return this;
+        }
     }
     if(this.callback){
         this.callback();
@@ -87,6 +131,6 @@ Preview.prototype.show = function (reader) {
  */
 Preview.prototype.__isSupport = function () {
     return typeof FileReader === 'function';
-}
+};
 var preview = new Preview();
 module.exports = preview;
