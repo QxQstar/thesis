@@ -31,6 +31,7 @@ SubmitForm.prototype.start = function(formElem,url,haveFile,exclude,notSubmit){
     var submit,me;
     this.fromElem = formElem;
     this.url = url;
+    me = this;
     if(!haveFile){
         this.file = false;
     }
@@ -48,9 +49,9 @@ SubmitForm.prototype.start = function(formElem,url,haveFile,exclude,notSubmit){
     }else{
         this.notSumit = [];
     }
-    this.notSumit.push('#submit');
+    this.notSumit.push('submit');
     submit = formElem.find('#submit');
-    me = this;
+
     submit
         .unbind('click')
         .on('click',me.__submit.bind(me));
@@ -104,7 +105,15 @@ SubmitForm.prototype.__check = function(exclude){
                 msg:'电子邮箱格式不正确'
             };
             break;
-        }else if(($elem.prop('type') === 'text' || $elem.prop('type') === 'textarea') && $elem.val().trim().length <= 0 && this.__isMust($elem) ){
+        }
+        else if($elem[0].tagName.toLowerCase() === 'select' && $elem.val() === 'default'){
+            result = {
+                status:0,
+                msg:'还没有选择' + $elem.attr('data-info')
+            };
+            break;
+        }
+        else if(($elem.prop('type') === 'text' || $elem.prop('type') === 'textarea') && $elem.val().trim().length <= 0 && this.__isMust($elem) ){
             result = {
                 status:0,
                 msg:'没有输入'+$elem.attr('data-info')
@@ -140,7 +149,8 @@ SubmitForm.prototype.__check = function(exclude){
                 msg:'还没有选择文件'
             };
             break;
-        }else if($elem.prop('id').indexOf('Time') >= 0 && (check = this.__checkTime($elem)) && check.msg){
+        }
+        else if($elem.prop('id').indexOf('Time') >= 0 && (check = this.__checkTime($elem)) && check.msg){
             result = {
                 status:0,
                 msg:check.msg
