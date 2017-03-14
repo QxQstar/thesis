@@ -19,7 +19,7 @@ if(!empty($_POST) && isset($_POST['password']) &&  isset($_POST['code'])){
         $num = mysqli_num_rows($query);
         //如果不存在
         if(!$num){
-            $arr = array('code'=>$code,'password'=>$password,'role'=>$role);
+            $arr = array('code'=>$code,'password'=>$password,'role'=>$role,'hasQuestion'=>'0');
             $insertresult = $mysql->insert('adminmessage',$arr,$conn);
             if($insertresult){
                 echo json_encode(array('status'=>1,'msg'=>'添加成功','role'=>$role));

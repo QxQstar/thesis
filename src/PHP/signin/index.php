@@ -25,7 +25,7 @@ if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
             $query = $mysql->query($sql,$conn);
             $row = $mysql->findOne($query);
 
-            $arr = array('email'=>$email,'password'=>$password,'role'=>$role,'img'=>$row['img']);
+            $arr = array('email'=>$email,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0');
             $insertresult = $mysql->insert('designermessage',$arr,$conn);
             if($insertresult){
                 echo json_encode(array('status'=>1,'msg'=>'注册成功','role'=>$role));

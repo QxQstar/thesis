@@ -37,6 +37,7 @@
                     <option value="default"> 选择权限</option>
                     <option value="1">普通管理员</option>
                     <option value="2">高级管理员</option>
+                    <option value="3">超级管理员</option>
                 </select>
             </div>
             <div class="yzm f-marBtm-10">
