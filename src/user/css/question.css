@@ -27,11 +27,17 @@
     font-size: 12px;
     color: #888888;
 }
+.m-process .info.white{
+    color: #FFFFFF;
+}
 .m-process .item .bar{
     background-color: #888888;
     height: 2px;
     width: 86%;
     margin-top: 10px;
+}
+.m-process .item .bar.white{
+    background-color: #FFFFFF;
 }
 @media all and (max-width: 800px) {
     .m-process .item{
@@ -79,6 +85,7 @@
     vertical-align: middle;
 }
 .m-form .item .answer{
+    padding-left: .5em;
     height: 35px;
     width: 300px;
 }
@@ -88,7 +95,6 @@
 .m-form .next{
     border: none;
     background-color: #ff3300;
-    /*margin-left: 17%;*/
     color: #ffffff;
     font-size: 14px;
     padding: 10px 20px;
@@ -142,5 +148,33 @@
 @media all and (max-width: 600px) {
     .m-form select{
         width: 180px;
+    }
+}
+
+.m-form .yzm{
+    height: 35px;
+    width: 165px;
+    /*margin-left: 110px;*/
+    padding-left: .5em;
+    vertical-align: middle;
+}
+.m-form .num{
+    position: relative;
+    display: inline-block;
+    width: 125px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    background: #ebebeb;
+    vertical-align: middle;
+
+}
+@media all and (max-width: 600px) {
+    .m-form .yzm{
+        width: 180px;
+    }
+    .m-form .num{
+        margin-top: 10px;
+        margin-left: 80px;
     }
 }

@@ -8,11 +8,8 @@
 //设计师找回密码
 //引入smarty配置文件
 require_once('./../config.php');
-session_start();
-if($_SESSION['email']){
-    $smarty->assign('name',$_SESSION['email']);
-}else{
-    $smarty->assign('name','');
+if(isset($_SESSION['email'])){
+    unset($_SESSION['email']);
 }
 $smarty->display('findPW.tpl');
 ?>

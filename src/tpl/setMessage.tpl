@@ -94,8 +94,8 @@
                     <span class="info" id="showNum">0/300</span>
                 </p>
                 <div class="link">
-                    <a href="#">修改密码</a>
-                    <a href="#">修改安全问题</a>
+                    <a href="/thesis/src/PHP/show/modifyPW.php?email={$message.email}">修改密码</a>
+                    <a href="/thesis/src/PHP/show/modifyQU.php?email={$message.email}">修改安全问题</a>
                 </div>
                 <button class="save f-float-r" id="submit">保存</button>
             </form>

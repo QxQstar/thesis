@@ -21,7 +21,7 @@
             <p class="item f-marBtm-10">
                 <span class="info  f-text-r">账号名</span>
                 <span class="col2">
-                    <input type="text" class="answer" id="email" name="email" value="{$name}"/>
+                    <input type="text" class="answer" id="email" name="email" />
                 </span>
             </p>
             <p class="item f-marBtm-10">

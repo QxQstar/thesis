@@ -15,6 +15,13 @@ $mysql = new mysql();
 session_start();
 if(isset($_SESSION['findPW'])){
     $smarty->assign('name',$_SESSION['findPW']);
+    if(isset($_SESSION['email']) && $_SESSION['findPW'] == $_SESSION['email']){
+        $smarty->assign('isLog',true);
+    }else{
+        $smarty->assign('isLog',false);
+    }
     $smarty->display('setPW.tpl');
+}else{
+    $smarty->display('findPW.tpl');
 }
 ?>

@@ -14,8 +14,19 @@ require_once ('./../connect.php');
 require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
-if(!empty($_SESSION) && isset($_SESSION['findPW'])){
-    $findPW = $_SESSION['findPW'];
+if(!empty($_SESSION) && ( isset($_SESSION['findPW']) || isset($_SESSION['question']) )){
+    if(isset($_SESSION['findPW'])){
+        $findPW = $_SESSION['findPW'];
+    }else{
+        $findPW = $_SESSION['question'];
+    }
+
+    //判断当前是否登录状态
+    if(isset($_SESSION['email']) && $_SESSION['email'] == $findPW){
+        $isLog = true;
+    }else{
+        $isLog = false;
+    }
     //先在设计师表中去查找
     $sql = "select * from designermessage where email='$findPW' and hasQuestion='1'";
     $query  = $mysql->query($sql,$conn);
@@ -24,18 +35,12 @@ if(!empty($_SESSION) && isset($_SESSION['findPW'])){
         $result = $mysql->findOne($query);
         $smarty->assign('name',$findPW);
         $smarty->assign('result',$result);
+        $smarty->assign('isLog',$isLog);
         $smarty->display('question.tpl');
     }else {
-        //如果在设计师表中没有找到，就在管理员表中去找
-        $sql = "select * from adminmessage where code='$findPW' and hasQuestion='1'";
-        $query = $mysql->query($sql, $conn);
-        $num = mysqli_num_rows($query);
-        if ($num) {
-            $result = $mysql->findOne($query);
-            $smarty->assign('name',$findPW);
-            $smarty->assign('result', $result);
-            $smarty->display('question.tpl');
-        }
+        $smarty->display('noquestion.tpl');
     }
+}else{
+    $smarty->display('signup.tpl');
 }
 ?>

@@ -11,32 +11,61 @@
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
 </head>
 <body>
-{include file="header.tpl"}
-<!-- 主要内容-->
-<div class="g-main f-show f-main-bg f-paddBtm-60 ">
-    <!--进度条-->
-    <ul class="m-process f-clearfix f-center f-marTop-60">
-        <li class="item f-float-l on">
-            <div class="info f-float-l f-text-c">
-                <span>1</span>
-                验证身份
-            </div>
-            <div class="bar f-float-l"></div>
-        </li>
-        <li class="item f-float-l">
-            <div class="info f-float-l f-text-c">
-                <span>2</span>
-                修改信息
-            </div>
-            <div class="bar f-float-l"></div>
-        </li>
-        <li class="f-float-l last">
-            <div class="info  f-text-c">
-                <span>3</span>
-                修改完成
-            </div>
-        </li>
-    </ul>
+{if $isLog eq true}
+    {include file="header.tpl"}
+    <!-- 主要内容-->
+    <div class="g-main f-show f-main-bg f-paddBtm-60 ">
+        <!--进度条-->
+        <ul class="m-process f-clearfix f-center f-marTop-60">
+            <li class="item f-float-l on">
+                <div class="info f-float-l f-text-c">
+                    <span>1</span>
+                    验证身份
+                </div>
+                <div class="bar f-float-l"></div>
+            </li>
+            <li class="item f-float-l">
+                <div class="info f-float-l f-text-c">
+                    <span>2</span>
+                    修改信息
+                </div>
+                <div class="bar f-float-l"></div>
+            </li>
+            <li class="f-float-l last">
+                <div class="info  f-text-c">
+                    <span>3</span>
+                    修改完成
+                </div>
+            </li>
+        </ul>
+    {else}
+    <div class="g-main f-show f-sign-bg f-paddBtm-60 ">
+        <!--进度条-->
+        <ul class="m-process f-clearfix f-center f-marTop-60">
+            <li class="item f-float-l on">
+                <div class="info f-float-l f-text-c white">
+                    <span>1</span>
+                    验证身份
+                </div>
+                <div class="bar f-float-l white"></div>
+            </li>
+            <li class="item f-float-l">
+                <div class="info f-float-l f-text-c white">
+                    <span>2</span>
+                    修改信息
+                </div>
+                <div class="bar f-float-l white"></div>
+            </li>
+            <li class="f-float-l last">
+                <div class="info  f-text-c white">
+                    <span>3</span>
+                    修改完成
+                </div>
+            </li>
+        </ul>
+{/if}
+
+
     <form class="m-form f-marTop-30 f-area-bg f-center" name="verify" id="verify">
         <h1 class="head f-paddTopBtm-20">
             你正在回答安全问题进行校验
@@ -44,6 +73,10 @@
         <div class="body f-marTop-30">
             <input type="text" name="zhanghu" id="zhanghu" value="{$name}" hidden>
             <input type="text" name="check" id="check" value="check" hidden>
+            <p class="item f-marBtm-10">
+                <span class="info f-text-r">账号</span>
+                <span class="col2">{$name}</span>
+            </p>
             <p class="item f-marBtm-10">
                 <span class="info  f-text-r">安全问题一</span>
                 <span class="col2">{$result.question1}</span>
@@ -74,7 +107,9 @@
     </form>
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+{if $isLog eq true}
+    <div class="g-footer"></div>
+{/if}
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/verify.js"></script>
 </body>
