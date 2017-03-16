@@ -7,7 +7,7 @@ require('./../css/feature.css');
 require('./../../user/css/header.css');
 require('./../../user/css/footer.css');
 var $ = require('jquery');
-
+var ajax = require('./../../user/js/ajax.js');
 function NavIcon(eventType){
     this.navList = null;
     this.control = null;
@@ -26,11 +26,11 @@ NavIcon.prototype.start = function(){
     if(this.control && this.navList){
         this.__blindEvent(this.eventType);
     }
-
+    return this;
 };
 /**
- * °ó¶¨ÊÂ¼þ
- * @param type °ó¶¨ÊÂ¼þµÄÀàÐÍ
+ * ç»‘å®šäº‹ä»¶
+ * @param type ç»‘å®šäº‹ä»¶çš„ç±»åž‹
  * @private
  */
 NavIcon.prototype.__blindEvent = function(type){
@@ -43,8 +43,8 @@ NavIcon.prototype.__blindEvent = function(type){
 
 };
 /**
- * ÊÂ¼þ´¦Àí³ÌÐò
- * @param event ÊÂ¼þ¶ÔÏó
+ * äº‹ä»¶å¤„ç†ç¨‹åº
+ * @param event äº‹ä»¶å¯¹è±¡
  * @private
  */
 NavIcon.prototype.__handler = function(event){
@@ -80,5 +80,30 @@ NavIcon.prototype.__handler = function(event){
         mask.hide();
     }
 };
+/**
+ * é€€å‡ºç™»å½•
+ * @returns {NavIcon}
+ */
+NavIcon.prototype.signout = function () {
+    var signout,handle,header;
+    handle = function () {
+        if(header.attr('class').indexOf('admin') >= 0){
+            ajax.signout('signout','admin');
+        }else{
+            ajax.signout('signout','user');
+        }
+
+    };
+    header = $('#header');
+    if(header){
+        signout = header.find('.signout');
+        signout
+            .unbind('click')
+            .on('click',handle)
+    }
+    return this
+};
 var navIcon = new NavIcon('click');
-navIcon.start();
+navIcon
+    .start()
+    .signout()

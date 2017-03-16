@@ -1,5 +1,5 @@
 <!-- 导航条-->
-<header class="g-header" id="header">
+<header class="g-header admin" id="header">
     <div class="m-content f-clearfix">
         <img src="/thesis/src/user/img/adminlogo.png" class="logo">
         <div class="control" id="control">
@@ -30,10 +30,10 @@
                 </li>
                 {else}
                 <li class="item f-float-l phone">
-                    <a href="#">个人中心</a>
+                    <a href="/thesis/src/PHP/show/adminCenter.php">个人中心</a>
                 </li>
                 <li class="item f-float-l phone">
-                    <a href="#">退出登录</a>
+                    <a class="signout">退出登录</a>
                 </li>
             {/if}
         </ul>
@@ -50,10 +50,10 @@
                 {else}
 
                 <li class="item f-float-r">
-                    <a href="#">退出登录</a>
+                    <a class="signout">退出登录</a>
                 </li>
                 <li class="item f-float-r">
-                    <a href="#">个人中心</a>
+                    <a href="/thesis/src/PHP/show/adminCenter.php">个人中心</a>
                 </li>
             {/if}
         </ul>

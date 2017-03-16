@@ -127,5 +127,27 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
     }
 
 };
+/**
+ * 退出登录
+ * @param url 请求的地址
+ * @param role 角色 admin or user
+ */
+Ajax.prototype.signout = function (url,role) {
+    $.ajax({
+        type:'GET',
+        data:{role:role},
+        url:'/thesis/src/PHP/'+url+'/index.php',
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                if(role == 'admin'){
+                    location.href = '/thesis/src/PHP/show/adminSignup.php';
+                }else{
+                    location.href = '/thesis/src/html/index.html';
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;
