@@ -13,5 +13,11 @@ if(isset($_SESSION['findPW'])){
 if(isset($_SESSION['question'])){
     unset($_SESSION['question']);
 }
+if(isset($_SESSION['adminFindPW'])){
+    unset($_SESSION['adminFindPW']);
+}
+if(isset($_SESSION['adminQuestion'])){
+    unset($_SESSION['adminQuestion']);
+}
 $smarty->display('finish.tpl');
 ?>

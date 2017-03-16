@@ -108,14 +108,9 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                         location.reload();
                     }
                 }
-                if(url === 'verify'){
+                //设计师|| 管理员修改密码，找回密码，修改安全问题
+                if(url === 'verify' || url === 'adminVerify'){
                     if(result.status){
-                        // if(prevUrl.indexOf('findPW') >= 0){
-                        //     location.href = '/thesis/src/PHP/show/'+result.url;
-                        // }
-                        // if(prevUrl.indexOf('question') >= 0){
-                        //     location.href = '/thesis/src/PHP/show/'+result.url;
-                        // }
                         location.href = '/thesis/src/PHP/show/'+result.url;
                     }else{
                         alert(result.msg);

@@ -28,8 +28,8 @@
             </li>
         </ul>
         <div class="footer link">
-            <a href="#">修改密码</a>
-            <a href="#">修改安全问题</a>
+            <a href="/thesis/src/PHP/show/adminModifyPW.php?code={$message.code}">修改密码</a>
+            <a href="/thesis/src/PHP/show/adminModifyQU.php?code={$message.code}">修改安全问题</a>
         </div>
     </div>
 </div>

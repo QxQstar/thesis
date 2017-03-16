@@ -31,7 +31,7 @@
             <input type="button" id="submit" value="登录">
         </div>
         <div class="info f-text-c">
-            <a href="#">忘记密码?</a>
+            <a href="/thesis/src/PHP/show/adminFindPW.php">忘记密码?</a>
         </div>
     </form>
 
