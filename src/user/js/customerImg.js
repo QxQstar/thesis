@@ -26,13 +26,18 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
     var addButton,me,warpBox;
     me = this;
     this.isSupport = this.__isSupport();
-    if(!this.isSupport) return this;
+    warpBox = warp.parent();
+    if(!this.isSupport) {
+        addButton = $('<p class="addItem f-float-l f-text-c">你的浏览器不支持自定义头像，可更换高版本的浏览器自定义头像</p>');
+        warpBox.append(addButton);
+        return this;
+    }
     //如果支持自定义就添加自定义按钮
     addButton = $('<p class="addItem f-float-l f-text-c">' +
             '<label for="addImg">+</label>'+
             '<input type="file" name="addImg" id="addImg" hidden>'+
         '</p>');
-    warpBox = warp.parent();
+
     this.warp = warp;
     warpBox.append(addButton);
     if(url){
@@ -59,11 +64,16 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
  * @private
  */
 CustomerImg.prototype.__dispose = function () {
-    var preImg,thum;
+    var preImg,thum,cvsMove;
     preImg = this.previewBox.find('#preImg');
     thum = this.previewBox.find('#thume');
+    cvsMove =this.previewBox.find('#cvsMove');
     preImg.attr('src','');
     thum.attr('src','');
+    cvsMove.css({
+        top:0,
+        left:0
+    });
     this.previewBox.hide();
     this.warp.show();
 };
@@ -74,16 +84,10 @@ CustomerImg.prototype.__dispose = function () {
 CustomerImg.prototype.__submit = function () {
     var cvsMove,data,ia,blob,fd;
     cvsMove = this.previewBox.find('#cvsMove');
-    data = cvsMove[0].toDataURL('image/jpeg',1);
-    data = data.split(',')[1];
-    ia = new Uint8Array(data.length);
-    for (var i = 0; i < data.length; i++) {
-        ia[i] = data.charCodeAt(i);
-    }
-    blob=new Blob([ia], {type:'image/jpeg'});
+    data = cvsMove[0].toDataURL('image/jpg',1);
     fd=new FormData();
 
-    fd.append('img',blob);
+    fd.append('customerImg',data);
     ajax.submitForm(this.url,fd,true);
 };
 /**

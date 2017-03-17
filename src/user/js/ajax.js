@@ -28,6 +28,15 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                     alert(result.msg);
                     location.reload();
                 }
+                //自定义头像
+                if(url === 'setMessage'){
+                    if(result.status){
+                        location.reload();
+                    }else{
+                        alert(result.msg);
+                        location.reload();
+                    }
+                }
             }
         });
     }else{
@@ -38,6 +47,7 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
             cache: false,
             dataType:'json',
             success:function(result){
+
                 //系统添加权限和安全问题
                 if(url === 'systemAdmin'){
                     alert(result.msg);
