@@ -18,10 +18,10 @@
                 <a href="#">设计师</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">活动</a>
+                <a href="/thesis/src/PHP/show/activeList.php">活动</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">投稿</a>
+                <a href="/thesis/src/PHP/show/upload.php">投稿</a>
             </li>
             <!-- 在手机上显示,登录之后将改成个人中心-->
             {if $isLog eq false}
@@ -36,7 +36,7 @@
                     <a href="/thesis/src/PHP/show/userCenter.php">个人中心</a>
                 </li>
                 <li class="item f-float-l phone">
-                    <a href="#">退出登录</a>
+                    <a class="signout">退出登录</a>
                 </li>
             {/if}
         </ul>
@@ -57,10 +57,10 @@
                 </li>
                 {else}
                 <li class="item f-float-r">
-                    <a href="#">个人中心</a>
+                    <a href="/thesis/src/PHP/show/userCenter.php">个人中心</a>
                 </li>
                 <li class="item f-float-r">
-                    <a href="#">退出登录</a>
+                    <a class="signout">退出登录</a>
                 </li>
             {/if}
         </ul>

@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>个人中心</title>
+    <title>个人中心——待审核作品</title>
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 
     <!-- 页面样式-->
@@ -33,19 +33,19 @@
         </div>
     </div>
     <div class="m-zpListBox f-center f-marTop-30">
-        <!-- 类型-->
+            <!-- 类型-->
         <ul class="m-type f-clearfix f-area-bg">
-            <li class="item f-float-l on"><a href="/thesis/src/PHP/show/userCenter.php">已上线</a> </li>
-            <li class="item f-float-l"><a href="/thesis/src/PHP/show/zpList0.php">待审核</a> </li>
+            <li class="item f-float-l"><a href="/thesis/src/PHP/show/userCenter.php">已上线</a> </li>
+            <li class="item f-float-l on"><a href="/thesis/src/PHP/show/zpList0.php">待审核</a> </li>
             <li class="item f-float-l"><a href="/thesis/src/PHP/show/zpList1.php">未通过</a></li>
         </ul>
         {if $zpNum gt 0}
-            <!-- 作品列表-->
+            <!-- 待审核作品列表-->
             <ul class="m-zpList zpList" id="zpList">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
-                        <a href="#" class="img">
-                            <img src="./../user/img/produce.jpg">
+                        <a href="/thesis/src/PHP/show/zpdetail.php?code={$item.zpCode}" class="img">
+                            <img src="/thesis/src/{$zpItem.img}">
                         </a>
                         <div class="desc">
                             <p class="title">{$zpItem.title}</p>
@@ -73,7 +73,6 @@
             {else}
             <p>没有该类型的作品</p>
         {/if}
-
         <!-- 关注-->
         <div class="m-focus">
             <h2 class="title">关注的设计师</h2>

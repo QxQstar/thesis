@@ -9,19 +9,19 @@
         </div>
         <ul class="navList adminNav f-clearfix" id="navList">
             <li class="item f-float-l">
-                <a href="#">作品管理</a>
+                <a href="/thesis/src/PHP/show/adminZP0.php">作品管理</a>
             </li>
             <li class="item f-float-l">
                 <a href="#">用户管理</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">活动管理</a>
+                <a href="">活动管理</a>
             </li>
             <li class="item f-float-l">
                 <a href="#">上传作品</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">数据统计</a>
+                <a href="/thesis/src/PHP/show/adminHeadImg.php">系统管理</a>
             </li>
             <!-- 在手机上显示,登录之后将改成个人中心和退出登录-->
             {if $isLog eq false}
