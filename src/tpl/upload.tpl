@@ -17,13 +17,16 @@
     <div class="m-upload f-marTop-30 f-center f-area-bg f-paddTopBtm-20 f-paddLR-30">
         {if $activeCode neq false}
             <h1 class="title">活动作品上传</h1>
-            <p class="info f-marBtm-10">该作品属于活动：xxxxxx</p>
+            <p class="info f-marBtm-10">该作品属于活动：{$name}</p>
             {else}
             <h1 class="title f-marBtm-10">作品上传</h1>
         {/if}
         <form id="upload" method="post" action="/thesis/src/PHP/issueZP/index.php" enctype="multipart/form-data">
             <div class="formBox">
                 <div class="inputTitle">
+                    {if $activeCode neq false}
+                        <input type="text" value="{$activeCode}" hidden id="activeCode" name="activeCode">
+                    {/if}
                     <input type="text" placeholder="输入作品标题" id="title" name="title" data-info="标题">
                 </div>
                 <div class="choiceImg f-marTop-20 f-marBtm-20">

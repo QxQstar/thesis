@@ -69,6 +69,34 @@
     line-height: 2.0;
     color: #777;
 }
+.g-main .desc .agree:before{
+    width: 16px;
+    background-position: -618px 0;
+}
+.g-main .desc .limit:before{
+    width: 16px;
+    background-position: -582px 0;
+}
+.g-main .desc .limit:hover:before{
+    background-position: -600px 0;
+}
+.g-main .desc .agree:hover:before{
+    background-position: -636px 0
+}
+.g-main .desc .edit:before{
+    width: 16px;
+    background-position: -436px 0;
+}
+.g-main .desc .edit:hover:before{
+    background-position: -418px 0;
+}
+.g-main .desc .delete:before{
+    width: 15px;
+    background-position: -373px 0;
+}
+.g-main .desc .delete:hover:before{
+    background-position: -390px 0;
+}
 .g-main .m-curZp .authorBox{
     position: absolute;
     width: 100px;
@@ -138,6 +166,9 @@
     transition: all .4s;
 }
 @media all and (max-width: 500px) {
+    .g-main .desc .edit{
+        display: none;
+    }
     .g-main .m-otherZp .list{
         margin-left: -2%;
     }

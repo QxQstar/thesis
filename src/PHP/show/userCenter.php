@@ -19,7 +19,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <=
     $role = $_SESSION['role'];
     $email = $_SESSION['email'];
     //这个设计师已经上线作品列表
-    $sql = "select *  from productionmessage where email='$email' and status='2'";
+    $sql = "select *  from productionmessage where email='$email' and status='2' order by time desc";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);
     $zpNum = count($zpList);
@@ -32,7 +32,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <=
     $query = $mysql->query($sql,$conn);
     $focusList = $mysql->findAll($query);
     //该设计师未读的消息
-    $sql = "select * from note where email='$email' and status=0";
+    $sql = "select * from note where email='$email'or email='all' and status=0";
     $query = $mysql->query($sql,$conn);
     $noteNum = mysqli_num_rows($query);
     //这个设计师的头像

@@ -44,8 +44,8 @@
             <ul class="m-zpList zpList" id="zpList">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
-                        <a href="#" class="img">
-                            <img src="./../user/img/produce.jpg">
+                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}" class="img">
+                            <img src="/thesis/src/{$zpItem.img}">
                         </a>
                         <div class="desc">
                             <p class="title">{$zpItem.title}</p>

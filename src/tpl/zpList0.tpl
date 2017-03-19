@@ -44,15 +44,13 @@
             <ul class="m-zpList zpList" id="zpList">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
-                        <a href="/thesis/src/PHP/show/zpdetail.php?code={$item.zpCode}" class="img">
+                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$zpItem.zpCode}" class="img">
                             <img src="/thesis/src/{$zpItem.img}">
                         </a>
                         <div class="desc">
                             <p class="title">{$zpItem.title}</p>
                             <div class="handel">
                                 <span class="time">{$zpItem.time}</span>
-                                <span class="good">34</span>
-                                <span class="discuss">34</span>
                                 <a href="#" class="link">
                                     <span class="delete"></span>
                                 </a>

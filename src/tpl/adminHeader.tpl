@@ -15,7 +15,7 @@
                 <a href="#">用户管理</a>
             </li>
             <li class="item f-float-l">
-                <a href="">活动管理</a>
+                <a href="/thesis/src/PHP/show/adminActiveList.php">活动管理</a>
             </li>
             <li class="item f-float-l">
                 <a href="#">上传作品</a>

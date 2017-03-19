@@ -2,10 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: star
- * Date: 2017/3/18
- * Time: 11:18
+ * Date: 2017/3/19
+ * Time: 11:21
  */
-//活动列表
+
+//最新作品
 //引入smarty配置文件
 require_once('./../config.php');
 //数据库连接
@@ -14,16 +15,13 @@ require_once ('./../connect.php');
 require_once ('./../common/mysql.class.php');
 session_start();
 $mysql = new mysql();
-//根据活动结束的事件升序
-$sql = "select * from activemessage order by eTime asc";
+$sql = "select * from productionmessage order by time desc";
 $query = $mysql->query($sql,$conn);
 $result = $mysql->findAll($query);
-if(!isset($_SESSION['email'])){
-    $smarty->assign('isLog',false);
-}else{
+if(isset($_SESSION['email'])){
     $smarty->assign('isLog',true);
+}else{
+    $smarty->assign('isLog',false);
 }
-$smarty->assign('result',$result);
-$smarty->assign('length',count($result));
-$smarty->display('activeList.tpl');
-?>
+$smarty->assign('list',$result);
+$smarty->display('newZP.tpl');

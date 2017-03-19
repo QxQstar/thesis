@@ -29,6 +29,16 @@
     color: #ffffff;
     padding: 10px 30px;
 }
+.g-main .m-upload .intro{
+    position: relative;
+}
+.g-main .m-upload .num{
+    position: absolute;
+    right: 10px;
+    bottom: -15px;
+    font-size: 12px;
+    color: #888888;
+}
 .g-main .m-upload textarea{
     width: 100%;
     max-width: 100%;

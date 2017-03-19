@@ -33,9 +33,17 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_POST) && !empty($_F
             $result['status'] = 0;
             $result['msg'] = '上传失败';
         }else{
-            $result['status'] = 1;
-            $result['msg'] = '添加成功';
-            $result['url'] = 'activeList.php';
+            $arr = array('time'=>date('Y-m-d'),'form'=>'system','email'=>'all','status'=>0,'content'=>'又有一个新的活动发布了,快去看看吧！活动有效时间：'.$sTime.'至'.$eTime.'。活动标题：'.$title);
+            $inseresult = $mysql->insert('note',$arr,$conn);
+            if(!$inseresult){
+                $result['status'] = 0;
+                $result['msg'] = '上传失败';
+            }else{
+                $result['status'] = 1;
+                $result['msg'] = '添加成功';
+                $result['url'] = 'adminActiveList.php';
+            }
+
         }
     }
     echo json_encode($result);

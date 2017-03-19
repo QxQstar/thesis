@@ -24,10 +24,15 @@ if(!empty($_POST) && isset($_SESSION['email'])){
     $allowExt=array('jpeg','jpg','png');
     $time=date('Y-m-d');
     $result=uploadFile($fileInfo,'./../../uploads',false,$allowExt);
+    if(isset($_POST['activeCode'])){
+        $activeCode = $_POST['activeCode'];
+    }else{
+        $activeCode = "";
+    }
     if($result['status']){
         $path = $result['path'];
         $name = explode('uploads',$path);
-        $arr = array('img'=>'uploads'.$name[1],'title'=>$title,'desc'=>$intro,'email'=>$email,'time'=>$time,'status'=>'0');
+        $arr = array('img'=>'uploads'.$name[1],'title'=>$title,'desc'=>$intro,'email'=>$email,'activeCode'=>$activeCode,'time'=>$time,'status'=>'0');
         $inseresult = $mysql->insert('productionmessage',$arr,$conn);
         if(!$inseresult){
             $result['status'] = 0;

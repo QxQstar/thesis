@@ -31,7 +31,35 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 //自定义头像
                 if(url === 'setMessage'){
                     if(result.status){
+                        if(result.url){
+                            location.href='/thesis/src/PHP/show/'+result.url;
+                        }else{
+                            location.reload();
+                        }
+
+                    }else{
+                        alert(result.msg);
                         location.reload();
+                    }
+                }
+                //上传作品
+                if(url === 'issueZP'){
+                    if(result.status){
+                        alert(result.msg);
+                        if(result.url){
+                            location.href='/thesis/src/PHP/show/'+result.url;
+                        }
+                    }else{
+                        alert(result.msg);
+                        location.reload();
+                    }
+                }
+                if(url === 'issueActive'){
+                    if(result.status){
+                        alert(result.msg);
+                        if(result.url){
+                            location.href='/thesis/src/PHP/show/'+result.url;
+                        }
                     }else{
                         alert(result.msg);
                         location.reload();
@@ -112,7 +140,11 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 //修改头像——系统提供的头像 和基本信息
                 if(url === 'setMessage'){
                     if(result.status){
-                        location.reload();
+                        if(result.url){
+                            location.href = '/thesis/src/PHP/show/'+result.url;
+                        }else{
+                            location.reload();
+                        }
                     }else{
                         alert(result.msg);
                         location.reload();

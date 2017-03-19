@@ -18,7 +18,7 @@
     <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
         <div class="searchBox">
             <input type="text" placeholder="输入作品标题" class="content f-float-l" id="content">
-            <input type="button" value="体检" class="btn f-float-l" id="submit">
+            <input type="button" value="提交" class="btn f-float-l" id="submit">
         </div>
         <div class="info f-float-l">
             <h1 class="on"><a href="/thesis/src/PHP/show/adminZP0.php">待审核</a> </h1>
@@ -32,12 +32,12 @@
         <ul class="m-list f-marTop-30  f-center">
             {foreach $result as $item}
                 <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="{$item.zpCode}">
-                    <a href="/thesis/src/PHP/show/zpdetail.php?code={$item.zpCode}" class="img">
+                    <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
                         <img src="/thesis/src/{$item.img}">
                     </a>
                     <div class="desc">
                         <p class="title">
-                            <a href="/thesis/src/PHP/show/zpdetail.php?code={$item.zpCode}">{$item.title}</a>
+                            <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}">{$item.title}</a>
                         </p>
                         <div class="handle">
                             <span class="time">{$item.time}</span>

@@ -1,12 +1,122 @@
 .g-main .m-list,
+.g-main .m-search,
 .g-main .m-page{
     width: 790px;
     font-size: 16px;
 }
 @media all and (max-width: 800px) {
     .g-main .m-list,
+    .g-main .m-search,
     .g-main .m-page{
         width: 90%;
+    }
+}
+@media all and (max-width: 500px) {
+    .g-main .m-search,
+    .g-main .m-list,
+    .m-page{
+        width: auto;
+        margin-left: 5px ;
+        margin-right: 5px;
+    }
+}
+.g-main .m-search{
+    position: relative;
+    font-size: 0;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 5px;
+}
+.g-main .m-search h1{
+    position: relative;
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline;
+}
+.g-main .m-search h1.on{
+    color: #ff3300;
+}
+.g-main .m-search h1+h1{
+    margin-left: 20px;
+}
+.g-main .m-search h1+h1:before{
+    content: "|";
+    position: absolute;
+    display: block;
+    color: #888;
+    font-size: 20px;
+    left: -15px;
+    top: -1px;
+    height: 20px;
+    line-height: normal;
+}
+.g-main .m-search .searchBox{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    height: 30px;
+    right: 10px;
+}
+.g-main .m-search .content{
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    color: #888888;
+    font-size: 14px;
+    border: 1px solid #666;
+    padding-left: 1em;
+}
+.g-main .m-search .btn{
+    height: 100%;
+    width: 70px;
+    background-color: #666666;
+    color: #ffffff;
+    font-size: 14px;
+    border: 1px solid #666666;
+}
+.g-main .m-search .addBtn{
+    width: auto;
+    padding: 0 5px;
+    margin-left: 5px;
+    background-color: #ff3300;
+    border: 1px solid#ff3300;
+}
+@media all and (max-width: 650px) {
+    .g-main .m-search{
+        height: auto;
+        line-height: normal;
+        padding: 20px 0;
+    }
+    .g-main .m-search .info{
+        margin-top: 20px;
+        float: none;
+        text-align: center;
+    }
+
+    .g-main .m-search .searchBox{
+        position: relative;
+        width: 300px;
+        margin: auto;
+        height: auto;
+        text-align: center;
+        right: 0;
+    }
+    .g-main .m-search .content{
+        width: 250px;
+        height: 30px;
+
+    }
+    .g-main .m-search .btn{
+        width: 50px;
+        height: 30px;
+    }
+    .g-main .m-search .addBtn{
+        width: 150px;
+        float: none;
+        margin-top: 20px;
+
     }
 }
 .g-main .m-list .title{
@@ -73,8 +183,8 @@
 }
 
 
-/*·­Ò³*/
-/*·­Ò³*/
+/*ï¿½ï¿½Ò³*/
+/*ï¿½ï¿½Ò³*/
 .g-main .m-page .page{
     height: 30px;
     width: 70px;

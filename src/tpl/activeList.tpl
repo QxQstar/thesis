@@ -8,6 +8,7 @@
 
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/activeList.css">
+    <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
 </head>
 <body>
 {include file="header.tpl"}
@@ -20,10 +21,12 @@
         <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="{$item.activeCode}">
             <div class="head f-marBtm-10">
                 <h1 class="title">
-                    <a href="/thesis/src/PHP/show/activeDetail/php?code={$item.activeCode}">{$item.title}</a>
+                    <a href="/thesis/src/PHP/show/activeDetail.php?code={$item.activeCode}">{$item.title}</a>
 
                     {if $item.status eq '1'}
                         <span class="status">(进行中)</span>
+                        {elseif $item.status eq '2'}
+                        <span class="status">(即将开始)</span>
                         {else}
                         <span class="status">(已结束)</span>
                     {/if}
@@ -36,7 +39,7 @@
                 </div>
             </div>
             <div class="imgBox">
-                <a class="img" href="/thesis/src/PHP/show/activeDetail/php?code={$item.activeCode}">
+                <a class="img" href="/thesis/src/PHP/show/activeDetail.php?code={$item.activeCode}">
                     <img src="/thesis/src/{$item.img}">
                 </a>
             </div>
@@ -54,5 +57,6 @@
 </div>
 <!-- 页脚-->
 <div class="g-footer"></div>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 </body>
 </html>

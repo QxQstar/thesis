@@ -12,7 +12,7 @@
                 <a href="#">首页</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">作品</a>
+                <a href="/thesis/src/PHP/show/newZP.php">作品</a>
             </li>
             <li class="item f-float-l">
                 <a href="#">设计师</a>
