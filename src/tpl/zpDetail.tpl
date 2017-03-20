@@ -29,7 +29,7 @@
         </div>
         <div class="authorBox">
             <div class="interBox f-text-c">
-                <a href="/thesis/src/PHP/show/designerHome?email='{$designMess.email}'">
+                <a href="/thesis/src/PHP/show/designerHome.php?email={$designMess.email}">
                     <img src="/thesis/src/{$designMess.img}" alt="设计师头像">
                 </a>
 
@@ -45,7 +45,7 @@
             <ul class="list">
                 {foreach $otherZP as $item}
                     <li class="item f-float-l">
-                        <a href="/thesis/src/PHP/show/adminZPdetail?code='{$item.zpCode}'" class="img">
+                        <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
                             <img src="/thesis/src/{$item.img}">
                         </a>
                     </li>

@@ -39,12 +39,11 @@
         </div>
         <div class="authorBox">
             <div class="interBox f-text-c">
-                <a href="/thesis/src/PHP/show/designerHome?email='{$designMess.email}'">
+                <a href="/thesis/src/PHP/show/designerHome.php?email='{$designMess.email}'">
                     <img src="/thesis/src/{$designMess.img}" alt="设计师头像">
                 </a>
-
                 <p class="name f-text-c">{$designMess.name}</p>
-                <button class="focus f-text-c" type="button">关注</button>
+                {*<button class="focus f-text-c" type="button">关注</button>*}
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@
         <ul class="list">
             {foreach $otherZP as $item}
             <li class="item f-float-l">
-                <a href="/thesis/src/PHP/show/adminZPdetail?code='{$item.zpCode}'" class="img">
+                <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
                     <img src="/thesis/src/{$item.img}">
                 </a>
             </li>
@@ -73,18 +72,18 @@
             <span class="num">22</span>
         </h1>
         <!-- 评论框-->
-        <div class="discBox">
-            <div>
-                <label for="import">
-                    <textarea class="import" id='import' placeholder="扯淡，吐槽，表扬，鼓励...想说啥就说啥！"></textarea>
+        {*<div class="discBox">*}
+            {*<div>*}
+                {*<label for="import">*}
+                    {*<textarea class="import" id='import' placeholder="扯淡，吐槽，表扬，鼓励...想说啥就说啥！"></textarea>*}
 
-                </label>
-                <span class="notice" id="notice">0/300</span>
-            </div>
-            <div class="f-text-r">
-                <button class="discBtn f-marTop-20" id="submit">发表评价</button>
-            </div>
-        </div>
+                {*</label>*}
+                {*<span class="notice" id="notice">0/300</span>*}
+            {*</div>*}
+            {*<div class="f-text-r">*}
+                {*<button class="discBtn f-marTop-20" id="submit">发表评价</button>*}
+            {*</div>*}
+        {*</div>*}
         <!-- 评价列表-->
         <ul class="discList f-marTop-30 ">
             <li class="item f-clearfix f-paddTopBtm-20">

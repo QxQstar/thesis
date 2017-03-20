@@ -18,9 +18,6 @@
                 <a href="/thesis/src/PHP/show/adminActiveList.php">活动管理</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">上传作品</a>
-            </li>
-            <li class="item f-float-l">
                 <a href="/thesis/src/PHP/show/adminHeadImg.php">系统管理</a>
             </li>
             <!-- 在手机上显示,登录之后将改成个人中心和退出登录-->

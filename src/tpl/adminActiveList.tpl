@@ -34,6 +34,8 @@
 
                             {if $item.status eq '1'}
                                 <span class="status">(进行中)</span>
+                            {elseif $item.status eq '2'}
+                                <span class="status">(即将进行)</span>
                             {else}
                                 <span class="status">(已结束)</span>
                             {/if}
@@ -43,8 +45,12 @@
                                 <span class="time f-float-l">{$item.sTime}-{$item.eTime}</span>
                                 <div class="f-float-l right">
                                     <span class="zp">20</span>
-                                    <span class="edit"></span>
-                                    <span class="delete"></span>
+                                    <a href="/thesis/src/PHP/show/adminEditActive.php?code={$item.activeCode}" class="link">
+                                        <span class="edit"></span>
+                                    </a>
+                                    {if $role gt 1}
+                                        <span class="delete"></span>
+                                    {/if}
                                 </div>
 
                             </div>

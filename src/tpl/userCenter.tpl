@@ -56,7 +56,7 @@
                                 <a href="#" class="link">
                                     <span class="delete"></span>
                                 </a>
-                                <a href="#" class="link">
+                                <a href="/thesis/src/PHP/show/editZP.php?zpCode={$zpItem.zpCode}" class="link">
                                     <span class="edit"></span>
                                 </a>
 

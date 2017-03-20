@@ -143,7 +143,7 @@ SubmitForm.prototype.__check = function(exclude){
                 msg:'密码长度小于6'
             };
             break;
-        }else if($elem.prop('type') === 'file' && $elem[0].files.length <= 0){
+        }else if($elem.prop('type') === 'file' && $elem[0].files.length <= 0 && this.__isMust($elem)){
             result = {
                 status:0,
                 msg:'还没有选择文件'
@@ -205,9 +205,11 @@ SubmitForm.prototype.__submit = function(event){
     //如果验证没有通过
     if(!result.status){
         alert(result.msg);
+        location.reload();
     }else{
+
         if(!this.file || this.isSupportFormData()){
-            ajax.submitForm(this.url,result.data,this.file);
+            ajax.submitForm(this.url,result.data,this.file,location.href);
         }else{
             this.fromElem.submit();
 
@@ -262,7 +264,7 @@ SubmitForm.prototype.__checkTime = function ($time1,$time2) {
             msg:$time1.attr('data-info') +'格式不正确'
         }
     }else {
-        if(new Date().getTime() > new Date(match[0]).getTime()){
+        if(new Date().getTime() > new Date(match[0]).getTime() && $time1.attr('id') === 'eTime'){
             result = {
                 status:0,
                 msg:$time1.attr('data-info') +'无效'

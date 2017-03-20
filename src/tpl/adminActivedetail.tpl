@@ -43,12 +43,12 @@
             </div>
         </div>
     </div>
-    {if $activeMess.status eq '1'}
-        <!-- 投稿-->
-        <div class="m-upload f-center f-text-c f-marTop-30">
-            <a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>
-        </div>
-    {/if}
+    {*{if $activeMess.status eq '1'}*}
+        {*<!-- 投稿-->*}
+        {*<div class="m-upload f-center f-text-c f-marTop-30">*}
+            {*<a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>*}
+        {*</div>*}
+    {*{/if}*}
     {if $num gt 1}
         <!-- 推荐作品-->
         <div class="m-recommend f-marTop-30 f-center">
@@ -58,7 +58,7 @@
                 {foreach $zpList as $item}
                 <li class="item f-float-l f-marBtm-10">
                     <a class="img" href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}">
-                        <img src="/theis/src/{$item.img}">
+                        <img src="/thesis/src/{$item.img}">
                     </a>
                     <div class="desc">
                         <p class="title">{$item.title}</p>

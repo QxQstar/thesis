@@ -22,6 +22,7 @@ if(isset($_SESSION['code']) && isset($_SESSION['role'])){
         $query  = $mysql->query($sql,$conn);
         $list = $mysql->findAll($query);
         $smarty->assign('list',$list);
+        $smarty->assign('isLog',true);
         $smarty->display('headImg.tpl');
     }else{
         $smarty->display('limit.tpl');

@@ -16,6 +16,7 @@ $mysql = new mysql();
 session_start();
 if(!empty($_SESSION) && isset($_SESSION['code'])){
     $smarty->assign('isLog',true);
+    $smarty->assign('message',false);
     $smarty->display('adminAddActive.tpl');
 }else{
     $smarty->display('adminSignup.tpl');

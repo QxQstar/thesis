@@ -25,6 +25,7 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
         $smarty->assign('isLog',true);
     }
     $smarty->assign('result',$result);
+    $smarty->assign('role',$_SESSION['role']);
     $smarty->assign('length',count($result));
     $smarty->display('adminActiveList.tpl');
 }else{
