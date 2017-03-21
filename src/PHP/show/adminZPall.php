@@ -2,10 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: star
- * Date: 2017/3/18
- * Time: 9:19
+ * Date: 2017/3/21
+ * Time: 15:25
  */
-//待审核作品
+//全部的作品
 //smarty配置文件
 require_once('./../config.php');
 //引入连接数据库的文件
@@ -15,15 +15,14 @@ require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
 if(!empty($_SESSION) && isset($_SESSION['code'])){
-    $sql = "select * from productionmessage where status='0' order by time asc";
+    $sql = "select * from productionmessage order by time desc";
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findAll($query);
     $smarty->assign('isLog',true);
     $smarty->assign('result',$result);
     $smarty->assign('length',count($result));
     $smarty->assign('role',$_SESSION['role']);
-    $smarty->display('adminZP0.tpl');
+    $smarty->display('adminZPall.tpl');
 }else{
     $smarty->display('adminSignup.tpl');
 }
-?>

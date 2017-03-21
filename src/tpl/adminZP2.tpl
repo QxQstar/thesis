@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>作品管理——待审核作品</title>
+    <title>作品管理——已上线的作品</title>
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 
     <!-- 页面样式-->
@@ -21,8 +21,8 @@
             <input type="button" value="提交" class="btn f-float-l" id="submit">
         </div>
         <div class="info f-float-l">
-            <h1 class="on"><a href="/thesis/src/PHP/show/adminZP0.php">待审核</a> </h1>
-            <h1><a href="/thesis/src/PHP/show/adminZP2.php">已上线</a> </h1>
+            <h1 ><a href="/thesis/src/PHP/show/adminZP0.php">待审核</a> </h1>
+            <h1 class="on"><a href="/thesis/src/PHP/show/adminZP2.php">已上线</a> </h1>
             <h1><a href="/thesis/src/PHP/show/adminZPall.php">全部作品</a> </h1>
         </div>
     </div>
@@ -41,8 +41,6 @@
                         </p>
                         <div class="handle">
                             <span class="time">{$item.time}</span>
-                            <span class="agree" title="通过"></span>
-                            <span class="limit" title="不通过"></span>
                             {if $role gt 1}
                                 <span class="delete"></span>
                                 <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$item.zpCode}" class="link">
@@ -59,7 +57,7 @@
             <button type="button" class="page" id="prev">上一页</button>
             <button type="button" class="page" id="next">下一页</button>
         </div>
-        {else}
+    {else}
         <p>没有改类型的作品</p>
     {/if}
 </div>

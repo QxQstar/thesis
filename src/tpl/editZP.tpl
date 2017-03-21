@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>上传作品</title>
+    <title>修改作品</title>
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 
     <!-- 页面样式-->
@@ -28,7 +28,7 @@
                     <input type="text" name="status" id="status" value="{$zpMessage.status}" hidden>
                     <input type="text" placeholder="输入作品标题" id="title" name="title" data-info="标题" value="{$zpMessage.title}">
                 </div>
-                {if $zpMessage.status neq 1}
+                {if $zpMessage.status neq 2}
                 <div class="choiceImg f-marTop-20 f-marBtm-20">
                     <label for="img">
                         选择图片
@@ -37,7 +37,7 @@
                 </div>
                 {/if}
                 <!-- 图片预览-->
-                <div class="preview" id="preview">
+                <div class="preview f-marTop-10" id="preview">
                     <img src="/thesis/src/{$zpMessage.img}" id="preImg">
                 </div>
                 <div class="intro f-marBtm-20 f-marTop-10">

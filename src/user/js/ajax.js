@@ -28,20 +28,6 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                     alert(result.msg);
                     location.reload();
                 }
-                //自定义头像
-                if(url === 'setMessage'){
-                    if(result.status){
-                        if(result.url){
-                            location.href='/thesis/src/PHP/show/'+result.url;
-                        }else{
-                            location.reload();
-                        }
-
-                    }else{
-                        alert(result.msg);
-                        location.reload();
-                    }
-                }
                 //上传作品
                 if(url === 'issueZP'){
                     if(result.status){

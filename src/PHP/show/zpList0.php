@@ -15,10 +15,10 @@ require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
-if(isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <= 1){
+if(isset($_SESSION['email'])){
     $role = $_SESSION['role'];
     $email = $_SESSION['email'];
-    //这个设计师已经上线作品列表
+    //这个设计师待审核作品列表
     $sql = "select *  from productionmessage where email='$email' and status='0' order by time desc";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);

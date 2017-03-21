@@ -48,12 +48,17 @@ if(!empty($_POST) && isset($_SESSION['email']) && !isset($_POST['zpCode'])){
     exit();
 }
 //修改作品信息
-if(!empty($_POST) && isset($_SESSION['email']) && isset($_POST['zpCode'])){
+if(!empty($_POST) && (isset($_SESSION['email']) || isset($_SESSION['code'])) && isset($_POST['zpCode'])){
     $zpCode = $_POST['zpCode'];
     $arr = array('title'=>$_POST['title'],'desc'=>$_POST['intro']);
+    if(isset($_POST['admin'])){
+        $arr['status'] = '2';
+    }
     if(!empty($_FILES) && isset($_FILES['img'])){
-        //如果修改了图片就需要重新审核
-        $arr['status'] = '0';
+        //如果是设计师修改了图片就需要重新审核
+        if(!isset($_POST['admin'])){
+            $arr['status'] = '0';
+        }
         $allowExt=array('jpeg','jpg','png');
         $fileInfo = $_FILES['img'];
         $result=uploadFile($fileInfo,'./../../uploads',false,$allowExt);
@@ -66,9 +71,14 @@ if(!empty($_POST) && isset($_SESSION['email']) && isset($_POST['zpCode'])){
                 $result['status'] = 1;
                 $result['msg'] = '修改成功，等待管理员审核';
                 $result['url'] = 'zpList0.php';
+                if(isset($_POST['admin'])){
+                    $result['msg'] = '修改成功';
+                    $result['url'] = 'adminZPdetail.php?code='.$zpCode;
+                }
+
             }else{
                 $result['status'] = 0;
-                $result['msg'] = '修改成功';
+                $result['msg'] = '修改失败';
             }
         }
     }else{
@@ -77,6 +87,10 @@ if(!empty($_POST) && isset($_SESSION['email']) && isset($_POST['zpCode'])){
             $result['status'] = 1;
             $result['msg'] = '修改成功';
             $result['url'] = 'userCenter.php';
+            if(isset($_POST['admin'])){
+                $result['msg'] = '修改成功';
+                $result['url'] = 'adminZPdetail.php?code='.$zpCode;
+            }
         }else{
             $result['status'] = 0;
             $result['msg'] = '修改失败';

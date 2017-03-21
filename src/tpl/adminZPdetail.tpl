@@ -30,7 +30,7 @@
                     {/if}
                     {if $role gt 1}
                         <span class="delete"></span>
-                        <a href="#" class="link">
+                        <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$zpMessage.zpCode}" class="link">
                             <span class="edit"></span>
                         </a>
                     {/if}
@@ -39,7 +39,7 @@
         </div>
         <div class="authorBox">
             <div class="interBox f-text-c">
-                <a href="/thesis/src/PHP/show/designerHome.php?email='{$designMess.email}'">
+                <a href="/thesis/src/PHP/show/designerHome.php?role=admin&&email={$designMess.email}">
                     <img src="/thesis/src/{$designMess.img}" alt="设计师头像">
                 </a>
                 <p class="name f-text-c">{$designMess.name}</p>

@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: star
- * Date: 2017/3/14
- * Time: 10:38
+ * Date: 2017/3/21
+ * Time: 15:33
  */
 //设计师个人中心
 //引入smarty配置文件
@@ -16,10 +16,9 @@ $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
 if(isset($_SESSION['email'])){
-    $role = $_SESSION['role'];
     $email = $_SESSION['email'];
-    //这个设计师已经上线作品列表
-    $sql = "select *  from productionmessage where email='$email' and status='2' order by time desc";
+    //这个设计师审核未通过的作品列表
+    $sql = "select *  from productionmessage where email='$email' and status='1' order by time desc";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);
     $zpNum = count($zpList);
@@ -54,7 +53,7 @@ if(isset($_SESSION['email'])){
     $smarty->assign('noteNum',$noteNum);
     $smarty->assign('focusNum',$focusNum);
     $smarty->assign('focusList',$focusList);
-    $smarty->display('userCenter.tpl');
+    $smarty->display('zpList1.tpl');
 }
 //如果当前没有设计师账号登录
 else{

@@ -22,7 +22,7 @@ if(!empty($_GET)){
     $zpMessage = $mysql->findOne($query);
     $email = $zpMessage['email'];
     //这个设计师的其他作品
-    $sql = "select * from productionmessage where email='$email'and zpCode != '$code'limit 6";
+    $sql = "select * from productionmessage where email='$email'and zpCode != '$code'and status='2' limit 6";
     $query = $mysql->query($sql,$conn);
     $otherZP = $mysql->findAll($query);
     //这个设计师的信息

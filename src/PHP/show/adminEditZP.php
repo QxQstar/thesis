@@ -5,7 +5,7 @@
  * Date: 2017/3/20
  * Time: 15:58
  */
-//设计师修改作品
+//管理员修改作品
 //引入smarty配置文件
 require_once('./../config.php');
 //引入连接数据库的文件
@@ -14,7 +14,7 @@ require_once ('./../connect.php');
 require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
-if(!empty($_SESSION) && isset($_SESSION['email'])){
+if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_SESSION['role']) && $_SESSION['role'] > 1){
     $smarty->assign('isLog',true);
     if(!empty($_GET) && isset($_GET['zpCode'])){
         $zpCode = $_GET['zpCode'];
@@ -34,12 +34,11 @@ if(!empty($_SESSION) && isset($_SESSION['email'])){
         }else{
             $smarty->assign('activeCode',false);
         }
-        $smarty->display('editZP.tpl');
+        $smarty->display('adminEditZP.tpl');
     }else{
-        $smarty->assign('activeCode',false);
-       $smarty->display('upload.tpl');
+
     }
 }else{
-    $smarty->display('signup.tpl');
+    $smarty->display('adminSignup.tpl');
 }
 ?>

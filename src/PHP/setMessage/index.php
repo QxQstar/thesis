@@ -12,7 +12,7 @@ require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
 //选择的是系统头像或修改基本信息
-if(!empty($_POST) && !isset($_POST['customerImg'])&& isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <= 1){
+if(!empty($_POST) && !isset($_POST['customerImg'])&& isset($_SESSION['email'])){
     $arr = array();
     $email = $_SESSION['email'];
     if(isset($_POST['img'])){
@@ -34,7 +34,7 @@ if(!empty($_POST) && !isset($_POST['customerImg'])&& isset($_SESSION['email']) &
     exit();
 }
 //自定义头像
-if(!empty($_POST) && isset($_POST['customerImg'])&& isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <= 1){
+if(!empty($_POST) && isset($_POST['customerImg'])&& isset($_SESSION['email'])){
     $img = $_POST['customerImg'];
     $email = $_SESSION['email'];
     $url = explode(',', $img);
@@ -44,7 +44,7 @@ if(!empty($_POST) && isset($_POST['customerImg'])&& isset($_SESSION['email']) &&
     $a = file_put_contents('./../../uploads/'.$uniName.'.jpg',  base64_decode($url[1]));
     $result = $mysql->update('designermessage',$arr,"email='$email'",$conn);
     if($result){
-        echo json_encode(array('status'=>1,'msg'=>"修改成功"));
+        echo json_encode(array('status'=>1,'msg'=>"修改成功",'url'=>'userCenter.php'));
     }else{
         echo json_encode(array('status'=>0,'msg'=>"修改失败"));
     }

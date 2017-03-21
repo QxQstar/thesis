@@ -14,7 +14,7 @@ require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
-if(isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] <= 1){
+if(isset($_SESSION['email'])){
     $role = $_SESSION['role'];
     $email = $_SESSION['email'];
     //获得设计师基本信息

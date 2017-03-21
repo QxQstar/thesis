@@ -24,7 +24,7 @@ if(!empty($_POST) && isset($_POST['email']) && isset($_POST['password'])){
             session_start();
             $row = $mysql->findOne($query);
             $_SESSION['email'] = $row['email'];
-            $_SESSION['role'] = $row['role'];
+//            $_SESSION['role'] = $row['role'];
             $_SESSION['nickname'] = $row['nickname'];
             echo json_encode(array('status'=>1,'msg'=>'登录成功'));
         }else{

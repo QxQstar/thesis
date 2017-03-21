@@ -88,7 +88,7 @@ CustomerImg.prototype.__submit = function () {
     fd=new FormData();
 
     fd.append('customerImg',data);
-    ajax.submitForm(this.url,fd,true);
+    ajax.submitForm(this.url,fd,false);
 };
 /**
  * 判断是否支持自定义头像
@@ -96,7 +96,7 @@ CustomerImg.prototype.__submit = function () {
  * @private
  */
 CustomerImg.prototype.__isSupport = function () {
-    if(typeof Blob === 'function' && typeof FormData === 'function' && typeof FileReader && typeof window.atob === 'function'){
+    if(typeof Blob === 'function' && typeof FormData === 'function' && typeof FileReader ){
         return true;
     }else{
         return false;
