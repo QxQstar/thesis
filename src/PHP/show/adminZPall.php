@@ -15,7 +15,7 @@ require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
 if(!empty($_SESSION) && isset($_SESSION['code'])){
-    $sql = "select * from productionmessage order by time desc";
+    $sql = "select * from productionmessage order by likeNum desc,time asc";
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findAll($query);
     $smarty->assign('isLog',true);

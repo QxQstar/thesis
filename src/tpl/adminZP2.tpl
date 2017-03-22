@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 
     <!-- 页面样式-->
-    <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/production.css">
+    <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/zpList.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
 </head>
 <body>
@@ -41,6 +41,7 @@
                         </p>
                         <div class="handle">
                             <span class="time">{$item.time}</span>
+                            <span class="good">{$item.likeNum}</span>
                             {if $role gt 1}
                                 <span class="delete"></span>
                                 <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$item.zpCode}" class="link">
@@ -64,5 +65,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/zpList.js"></script>
 </body>
 </html>

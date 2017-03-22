@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 
     <!-- 页面样式-->
-    <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/production.css">
+    <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/zpList.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
 
     <!-- 作品列表-->
     {if $length gt 0}
-        <ul class="m-list f-marTop-30  f-center">
+        <ul class="m-list f-marTop-30  f-center" id="list">
             {foreach $result as $item}
                 <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="{$item.zpCode}">
                     <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
@@ -44,6 +44,8 @@
                             {if $item.status eq '0'}
                                 <span class="agree" title="通过"></span>
                                 <span class="limit" title="不通过"></span>
+                                {elseif $item.status eq '2'}
+                                <span class="good">{$item.likeNum}</span>
                             {/if}
                             {if $role gt 1}
                                 <span class="delete"></span>
@@ -68,5 +70,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/zpList.js"></script>
 </body>
 </html>
