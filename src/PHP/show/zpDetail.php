@@ -37,11 +37,38 @@ if(!empty($_GET)){
     $smarty->assign('designMess',$designMess);
     $smarty->assign('zpMessage',$zpMessage);
     $smarty->assign('otherZP',$otherZP);
-    $smarty->assign('role',$_SESSION['role']);
+    if(isset($_GET['role'])){
+        $smarty->assign('me',true);
+    }else{
+        $smarty->assign('me',false);
+    }
+    //判断设计师是否登录
     if(!empty($_SESSION) && isset($_SESSION['email'])){
         $smarty->assign('isLog',true);
+        $email = $_SESSION['email'];
+        $smarty->assign('curEmail',$email);
+        //判断当前登录的设计师是否对这个作品进行的点赞
+        $sql ="select id from good where email='$email'and zpCode='$code'";
+        $query=$mysql->query($sql,$conn);
+        if(mysqli_num_rows($query)){
+            $smarty->assign('like',true);
+        }else{
+            $smarty->assign('like',false);
+        }
+        //判断当前登录的设计师是否关注了这个作品的设计师
+        $zpAuthor = $zpMessage['email'];
+        $sql ="select id from focus where email='$email'and beEmail='$zpAuthor'";
+        $query=$mysql->query($sql,$conn);
+        if(mysqli_num_rows($query)){
+            $smarty->assign('focus',true);
+        }else{
+            $smarty->assign('focus',false);
+        }
     }else{
+        $smarty->assign('curEmail',false);
         $smarty->assign('isLog',false);
+        $smarty->assign('like',false);
+        $smarty->assign('focus',false);
     }
 
     $smarty->display('zpDetail.tpl');

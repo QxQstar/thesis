@@ -59,13 +59,13 @@
             <ul class="list f-clearfix">
                 {foreach $zpList as $item}
                     <li class="item f-float-l f-marBtm-10">
-                        <a class="img" href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}">
+                        <a class="img" href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}">
                             <img src="/thesis/src/{$item.img}">
                         </a>
                         <div class="desc">
                             <p class="title">{$item.title}</p>
                             <div class="desc">
-                                <span class="good">12</span>
+                                <span class="good">{$item.likeNum}</span>
                             </div>
                         </div>
                     </li>

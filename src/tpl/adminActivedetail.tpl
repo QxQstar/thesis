@@ -63,7 +63,7 @@
                     <div class="desc">
                         <p class="title">{$item.title}</p>
                         <div class="desc">
-                            <span class="good">12</span>
+                            <span class="good">{$item.likeNum}</span>
                         </div>
                     </div>
                 </li>

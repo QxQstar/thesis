@@ -28,7 +28,7 @@ if(isset($_SESSION['email'])){
     $query = $mysql->query($sql,$conn);
     $focusNum = mysqli_num_rows($query);
     //这个设计师关注的设计师
-    $sql = "select * from  focus where email ='$email'";
+    $sql = "select img,designermessage.email,nickname from  focus,designermessage where  focus.email='$email' and focus.beEmail=designermessage.email";
     $query = $mysql->query($sql,$conn);
     $focusList = $mysql->findAll($query);
     //该设计师未读的消息

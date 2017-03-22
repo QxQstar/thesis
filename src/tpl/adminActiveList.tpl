@@ -44,7 +44,7 @@
                             <div class="handle f-clearfix">
                                 <span class="time f-float-l">{$item.sTime}-{$item.eTime}</span>
                                 <div class="f-float-l right">
-                                    <span class="zp">20</span>
+                                    <span class="zp">{$item.zpNum}</span>
                                     <a href="/thesis/src/PHP/show/adminEditActive.php?code={$item.activeCode}" class="link">
                                         <span class="edit"></span>
                                     </a>

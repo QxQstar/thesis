@@ -34,7 +34,7 @@
                 <div class="desc">
                     <div class="handle">
                         <span class="time">{$item.sTime}-{$item.eTime}</span>
-                        <span class="zp">20</span>
+                        <span class="zp">{$item.zpNum}</span>
                     </div>
                 </div>
             </div>

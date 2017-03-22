@@ -16,25 +16,55 @@
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 当前作品-->
     <div class="m-curZp f-area-bg f-center f-marTop-30 f-paddLR-30 f-paddTopBtm-20">
-        <div class="zpBox">
+        <div class="zpBox" id="zpBox" >
             <img src="/thesis/src/{$zpMessage.img}">
             <div class="desc">
                 <p class="title">{$zpMessage.title}</p>
                 <p class="detail">{$zpMessage.desc}</p>
                 <div class="handle">
-                    <span class="good" title="已赞">12</span>
+                    {if $me eq true}
+                        {if $zpMessage.status eq '2'}
+                            <span class="mark on"></span>
+                            {elseif $zpMessage.status eq '1'}
+                            <span class="mark off"></span>
+                            {else}
+                            <span class="mark wait"></span>
+                        {/if}
+                    {/if}
+                    {if $zpMessage.status eq '2'}
+                        {if $like eq true}
+                            <span class="good on" title="取消点赞" status="gooded" data-code="{$zpMessage.zpCode}">{$zpMessage.likeNum}</span>
+                            {else}
+                            <span class="good" title="点赞" status="good" data-code="{$zpMessage.zpCode}">{$zpMessage.likeNum}</span>
+                        {/if}
+                    {/if}
                     <span class="time">{$zpMessage.time}</span>
                 </div>
             </div>
         </div>
         <div class="authorBox">
             <div class="interBox f-text-c">
-                <a href="/thesis/src/PHP/show/designerHome.php?email={$designMess.email}">
+                {if $curEmail eq false}
+                    <a href="/thesis/src/PHP/show/designerHome.php?email={$designMess.email}">
+                        {else}
+                        {if $curEmail eq $designMess.email}
+                            <a href="/thesis/src/PHP/show/userCenter.php">
+                                {else}
+                                <a href="/thesis/src/PHP/show/designerHome.php?email={$designMess.email}">
+                        {/if}
+                {/if}
                     <img src="/thesis/src/{$designMess.img}" alt="设计师头像">
                 </a>
 
                 <p class="name f-text-c">{$designMess.name}</p>
-                <button class="focus f-text-c" type="button">关注</button>
+                {if $curEmail neq $designMess.email}
+                    {if $focus eq true}
+                        <button class="focus f-text-c" id='focus' status="focused" type="button" data-code="{$designMess.email}">取消关注</button>
+                        {else}
+                        <button class="focus f-text-c" id='focus' status="focus" type="button" data-code="{$designMess.email}">关注</button>
+                    {/if}
+                {/if}
+
             </div>
         </div>
     </div>
@@ -45,7 +75,7 @@
             <ul class="list">
                 {foreach $otherZP as $item}
                     <li class="item f-float-l">
-                        <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
+                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}" class="img">
                             <img src="/thesis/src/{$item.img}">
                         </a>
                     </li>
@@ -60,7 +90,7 @@
     <div class="m-discuss f-marTop-30 f-center">
         <h1 class="title f-marBtm-10">
             评论
-            <span class="num">22</span>
+            <span class="num">{$zpMessage.discussNum}</span>
         </h1>
         <!-- 评论框-->
         <div class="discBox">

@@ -23,7 +23,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_GET['code'])){
     $smarty->assign('activeMess',$activeMess);
     $smarty->assign('isLog',true);
     //获得这个活动的作品
-    $sql = "select * from productionmessage where activeCode='$code' limit 8";
+    $sql = "select * from productionmessage where activeCode='$code'and status='2' limit 8";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);
     $smarty->assign('zpList',$zpList);
