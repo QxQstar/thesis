@@ -44,15 +44,15 @@
             <ul class="m-zpList zpList" id="zpList">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
-                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$zpItem.zpCode}" class="img">
+                        <a href="/thesis/src/PHP/show/zpDetail.php?role=me&&code={$zpItem.zpCode}" class="img">
                             <img src="/thesis/src/{$zpItem.img}">
                         </a>
                         <div class="desc">
                             <p class="title">{$zpItem.title}</p>
                             <div class="handel">
                                 <span class="time">{$zpItem.time}</span>
-                                <span class="good">34</span>
-                                <span class="discuss">34</span>
+                                <span class="good">{$zpItem.likeNum}</span>
+                                <span class="discuss">{$zpItem.discussNum}</span>
                                 <a href="#" class="link">
                                     <span class="delete"></span>
                                 </a>
@@ -81,10 +81,14 @@
                 {foreach $focusList as $focusItem}
                     <li class="item f-float-l">
                         <span class="delete"></span>
-                        <a class="#">
-                            <img src="./../user/img/header.jpg">
+                        <a href="/thesis/src/PHP/show/designerHome.php?email={$focusItem.email}">
+                            <img src="/thesis/src/{$focusItem.img}">
                         </a>
-                        <p class="name">设计师昵称</p>
+                        {if $focusItem.nickname neq null}
+                            <p class="name">{$focusItem.nickname}</p>
+                            {else}
+                            <p class="name">{$focusItem.email}</p>
+                        {/if}
                     </li>
                     {foreachelse}
                     还没有关注的设计师

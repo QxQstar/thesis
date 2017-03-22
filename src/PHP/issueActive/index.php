@@ -35,7 +35,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_POST) && !empty($_F
         $path = $result['path'];
         $name = explode('uploads',$path);
         //活动正在进行为‘1’，即将进行为‘2’，已结束为‘0’
-        $arr = array('img'=>'uploads'.$name[1],'sTime'=>$sTime,'eTime'=>$eTime,'title'=>$title,'intro'=>$desc,'status'=>$status);
+        $arr = array('img'=>'uploads'.$name[1],'sTime'=>$sTime,'eTime'=>$eTime,'title'=>$title,'intro'=>$desc,'status'=>$status,'zpNum'=>0);
         $inseresult = $mysql->insert('activemessage',$arr,$conn);
         if(!$inseresult){
             $result['status'] = 0;

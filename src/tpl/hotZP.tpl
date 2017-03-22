@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>作品列表-新作品</title>
+    <title>作品列表-热门作品</title>
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/production.css">
@@ -21,10 +21,10 @@
             <input type="button" value="提交" class="btn f-float-l" id="submit">
         </div>
         <div class="info f-float-l">
-            <h1>
+            <h1 class="on">
                 <a href="/thesis/src/PHP/show/hotZP.php">热门作品</a>
             </h1>
-            <h1 class="on">
+            <h1 >
                 <a href="/thesis/src/PHP/show/newZP.php">最新作品</a>
             </h1>
         </div>
@@ -42,7 +42,7 @@
                         <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}">{$item.title}</a>
                     </p>
                     <div class="handle">
-                        <span class="time">{$item.time}</span>
+                        <span class="good">{$item.likeNum}</span>
                     </div>
                 </div>
             </li>

@@ -100,10 +100,16 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 //设计师登录
                 if(url === 'signup'){
                     if(result.status){
-                        if(prevUrl.indexOf('signup') > 0){
-                            location.href = '/thesis/src/html/index.html';
+                        var curUrl = location.href;
+                        if(curUrl.indexOf('nextUrl') > 0){
+                            location.href = location.hash.split('nextUrl=')[1];
                         }else{
-                            location.href = prevUrl;
+                            if(prevUrl.indexOf('signup') > 0){
+                                location.href = '/thesis/src/html/index.html';
+                            }else{
+                                location.href = prevUrl;
+                            }
+
                         }
                     }else{
                         alert(result.msg);
@@ -172,6 +178,97 @@ Ajax.prototype.signout = function (url,role) {
                     location.href = '/thesis/src/PHP/show/adminSignup.php';
                 }else{
                     location.href = '/thesis/src/html/index.html';
+                }
+            }
+        }
+    });
+};
+/**
+ * 审核作品
+ * @param data 要提交的数据，对象。包括作品编号和是否通过审核
+ */
+Ajax.prototype.checkZP = function (data) {
+    $.ajax({
+        type:'POST',
+        data:data,
+        url:'/thesis/src/PHP/checkZP/index.php',
+        dataType:'json',
+        success:function (result) {
+            location.reload();
+        }
+    });
+};
+/**
+ * 点赞
+ * @param data 要提交的数据
+ * @param elem 被点击的元素
+ */
+Ajax.prototype.thumb = function (data,elem) {
+    $.ajax({
+        type:'POST',
+        data:data,
+        url:"/thesis/src/PHP/thumb/index.php",
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                elem.text(result.data);
+                if(data.control){
+                    elem
+                        .addClass('on')
+                        .attr({
+                            'status':'gooded',
+                            'title':'取消点赞'
+                        })
+                }else{
+                    elem
+                        .removeClass('on')
+                        .attr({
+                            'status':'good',
+                            'title':'点赞'
+                        })
+
+                }
+            }else{
+                if(result.url){
+                    var curUrl;
+                    curUrl = location.href;
+                    location.href = '/thesis/src/PHP/show/'+result.url+'#nextUrl='+curUrl;
+                }
+            }
+        }
+    });
+};
+/**
+ * 关注
+ * @param data 要提交的数据
+ * @param elem 按钮
+ */
+Ajax.prototype.focus = function (data,elem) {
+    $.ajax({
+        type:'POST',
+        data:data,
+        url:"/thesis/src/PHP/focus/index.php",
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                elem.text(result.data);
+                if(data.control){
+                    elem
+                        .attr({
+                            'status':'focused'
+                        })
+                }else{
+                    elem
+                        .attr({
+                            'status':'focus'
+                        })
+
+                }
+            }else{
+                if(result.url){
+                    var curUrl;
+                    curUrl = location.href;
+                    location.href = '/thesis/src/PHP/show/'+result.url+'#nextUrl='+curUrl;
                 }
             }
         }

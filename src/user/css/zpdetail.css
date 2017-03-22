@@ -42,12 +42,34 @@
     height: 16px;
     background-image: url('./../img/icon.png');
 }
+.g-main .desc .mark{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+.g-main .desc .mark:before{
+    width: 80px;
+    height: 80px;
+}
+.g-main .desc .mark.on:before{
+    background-position: -654px 0;
+}
+.g-main .desc .mark.off:before{
+    background-position: -736px 0;
+}
+.g-main .desc .mark.wait:before{
+    background-position: -818px 0;
+}
 .g-main .desc .good:before{
     width: 16px;
     background-position: -275px 0;
 }
 .g-main .desc .good:hover:before{
     background-position: -293px 0;
+}
+.g-main .desc .like:before{
+    width: 16px;
+    background-position: -54px 0;
 }
 .g-main .desc .good.on:before{
     background-position: -293px 0;

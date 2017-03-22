@@ -8,7 +8,18 @@ module.exports = {
         'common':'./src/common/js/common.js',
         'index':'./src/user/js/index.js',
         'zpDetail':'./src/user/js/zpDetail.js',
-        'signin':'./src/user/js/signin.js'
+        'signin':'./src/user/js/signin.js',
+        'upload':'./src/user/js/upload.js',
+        'signup':'./src/user/js/signup.js',
+        'adminSignup':'./src/user/js/adminSignup.js',
+        'addActive':'./src/user/js/addActive.js',
+        'setMessage':'./src/user/js/setMessage.js',
+        'systemAdmin':'./src/user/js/systemAdmin.js',
+        'verify':'./src/user/js/verify.js',
+        'adminSignin':'./src/user/js/adminSignin.js',
+        'adminDesSignin':'./src/user/js/adminDesSignin.js',
+        'zpList':'./src/user/js/zpList.js',
+        'jQuery':['jquery']
     },
     output:{
         path:'./src/user/build/',

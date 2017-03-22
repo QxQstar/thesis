@@ -15,14 +15,21 @@
 <!-- 主要内容-->
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 当前作品-->
-    <div class="m-curZp f-area-bg f-center f-marTop-30 f-paddLR-30 f-paddTopBtm-20">
-        <div class="zpBox">
+    <div class="m-curZp f-area-bg f-center f-marTop-30 f-paddLR-30 f-paddTopBtm-20" id="curZP">
+        <div class="zpBox item" data-code="{$zpMessage.zpCode}">
             <img src="/thesis/src/{$zpMessage.img}">
             <div class="desc">
                 <p class="title">{$zpMessage.title}</p>
                 <p class="detail">{$zpMessage.desc}</p>
                 <div class="handle">
-                    <span class="good" title="已赞">12</span>
+                    {if $zpMessage.status eq '2'}
+                        <span class="mark on"></span>
+                    {elseif $zpMessage.status eq '1'}
+                        <span class="mark off"></span>
+                    {else}
+                        <span class="mark wait"></span>
+                    {/if}
+                    <span class="like" title="已赞">{$zpMessage.likeNum}</span>
                     <span class="time">{$zpMessage.time}</span>
                     {if $zpMessage.status eq '0'}
                         <span class="agree" title="通过"></span>
@@ -69,7 +76,7 @@
     <div class="m-discuss f-marTop-30 f-center">
         <h1 class="title f-marBtm-10">
             评论
-            <span class="num">22</span>
+            <span class="num">{$zpMessage.discussNum}</span>
         </h1>
         <!-- 评论框-->
         {*<div class="discBox">*}

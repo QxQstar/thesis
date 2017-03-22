@@ -33,7 +33,7 @@ if(!empty($_POST) && isset($_SESSION['email']) && !isset($_POST['zpCode'])){
     if($result['status']){
         $path = $result['path'];
         $name = explode('uploads',$path);
-        $arr = array('img'=>'uploads'.$name[1],'title'=>$title,'desc'=>$intro,'email'=>$email,'activeCode'=>$activeCode,'time'=>$time,'status'=>'0');
+        $arr = array('img'=>'uploads'.$name[1],'title'=>$title,'desc'=>$intro,'email'=>$email,'activeCode'=>$activeCode,'time'=>$time,'status'=>'0','likeNum'=>0,'discussNum'=>0);
         $inseresult = $mysql->insert('productionmessage',$arr,$conn);
         if(!$inseresult){
             $result['status'] = 0;
@@ -53,6 +53,16 @@ if(!empty($_POST) && (isset($_SESSION['email']) || isset($_SESSION['code'])) && 
     $arr = array('title'=>$_POST['title'],'desc'=>$_POST['intro']);
     if(isset($_POST['admin'])){
         $arr['status'] = '2';
+        //获得这个作品的活动编号
+        $sql = "select activeCode ,status from productionmessage where zpCode='$zpCode'";
+        $query = $mysql->query($sql,$conn);
+        $zpMess = $mysql->findOne($query);
+        //如果这个活动存在，就让这个活动的作品数加一
+        if($zpMess['activeCode'] != 0 && $zpMess['status'] != '2'){
+            $activeCode = $zpMess['activeCode'];
+            $sql = "update activemessage set zpNum=zpNum+1 where activeCode = '$activeCode'";
+            mysqli_query($conn,$sql);
+        }
     }
     if(!empty($_FILES) && isset($_FILES['img'])){
         //如果是设计师修改了图片就需要重新审核
