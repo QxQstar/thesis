@@ -81,7 +81,7 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 if(url ==='adminDesSignin'){
                     if(result.status){
                         alert(result.msg);
-                        location.href = '/thesis/src/html/adminUserList.html';
+                        location.href = '/thesis/src/PHP/show/adminDesiList.php';
                     }else{
                         alert(result.msg);
                         location.reload();
@@ -91,7 +91,8 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 if(url ==='adminSignin'){
                     if(result.status){
                         alert(result.msg);
-                        location.href = '/thesis/src/html/adminUserList.html';
+                        location.href = '/thesis/src/PHP/show/adminAdList.php';
+
                     }else{
                         alert(result.msg);
                         location.reload();
@@ -105,7 +106,7 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                             location.href = location.hash.split('nextUrl=')[1];
                         }else{
                             if(prevUrl.indexOf('signup') > 0){
-                                location.href = '/thesis/src/html/index.html';
+                                location.href = '/thesis/src/PHP/show/index.php';
                             }else{
                                 location.href = prevUrl;
                             }
@@ -120,7 +121,7 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 if(url === 'adminSignup'){
                     if(result.status){
                         if(prevUrl.indexOf('adminSignup') >= 0){
-                            location.href = '/thesis/src/html/adminUserList.html';
+                            location.href = '/thesis/src/PHP/show/adminZP0.php';
                         }else{
                             location.href = prevUrl;
                         }
@@ -129,7 +130,7 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                         location.reload();
                     }
                 }
-                //修改头像——系统提供的头像 和基本信息
+                //设计师修改自己的资料
                 if(url === 'setMessage'){
                     if(result.status){
                         if(result.url){
@@ -154,6 +155,15 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                             location.reload();
                         }
 
+                    }
+                }
+                //管理员修改设计师的资料
+                if(url === 'adminSetMessage'){
+                    if(result.status && result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }else{
+                        alert(result.msg);
+                        location.reload();
                     }
                 }
             }
@@ -258,11 +268,14 @@ Ajax.prototype.focus = function (data,elem) {
                             'status':'focused'
                         })
                 }else{
-                    elem
-                        .attr({
-                            'status':'focus'
-                        })
-
+                    if(data.loadimg){
+                        location.reload();
+                    }else{
+                        elem
+                            .attr({
+                                'status':'focus'
+                            })
+                    }
                 }
             }else{
                 if(result.url){

@@ -34,9 +34,23 @@ Shear.prototype.start = function (previewBox) {
  * 显示出canvas
  */
 Shear.prototype.showCanvas = function () {
-    var preImg,h,w,me,cvsH,cvsW,rateH,rateW;
+    var preImg,h,w,me,cvsH,cvsW,rateH,rateW,naturalH,naturalW;
     me = this;
     preImg = this.previewBox.find('#preImg');
+    naturalH = preImg[0].naturalHeight;
+    naturalW = preImg[0].naturalWidth;
+    if(naturalH > naturalW && naturalH > 450){
+        preImg.css({
+            height:'450px',
+            width:'auto'
+        })
+    }
+    if(naturalH < naturalW && naturalW > 450){
+        preImg.css({
+            width:'450px',
+            height:'auto'
+        })
+    }
     h = preImg.height();
     w = preImg.width();
     if(h < this.maxH || w < this.maxW){
@@ -46,8 +60,14 @@ Shear.prototype.showCanvas = function () {
         this.cvsMove[0].width= cvsW = this.maxW;
         this.cvsMove[0].height= cvsH = this.maxH;
     }
-    rateH = h/preImg[0].naturalHeight;
-    rateW = w/preImg[0].naturalWidth;
+    rateH = h/naturalH;
+    rateW = w/naturalW;
+    //把canvas置于（0,0）
+    this.cvsMove
+        .css({
+            'top':0,
+            'left':0
+        });
     this.__drawImg(preImg,0,0,cvsW/rateW,cvsH/rateH,0,0,cvsW,cvsH);
     this.cvsMove.draggable(
         {

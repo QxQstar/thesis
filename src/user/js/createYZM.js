@@ -15,7 +15,7 @@ function CreateYZM() {
 CreateYZM.prototype.start = function (yzmBox) {
     var me;
     me = this;
-    if(!yzmBox) return false;
+    if(!yzmBox || yzmBox.length < 1) return false;
 
    this.yzmBox = yzmBox;
    this.isSupport = this.__isSupportCanvas();

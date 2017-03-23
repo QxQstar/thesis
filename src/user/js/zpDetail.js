@@ -68,6 +68,7 @@ function focusHandle(event) {
     }else{
         data.control = 1;
     }
+    data.loadimg = false;
     ajax.focus(data,$target);
 }
 focus($('#focus'));

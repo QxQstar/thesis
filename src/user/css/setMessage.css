@@ -1,26 +1,41 @@
 .g-main .m-setMessage{
+    position: relative;
     width: 790px;
 }
+.g-main .m-adminCenter{
+    width: 590px;
+}
 @media all and (max-width: 800px){
-    .g-main .m-setMessage{
+    .g-main .m-setMessage,
+    .g-main .m-adminCenter{
         width: 90%;
     }
 }
-.g-main .m-setMessage .head h1{
+.g-main .m-setMessage .head h1,
+.g-main .m-adminCenter .head h1{
     font-size: 18px;
     color: #333333;
     font-weight: normal;
     line-height: 1.7;
 }
-.g-main .m-setMessage .head{
+.g-main .m-setMessage .head,
+.g-main .m-adminCenter .head{
     width: 100%;
     border-bottom: 1px solid #888888;
 }
 .g-main .m-setMessage .save{
+    position: absolute;
+    right: 30px;
+    top: 20px;
     background-color: #ff3300;
     padding: 5px 20px;
     font-size: 14px;
     color: #ffffff;
+}
+@media all and (max-width: 600px){
+    .g-main .m-setMessage .save{
+        top: 10px;
+    }
 }
 .g-main .m-setMessage .img{
     width: 150px;
@@ -34,14 +49,17 @@
     color: #444444;
     line-height: 1.7;
     cursor: pointer;
+    background-color: transparent;
 }
 .g-main .m-setMessage .upload:hover{
     color: #ff3300;
 }
-.g-main .m-setMessage .item{
+.g-main .m-setMessage .item,
+.g-main .m-adminCenter .item{
     position: relative;
     font-size: 15px;
-    color: #444444;margin-bottom: 15px;
+    color: #444444;
+    margin-bottom: 20px;
 }
 .g-main .m-setMessage .item input{
     height: 35px;
@@ -55,7 +73,7 @@
 .g-main .m-setMessage .info{
     position: absolute;
     right: 0;
-    bottom: -10px;
+    bottom: -15px;
     color: #444;
     font-size: 12px;
 
@@ -69,16 +87,24 @@
     padding-top: .5em;
     color: #888888;
 }
-.g-main .m-setMessage .link a+a{
+.g-main .m-setMessage .link a+a,
+.g-main .m-adminCenter .link a +a{
     margin-left: 5px;
 }
-.g-main .m-setMessage .link a{
+.g-main .m-setMessage .link a,
+.g-main .m-adminCenter .link a{
     font-size: 14px;
     color: #444444;
     text-decoration: underline;
 }
-.g-main .m-setMessage .link a:hover{
+.g-main .m-setMessage .link a:hover,
+.g-main .m-adminCenter .link a:hover{
     color: #ff3300;
+}
+@media all and (max-width: 900px){
+    .g-main .m-setMessage .upload{
+        display: none;
+    }
 }
 @media all and (max-width: 600px) {
     .g-main .m-setMessage .img,
@@ -93,9 +119,7 @@
     .g-main .m-setMessage img{
         border-radius: 50%;
     }
-    .g-main .m-setMessage .upload{
-        display: none;
-    }
+
     .g-main .m-setMessage .item input{
         width: 180px;
     }
@@ -111,4 +135,171 @@
     .g-main .m-setMessage .link a{
         color: #ff3300;
     }
+}
+
+.g-main .m-Img{
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: rgba(0,0,0,.8);
+}
+.g-main .m-Img .warpBox{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    height: 550px;
+    width: 1000px;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+.g-main .m-Img .close{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -30px;
+    top:0;
+    cursor: pointer;
+    background: url('./../img/icon.png') -560px 0;
+}
+.g-main .m-Img .cvsMove{
+    position: absolute;
+    z-index: 12;
+    outline: 2px dotted #333;
+    cursor: move;
+}
+.g-main .m-Img .col-1{
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    width: 450px;
+    background-color: #ebebeb;
+}
+.g-main .m-Img .preview{
+    display: inline-block;
+    position: relative;
+}
+.g-main .m-Img .mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: #646464;
+    opacity: 0.6;
+    z-index: 10;
+}
+.g-main .m-Img .imgListBox{
+    width: 100%;
+    height: 90%;
+}
+.g-main .m-Img .sure{
+    width: 230px;
+    margin-left: -230px;
+}
+.g-main .m-Img .imgList{
+    margin-right: 240px;
+    margin-left: -10px;
+    border: 1px solid #eeeeee;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 10px;
+}
+.g-main .m-Img .item{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 10px 0 0 10px;
+    cursor: pointer;
+}
+.g-main .m-Img .addItem{
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    color: #555;
+    font-size: 12px;
+}
+.g-main .m-Img .warp img{
+    width: 100%;
+}
+.g-main .m-Img .systemBtn{
+    height: 35px;
+    width: 120px;
+    background-color: #888888;
+    color: #FFFFFF;
+}
+.g-main .m-Img .systemBtn.on{
+    background-color: #ff3300;
+}
+.g-main .m-Img .item span{
+    position: absolute;
+    height: 20px;
+    width: 24px;
+    right: 0;
+    bottom: 1px;
+    z-index: 10;
+    opacity: 0;
+    background: url('../../user/img/icon.png');
+}
+.g-main .m-Img .item .on{
+    opacity: 1;
+    background-position: -533px 0;
+}
+.g-main .m-Img .customer{
+    display: none;
+}
+.g-main .m-Img .customer img{
+    width: auto;
+    height: auto;
+}
+.g-main .m-Img label{
+    font-size: 40px;
+    color: #888;
+    font-weight: bold;
+    cursor: pointer;
+}
+.g-main .m-Img .thum{
+    margin-left: 20px;
+}
+.g-main .m-Img .thum p{
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.7;
+}
+.g-main .m-Img .thum button{
+    height: 35px;
+    width: 100px;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #ff3300;
+}
+.g-main .m-Img .thum .reset{
+    background-color: #888888;
+}
+
+.g-main .m-editAdmin input,
+.g-main .m-editAdmin select {
+    height:30px;
+    width: 200px;
+    outline: none;
+    padding: 0 5px;
+    color: #666666;
+    font-size: 14px;
+}
+.g-main .m-editAdmin span{
+    display: inline-block;
+    width: 34px;
+}
+.g-main .m-editAdmin .submit{
+    height: 30px;
+    width: 80px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #ff3300;
 }
