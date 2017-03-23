@@ -24,8 +24,8 @@ if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
             $sql = "select img from headimg";
             $query = $mysql->query($sql,$conn);
             $row = $mysql->findOne($query);
-
-            $arr = array('email'=>$email,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0);
+            $time = date('Y-m-d');
+            $arr = array('email'=>$email,'time'=>$time,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0);
             $insertresult = $mysql->insert('designermessage',$arr,$conn);
             if($insertresult){
                 echo json_encode(array('status'=>1,'msg'=>'注册成功','role'=>$role));

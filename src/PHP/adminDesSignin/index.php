@@ -10,7 +10,6 @@ require_once('./../config.php');
 require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
-    //注册的是设计师
     $email = $_POST['email'];
     $password = $_POST['password'];
     $role = 0;
@@ -24,8 +23,8 @@ if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
         $sql = "select img from headimg";
         $query = $mysql->query($sql,$conn);
         $row = $mysql->findOne($query);
-
-        $arr = array('email'=>$email,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0);
+        $time = date('Y-m-d');
+        $arr = array('email'=>$email,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0,'time'=>$time);
         $insertresult = $mysql->insert('designermessage',$arr,$conn);
         if($insertresult){
             echo json_encode(array('status'=>1,'msg'=>'注册成功','role'=>$role));
