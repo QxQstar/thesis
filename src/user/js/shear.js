@@ -14,16 +14,20 @@ function Shear() {
     this.maxW = 200;
     this.maxH = 200;
     this.thum = null;
+    this.fileType = 'image/jpeg';
 }
 /**
  * 入口
  * @param previewBox 预览元素的父元素
  * @returns {Shear}
  */
-Shear.prototype.start = function (previewBox) {
+Shear.prototype.start = function (previewBox,fileType) {
     if(!arguments.length) return this;
     var me = this;
     this.previewBox = arguments[0];
+    if(fileType){
+        this.fileType = fileType;
+    }
     this.thum = this.previewBox.find('#thum');
     this.cvsMove = this.previewBox.find('#cvsMove');
     this.showCanvas();
@@ -101,7 +105,7 @@ Shear.prototype.__drawImg = function (myImg,sx,sy,sW,sH,dx,dy,dW,dH) {
     cxt.drawImage(myImg[0],sx,sy,sW,sH,dx,dy,dW,dH);
     thum = this.thum;
     thum
-        .attr('src',this.cvsMove[0].toDataURL('image/jpeg',1))
+        .attr('src',this.cvsMove[0].toDataURL(me.fileType,1))
         .width(this.maxW)
         .height(this.maxH)
 };

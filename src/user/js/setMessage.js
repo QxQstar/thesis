@@ -19,7 +19,7 @@ if(adminLen > 0){
 }
 
 var customerImg = require('./customerImg');
-if(adminLen < 0){
+if(adminLen <= 0){
     customerImg.start($('#warp'),$('#customer'),'setMessage');
 }
 

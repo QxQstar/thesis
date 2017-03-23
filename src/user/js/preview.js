@@ -10,6 +10,7 @@ function Preview() {
     this.boxElem = null;
     this.fileParent = null;
     this.callback = null;
+    this.type = null;
 }
 /**
  * 入口
@@ -41,6 +42,7 @@ Preview.prototype.fileChange = function (event) {
     me = this;
     file = target.files[0];
     type = file.type;
+    this.type = type;
     if(type !== 'image/png' && type !== 'image/jpg' && type !== 'image/jpeg'){
         alert('文件格式不正确');
         if(this.boxElem.attr('id') !== this.fileParent.attr('id')){
@@ -61,7 +63,7 @@ Preview.prototype.fileChange = function (event) {
  * @param reader fileReader对象
  */
 Preview.prototype.show = function (reader) {
-    var preView,img,controlW,controlH,checkSize;
+    var preView,img,controlW,controlH,checkSize,loaded,me;
     this.boxElem.show();
     if(this.fileParent.attr('id') !== this.boxElem.attr('id')){
         this.fileParent.find('#warp').hide();
@@ -93,35 +95,43 @@ Preview.prototype.show = function (reader) {
         }
         return true;
     };
+    me = this;
+    //图片加载结束的处理程序
+    loaded = function () {
+        if(me.callback){
+            me.callback(me.type);
+        }
+    };
     img = preView.find('#preImg');
     if(img.length > 0 && img.attr('src')){
+        img
+            .unbind('load')
+            .on('load',loaded);
         img
             .attr({
                 'presrc': img.attr('src'),
                 'src':reader.result
             });
-
         img.attr('style','');
         if(!checkSize(img,true)){
             return this;
         }
 
     }else{
-        if(img.length < 1){
-            preView.append($('<img id="preImg" src="'+ reader.result +'"/>'));
-            img = preView.find('#preImg');
-        }else{
-            img = preView.find('#preImg');
-            img.attr('src',reader.result);
+        if(img.length < 1) {
+            preView.append($('<img id="preImg"/>'));
         }
+        img = preView.find('#preImg');
+        img
+            .unbind('load')
+            .on('load',loaded);
+        img.attr('src',reader.result);
 
         if(!checkSize(img,false)){
             return this;
         }
     }
-    if(this.callback){
-        this.callback();
-    }
+
 
 };
 /**

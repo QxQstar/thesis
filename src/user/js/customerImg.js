@@ -27,6 +27,7 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
     me = this;
     this.isSupport = this.__isSupport();
     warpBox = warp.parent();
+    console.log(this.isSupport);
     if(!this.isSupport) {
         addButton = $('<p class="addItem f-float-l f-text-c">你的浏览器不支持自定义头像，可更换高版本的浏览器自定义头像</p>');
         warpBox.append(addButton);
@@ -85,9 +86,9 @@ CustomerImg.prototype.__submit = function () {
     var cvsMove,data,ia,blob,fd;
     cvsMove = this.previewBox.find('#cvsMove');
     data = cvsMove[0].toDataURL('image/jpg',1);
-    fd=new FormData();
-
-    fd.append('customerImg',data);
+    fd = {
+        'customerImg':data
+    };
     ajax.submitForm(this.url,fd,false);
 };
 /**
@@ -96,7 +97,9 @@ CustomerImg.prototype.__submit = function () {
  * @private
  */
 CustomerImg.prototype.__isSupport = function () {
-    if(typeof Blob === 'function' && typeof FormData === 'function' && typeof FileReader ){
+    var canvas;
+    canvas= document.createElement('canvas');
+    if(typeof FileReader === 'function'&& canvas.getContext && canvas.toDataURL){
         return true;
     }else{
         return false;
