@@ -11,5 +11,6 @@ require_once('./../config.php');
 if(isset($_SESSION['code'])){
     unset($_SESSION['code']);
 }
+$smarty->assign('role',$_SESSION['role']);
 $smarty->display('adminFindPW.tpl');
 ?>

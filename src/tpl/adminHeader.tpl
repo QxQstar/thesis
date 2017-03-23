@@ -11,15 +11,19 @@
             <li class="item f-float-l">
                 <a href="/thesis/src/PHP/show/adminZP0.php">作品管理</a>
             </li>
+            {if $role gt 1}
             <li class="item f-float-l">
-                <a href="#">用户管理</a>
+                <a href="/thesis/src/PHP/show/adminDesiList.php">用户管理</a>
             </li>
+            {/if}
             <li class="item f-float-l">
                 <a href="/thesis/src/PHP/show/adminActiveList.php">活动管理</a>
             </li>
-            <li class="item f-float-l">
-                <a href="/thesis/src/PHP/show/adminHeadImg.php">系统管理</a>
-            </li>
+            {if $role gt 2}
+                <li class="item f-float-l">
+                    <a href="/thesis/src/PHP/show/adminHeadImg.php">系统管理</a>
+                </li>
+            {/if}
             <!-- 在手机上显示,登录之后将改成个人中心和退出登录-->
             {if $isLog eq false}
                 <li class="item f-float-l phone">

@@ -20,6 +20,7 @@ if(isset($_SESSION['adminFindPW'])){
     }else{
         $smarty->assign('isLog',false);
     }
+    $smarty->assign('role',$_SESSION['role']);
     $smarty->display('adminSetPW.tpl');
 }else{
     $smarty->display('adminFindPW.tpl');

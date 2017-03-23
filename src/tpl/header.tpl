@@ -9,13 +9,13 @@
         </div>
         <ul class="navList f-clearfix" id="navList">
             <li class="item f-float-l">
-                <a href="#">首页</a>
+                <a href="/thesis/src/PHP/show/index.php">首页</a>
             </li>
             <li class="item f-float-l">
                 <a href="/thesis/src/PHP/show/hotZP.php">作品</a>
             </li>
             <li class="item f-float-l">
-                <a href="#">设计师</a>
+                <a href="/thesis/src/PHP/show/desiginerList.php">设计师</a>
             </li>
             <li class="item f-float-l">
                 <a href="/thesis/src/PHP/show/activeList.php">活动</a>

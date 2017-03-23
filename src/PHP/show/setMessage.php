@@ -15,7 +15,6 @@ $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
 if(isset($_SESSION['email'])){
-    $role = $_SESSION['role'];
     $email = $_SESSION['email'];
     //获得设计师基本信息
     $sql = "select * from designermessage where email='$email'";

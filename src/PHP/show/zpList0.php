@@ -16,7 +16,6 @@ $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
 if(isset($_SESSION['email'])){
-    $role = $_SESSION['role'];
     $email = $_SESSION['email'];
     //这个设计师待审核作品列表
     $sql = "select *  from productionmessage where email='$email' and status='0' order by time desc";

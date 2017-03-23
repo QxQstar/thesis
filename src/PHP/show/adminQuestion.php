@@ -31,6 +31,7 @@ if(!empty($_SESSION) && ( isset($_SESSION['adminFindPW']) || isset($_SESSION['ad
     $sql = "select * from adminmessage where code='$findPW' and hasQuestion='1'";
     $query  = $mysql->query($sql,$conn);
     $num = mysqli_num_rows($query);
+    $smarty->assign('role',$_SESSION['role']);
     if($num){
         $result = $mysql->findOne($query);
         $smarty->assign('name',$findPW);

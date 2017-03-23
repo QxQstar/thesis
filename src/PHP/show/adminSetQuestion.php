@@ -22,6 +22,7 @@ if(isset($_SESSION['adminQuestion']) && isset($_SESSION['code']) && $_SESSION['a
     $result = $mysql->findAll($query);
 
     $smarty->assign('list',$result);
+    $smarty->assign('role',$_SESSION['role']);
     $smarty->display('adminSetQuestion.tpl');
 }else{
     $smarty->display('adminSignup.tpl');

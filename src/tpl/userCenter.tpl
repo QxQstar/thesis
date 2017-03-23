@@ -75,12 +75,12 @@
         {/if}
 
         <!-- 关注-->
-        <div class="m-focus">
+        <div class="m-focus" id="focusList">
             <h2 class="title">关注的设计师</h2>
             <ul class="list f-clearfix">
                 {foreach $focusList as $focusItem}
                     <li class="item f-float-l">
-                        <span class="delete"></span>
+                        <span class="delete" data-code="{$focusItem.email}"></span>
                         <a href="/thesis/src/PHP/show/designerHome.php?email={$focusItem.email}">
                             <img src="/thesis/src/{$focusItem.img}">
                         </a>
@@ -103,5 +103,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/userCenter.js"></script>
 </body>
 </html>

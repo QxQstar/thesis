@@ -12,6 +12,7 @@ session_start();
 if(!empty($_SESSION) && isset($_SESSION['code'])){
     $smarty->assign('isLog',true);
     $smarty->assign('name',$_SESSION['code']);
+    $smarty->assign('role',$_SESSION['role']);
     $smarty->display('adminPW.tpl');
 }else{
     $smarty->display('adminSignup.tpl');

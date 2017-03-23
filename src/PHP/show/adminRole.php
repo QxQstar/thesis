@@ -17,11 +17,13 @@ session_start();
 //如果当前有一个管理员账号登录
 if(isset($_SESSION['code']) && isset($_SESSION['role'])){
     $role = $_SESSION['role'];
+    $smarty->assign('role',$role);
     if($role >2){
         $sql = "select * from role";
         $query  = $mysql->query($sql,$conn);
         $list = $mysql->findAll($query);
         $smarty->assign('list',$list);
+        $smarty->assign('isLog',true);
         $smarty->display('roleAdmin.tpl');
     }else{
         $smarty->display('limit.tpl');

@@ -21,6 +21,7 @@ if(!empty($_GET) && isset($_GET['email'])){
     }
     if(isset($_GET['role'])){
         $smarty->assign('admin',true);
+        $smarty->assign('role',$_SESSION['role']);
         $smarty->assign('isLog',true);
     }else{
         $smarty->assign('admin',false);

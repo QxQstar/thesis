@@ -15,7 +15,7 @@ require_once ('./../connect.php');
 require_once ('./../common/mysql.class.php');
 session_start();
 $mysql = new mysql();
-$sql = "select * from productionmessage where status='2' order by time desc";
+$sql = "select * from productionmessage where status='2' order by time desc,likeNum desc";
 $query = $mysql->query($sql,$conn);
 $result = $mysql->findAll($query);
 if(isset($_SESSION['email'])){

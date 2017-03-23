@@ -34,6 +34,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_SESSION['role']) && 
         }else{
             $smarty->assign('activeCode',false);
         }
+        $smarty->assign('role',$_SESSION['role']);
         $smarty->display('adminEditZP.tpl');
     }else{
 

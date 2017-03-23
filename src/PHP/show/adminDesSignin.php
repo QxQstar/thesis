@@ -11,6 +11,7 @@ require_once('./../config.php');
 session_start();
 if(isset($_SESSION['code']) && isset($_SESSION['role'])){
     $role = $_SESSION['role'];
+    $smarty->assign('role',$role);
     if($role > 1){
         $smarty->display('adminDesSignin.tpl');
     }else{

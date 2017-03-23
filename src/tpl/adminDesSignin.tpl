@@ -42,7 +42,7 @@
         </div>
         <div class="bottom ">
             <div class=" f-marTop-10">
-                <input type="button" id="submit" value="注册" class="submit">
+                <input type="button" id="submit" value="提交" class="submit">
             </div>
         </div>
     </form>

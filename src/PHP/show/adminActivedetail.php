@@ -22,6 +22,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_GET['code'])){
     $activeMess = $mysql->findOne($query);
     $smarty->assign('activeMess',$activeMess);
     $smarty->assign('isLog',true);
+    $smarty->assign('role',$_SESSION['role']);
     //获得这个活动的作品
     $sql = "select * from productionmessage where activeCode='$code'and status='2' limit 8";
     $query = $mysql->query($sql,$conn);

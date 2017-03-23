@@ -33,12 +33,14 @@
                 <input type="password" placeholder="登录密码" id="password" name="password">
             </div>
             <div class="role f-marBtm-10">
-                <select name="role" id="role" data-info="权限">
-                    <option value="default"> 选择权限</option>
-                    <option value="1">普通管理员</option>
-                    <option value="2">高级管理员</option>
-                    <option value="3">超级管理员</option>
-                </select>
+                {if $roles|count gt 0}
+                    <select name="role" id="role" data-info="权限">
+                        <option value="default"> 选择权限</option>
+                        {foreach $roles as $role}
+                            <option value="{$role.code}">{$role.info}</option>
+                        {/foreach}
+                    </select>
+                {/if}
             </div>
             <div class="yzm f-marBtm-10">
                 <input type="text" placeholder="验证码" id="yzm" name="yzm" data-info="验证码">
@@ -51,7 +53,7 @@
         <div class="bottom ">
 
             <div class=" f-marTop-10">
-                <input type="button" id="submit" value="添加" class="submit">
+                <input type="button" id="submit" value="提交" class="submit">
             </div>
         </div>
     </form>

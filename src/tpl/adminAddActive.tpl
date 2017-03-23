@@ -64,6 +64,7 @@
                     <em>
                         <label for="img" class="choice f-text-c">选择图片</label>
                         <input type="file" id="img" name="img" hidden>
+                        <span class="geshi">图片尺寸:1800px*600px</span>
                     </em>
 
                 </span>
@@ -71,7 +72,7 @@
             </div>
             <div class="item f-marBtm-20 f-clearfix">
                 <span class="info f-float-l"></span>
-                <div class="preview f-float-l insert" id="preview">
+                <div class="preview f-float-l insert" id="preview" data-height="600" data-width="1800">
                     {if $message neq false}
                         <img src="/thesis/src/{$message.img}" id="preImg">
                     {/if}

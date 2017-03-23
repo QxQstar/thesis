@@ -16,7 +16,6 @@ $mysql = new mysql();
 session_start();
 //如果当前有一个设计师账号登录
 if(isset($_SESSION['email'])){
-    $role = $_SESSION['role'];
     $email = $_SESSION['email'];
     //这个设计师已经上线作品列表
     $sql = "select *  from productionmessage where email='$email' and status='2' order by time desc";
@@ -35,7 +34,7 @@ if(isset($_SESSION['email'])){
     $sql = "select * from note where email='$email'or email='all' and status=0";
     $query = $mysql->query($sql,$conn);
     $noteNum = mysqli_num_rows($query);
-    //这个设计师的头像
+    //这个设计师的资料
     $sql = "select * from designermessage where email='$email'";
     $query = $mysql->query($sql,$conn);
     $message = $mysql->findOne($query);

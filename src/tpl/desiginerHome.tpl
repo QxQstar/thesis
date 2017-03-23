@@ -45,8 +45,8 @@
                     <p class="title">{$item.title}</p>
                     <div class="handel">
                         <span class="time">{$item.time}</span>
-                        <span class="good">34</span>
-                        <span class="discuss">34</span>
+                        <span class="good">{$item.likeNum}</span>
+                        <span class="discuss">{$item.discussNum}</span>
                     </div>
                 </div>
             </li>

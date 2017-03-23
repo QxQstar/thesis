@@ -22,6 +22,7 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
         $query  = $mysql->query($sql,$conn);
         $message = $mysql->findOne($query);
         $smarty->assign('message',$message);
+        $smarty->assign('role',$_SESSION['role']);
         $smarty->display('adminAddActive.tpl');
     }else{
         $smarty->assign('isLog',true);

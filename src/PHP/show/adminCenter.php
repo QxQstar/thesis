@@ -3,9 +3,9 @@
  * Created by PhpStorm.
  * User: star
  * Date: 2017/3/14
- * Time: 8:27
+ * Time: 10:18
  */
-//系统头像管理
+//管理员的个人中心
 //引入smarty配置文件
 require_once('./../config.php');
 //引入连接数据库的文件
@@ -17,14 +17,22 @@ session_start();
 //如果当前有一个管理员账号登录
 if(isset($_SESSION['code']) && isset($_SESSION['role'])){
     $role = $_SESSION['role'];
-    $smarty->assign('role',$role);
-    if($role >2){
-        $sql = "select * from headimg";
+    if($role >0){
+        $message = array();
+        $sql = "select * from role where code='$role'";
         $query  = $mysql->query($sql,$conn);
-        $list = $mysql->findAll($query);
-        $smarty->assign('list',$list);
+
+        if(!mysqli_num_rows($query)){
+            $message['roleInfo'] = '未知';
+        }else{
+            $row = $mysql->findOne($query);
+            $message['roleInfo'] = $row['info'];
+        }
+        $message['code'] = $_SESSION['code'];
+        $smarty->assign('role',$_SESSION['role']);
+        $smarty->assign('message',$message);
         $smarty->assign('isLog',true);
-        $smarty->display('headImg.tpl');
+        $smarty->display('adminCenter.tpl');
     }else{
         $smarty->display('limit.tpl');
     }

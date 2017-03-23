@@ -26,6 +26,7 @@ if(!empty($_GET) && isset($_SESSION['code']) && isset($_GET['code']) && $_SESSIO
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findOne($query);
     $smarty->assign('isLog',true);
+    $smarty->assign('role',$_SESSION['role']);
     //设置了安全问题
     if($result['hasQuestion'] == 1){
         $smarty->assign('name',$code);
