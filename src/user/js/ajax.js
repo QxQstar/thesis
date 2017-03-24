@@ -187,7 +187,7 @@ Ajax.prototype.signout = function (url,role) {
                 if(role == 'admin'){
                     location.href = '/thesis/src/PHP/show/adminSignup.php';
                 }else{
-                    location.href = '/thesis/src/html/index.html';
+                    location.href = '/thesis/src/PHP/show/index.php';
                 }
             }
         }
@@ -283,6 +283,50 @@ Ajax.prototype.focus = function (data,elem) {
                     curUrl = location.href;
                     location.href = '/thesis/src/PHP/show/'+result.url+'#nextUrl='+curUrl;
                 }
+            }
+        }
+    });
+};
+/**
+ * 删除作品
+ * @param data 要删除的作品的编号，对象
+ */
+Ajax.prototype.deleteZP = function (data) {
+    $.ajax({
+        type:'GET',
+        data:data,
+        dataType:'json',
+        url:'/thesis/src/PHP/deleteZP/index.php',
+        success:function (result) {
+            if(!result.status){
+              alert(result.msg);
+              if(result.url){
+                  location.href = '/thesis/src/PHP/show/'+result.url;
+              }
+            }else{
+                location.reload();
+            }
+        }
+    });
+};
+/**
+ * 删除用户
+ * @param data 要删除用户的编号。对象
+ */
+Ajax.prototype.deleteUser = function (data) {
+    $.ajax({
+        type:'GET',
+        data:data,
+        dataType:'json',
+        url:'/thesis/src/PHP/deleteUser/index.php',
+        success:function (result) {
+            if(!result.status){
+                alert(result.msg);
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }
+            }else{
+                location.reload();
             }
         }
     });

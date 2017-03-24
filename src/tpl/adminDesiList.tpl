@@ -60,7 +60,7 @@
 
 
             </div>
-            <ul class="body">
+            <ul class="body" id="userList">
                 {foreach $desiList as $item}
                 <li class="items">
                     <div class="f-clearfix">
@@ -108,5 +108,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/userManage.js"></script>
 </body>
 </html>

@@ -49,7 +49,7 @@
             {*<a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>*}
         {*</div>*}
     {*{/if}*}
-    {if $num gt 1}
+    {if $num gt 0}
         <!-- 推荐作品-->
         <div class="m-recommend f-marTop-30 f-center">
             <h2 class="title f-marBtm-10">推荐作品</h2>

@@ -53,9 +53,7 @@
                                 <span class="time">{$zpItem.time}</span>
                                 <span class="good">{$zpItem.likeNum}</span>
                                 <span class="discuss">{$zpItem.discussNum}</span>
-                                <a href="#" class="link">
-                                    <span class="delete"></span>
-                                </a>
+                                <span class="delete" data-code="{$zpItem.zpCode}"></span>
                                 <a href="/thesis/src/PHP/show/editZP.php?zpCode={$zpItem.zpCode}" class="link">
                                     <span class="edit"></span>
                                 </a>

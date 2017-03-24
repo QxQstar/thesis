@@ -51,9 +51,7 @@
                             <p class="title">{$zpItem.title}</p>
                             <div class="handel">
                                 <span class="time">{$zpItem.time}</span>
-                                <a href="#" class="link">
-                                    <span class="delete"></span>
-                                </a>
+                                <span class="delete" data-code="{$zpItem.zpCode}"></span>
                                 <a href="/thesis/src/PHP/show/editZP.php?zpCode={$zpItem.zpCode}" class="link">
                                     <span class="edit"></span>
                                 </a>
@@ -100,5 +98,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/userCenter.js"></script>
 </body>
 </html>

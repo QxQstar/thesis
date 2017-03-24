@@ -44,7 +44,7 @@
                             <span class="agree" title="通过"></span>
                             <span class="limit" title="不通过"></span>
                             {if $role gt 1}
-                                <span class="delete"></span>
+                                <span class="delete" data-code="{$item.zpCode}"></span>
                                 <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$item.zpCode}" class="link">
                                     <span class="edit"></span>
                                 </a>

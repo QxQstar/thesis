@@ -29,7 +29,7 @@
 
     <!-- 作品列表-->
     {if $length gt 0}
-        <ul class="m-list f-marTop-30  f-center">
+        <ul class="m-list f-marTop-30  f-center" id="list">
             {foreach $result as $item}
                 <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="{$item.zpCode}">
                     <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
@@ -43,7 +43,7 @@
                             <span class="time">{$item.time}</span>
                             <span class="good">{$item.likeNum}</span>
                             {if $role gt 1}
-                                <span class="delete"></span>
+                                <span class="delete" data-code="{$item.zpCode}"></span>
                                 <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$item.zpCode}" class="link">
                                     <span class="edit"></span>
                                 </a>

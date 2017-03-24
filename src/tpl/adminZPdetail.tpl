@@ -36,7 +36,7 @@
                         <span class="limit" title="不通过"></span>
                     {/if}
                     {if $role gt 1}
-                        <span class="delete"></span>
+                        {*<span class="delete"></span>*}
                         <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$zpMessage.zpCode}" class="link">
                             <span class="edit"></span>
                         </a>

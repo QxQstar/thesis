@@ -19,6 +19,8 @@ module.exports = {
         'adminSignin':'./src/user/js/adminSignin.js',
         'adminDesSignin':'./src/user/js/adminDesSignin.js',
         'zpList':'./src/user/js/zpList.js',
+        'userCenter':'./src/user/js/userCenter.js',
+        'userManage':'./src/user/js/userManage.js',
         'jQuery':['jquery']
     },
     output:{

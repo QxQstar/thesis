@@ -33,7 +33,7 @@
     </div>
     <!-- 列表-->
     {if $adminList|count gt 0}
-        <div class="m-list  f-marTop-30 f-area-bg f-center f-paddTopBtm-20 f-paddLR-30">
+        <div class="m-list  f-marTop-30 f-area-bg f-center f-paddTopBtm-20 f-paddLR-30" id="admin">
             <div class="head f-clearfix ">
                 <div class="right f-float-r">
                     <div class="item f-float-l">
@@ -60,7 +60,7 @@
 
 
             </div>
-            <ul class="body">
+            <ul class="body" id="userList">
                 {foreach $adminList as $item}
                     <li class="items">
                         <div class="f-clearfix">
@@ -102,5 +102,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/userManage.js"></script>
 </body>
 </html>
