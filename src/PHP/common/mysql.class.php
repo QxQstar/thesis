@@ -52,10 +52,10 @@ class mysql{
 	*@return array   返回列表数组
 	**/
 	function findAll($query){
-		while($rs=mysqli_fetch_array($query, MYSQL_ASSOC)){//mysql_fetch_array函数把资源转换为数组，一次转换出一行出来
+		while($rs=mysqli_fetch_array($query, MYSQLI_ASSOC)){//mysql_fetch_array函数把资源转换为数组，一次转换出一行出来
 			$list[]=$rs;
 		}
-		return isset($list)?$list:"";
+		return isset($list)?$list:array();
 	}
 
 	/**
@@ -114,12 +114,18 @@ class mysql{
 	function update($table,$arr,$where,$conn){
 		//update 表名 set 字段=字段值 where ……
 		foreach($arr as $key=>$value){
-			$value = mysql_real_escape_string($value);
+			$value = mysqli_real_escape_string($conn,$value);
 			$keyAndvalueArr[] = "`".$key."`='".$value."'";
 		}
 		$keyAndvalues = implode(",",$keyAndvalueArr);
-		$sql = "update ".$table." set ".$keyAndvalues." where ".$where;//修改操作 格式 update 表名 set 字段=值 where 条件
-		$this->query($sql,$conn);
+        if($where === ""){
+            $sql = "update ".$table." set ".$keyAndvalues;
+        }else{
+            $sql = "update ".$table." set ".$keyAndvalues." where ".$where;//修改操作 格式 update 表名 set 字段=值 where 条件
+        }
+
+		$reslut = $this->query($sql,$conn);
+		return $reslut;
 	}
 
 	/**
@@ -130,7 +136,11 @@ class mysql{
      * @param $conn 连接标识符
 	**/
 	function del($table,$where,$conn){
-		$sql = "delete from ".$table." where ".$where;//删除sql语句 格式：delete from 表名 where 条件
+	    if($where === ""){
+            $sql = "delete from".$table;
+        }else{
+            $sql = "delete from ".$table." where ".$where;//删除sql语句 格式：delete from 表名 where 条件
+        }
 		$this->query($sql,$conn);
 	}
 

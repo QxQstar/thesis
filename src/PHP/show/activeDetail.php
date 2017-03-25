@@ -20,6 +20,27 @@ if(!empty($_GET) && isset($_GET['code'])){
     $sql = "select * from activemessage where activeCode='$code'";
     $query = $mysql->query($sql,$conn);
     $activeMess = $mysql->findOne($query);
+    //检查这个活动的状态
+    $sTime = $activeMess['sTime'];
+    $eTime = $activeMess['eTime'];
+    //如果活动开始时间小于现在的时间，结束的时间大于现在的时间，则说明当前的活动处于进行中
+    if(strtotime($sTime) < time() && strtotime($eTime) > time()){
+        $status = '1';
+    }
+    //活动已经结束
+    elseif (strtotime($sTime) < time() && strtotime($eTime) < time()){
+        $status = '0';
+    }
+    //活动即将开始
+    elseif (strtotime($sTime) > time() && strtotime($eTime) > time()){
+        $status = '2';
+    }
+    if($activeMess['status'] != $status){
+        $mysql->update('acticemessage',"activeCode='$code'",$conn);
+        $query = $mysql->query($sql,$conn);
+        $activeMess = $mysql->findOne($query);
+    }
+
     $smarty->assign('activeMess',$activeMess);
     $smarty->assign('isLog',true);
     //获得这个活动的作品

@@ -19,6 +19,28 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
     $sql = "select * from activemessage order by eTime asc";
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findAll($query);
+    for($i = 0,$len=count($result);$i < $len;$i++){
+        $curActive = $result[$i];
+        $activeCode = $curActive['activeCode'];
+        $eTime = $curActive['eTime'];
+        $sTime = $curActive['sTime'];
+        //如果活动开始时间小于现在的时间，结束的时间大于现在的时间，则说明当前的活动处于进行中
+        if(strtotime($sTime) < time() && strtotime($eTime) > time()){
+            $status = '1';
+        }
+        //活动已经结束
+        elseif (strtotime($sTime) < time() && strtotime($eTime) < time()){
+            $status = '0';
+        }
+        //活动即将开始
+        elseif (strtotime($sTime) > time() && strtotime($eTime) > time()){
+            $status = '2';
+        }
+        if($status != $curActive['status']){
+            $curActive['status'] = $status;
+            $mysql->update('activemessage',array('status'=>$status),"activeCode='$activeCode'",$conn);
+        }
+    }
     if(!isset($_SESSION['email'])){
         $smarty->assign('isLog',false);
     }else{
