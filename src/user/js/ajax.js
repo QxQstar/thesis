@@ -331,5 +331,49 @@ Ajax.prototype.deleteUser = function (data) {
         }
     });
 };
+/**
+ * 删除活动
+ * @param data 发送的数据，对象。活动编号
+ */
+Ajax.prototype.deleteActive = function (data) {
+    $.ajax({
+        data:data,
+        type:"GET",
+        url:'/thesis/src/PHP/deleteActive/index.php',
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                location.reload();
+            }else{
+                alert(result.msg);
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }
+            }
+        }
+    });
+};
+/**
+ * 删除系统设置
+ * @param data 要发送的数据，对象
+ */
+Ajax.prototype.deleteSysMess = function (data) {
+    $.ajax({
+        type:"GET",
+        data:data,
+        url:'/thesis/src/PHP/deleteSysMess/index.php',
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                location.reload();
+            }else{
+                alert(result.msg);
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;

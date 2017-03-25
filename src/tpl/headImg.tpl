@@ -51,12 +51,12 @@
     </div>
     <!-- 头像列表-->
     <div  class="m-list f-center f-area-bg f-paddLR-30 f-paddTopBtm-20">
-        <ul class="f-clearfix">
+        <ul class="f-clearfix" id="list" data-table="headimg">
             {foreach $list as $item}
-                <li class="item f-float-l" data-code="{$item.id}">
+                <li class="item f-float-l">
                     <img src="/thesis/src/{$item.img}">
                     <p class="bottom f-text-r">
-                        <button class="delete"></button>
+                        <button class="delete"  data-code="{$item.id}"></button>
                     </p>
                 </li>
                 {foreachelse}

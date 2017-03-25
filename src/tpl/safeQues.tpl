@@ -43,11 +43,11 @@
 
     </div>
     <!-- 头像列表-->
-    <ul class="m-list m-questions f-center f-area-bg f-paddLR-30 f-paddTopBtm-20">
+    <ul class="m-list m-questions f-center f-area-bg f-paddLR-30 f-paddTopBtm-20" id="list" data-table="questions">
         {foreach $list as $item}
-            <li class="item" data-code="{$item.id}">
+            <li class="item" >
                 {$item.question}
-                <span class="delete"></span>
+                <span class="delete" data-code="{$item.id}"></span>
             </li>
             {foreachelse}
             没有安全问题

@@ -19,7 +19,7 @@ if(isset($_SESSION['code']) && isset($_SESSION['role'])){
     $role = $_SESSION['role'];
     $smarty->assign('role',$role);
     if($role >2){
-        $sql = "select * from role";
+        $sql = "select * from role where code < $role order by code asc";
         $query  = $mysql->query($sql,$conn);
         $list = $mysql->findAll($query);
         $smarty->assign('list',$list);
