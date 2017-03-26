@@ -87,7 +87,7 @@
     </div>
 
     <!-- 评价-->
-    <div class="m-discuss f-marTop-30 f-center">
+    <div class="m-discuss f-marTop-30 f-center" id="discuss" data-isLog="{$isLog}">
         <h1 class="title f-marBtm-10">
             评论
             <span class="num">{$zpMessage.discussNum}</span>
@@ -102,44 +102,46 @@
                 <span class="notice" id="notice">0/300</span>
             </div>
             <div class="f-text-r">
-                <button class="discBtn f-marTop-20" id="submit">发表评价</button>
+                <button class="discBtn f-marTop-20" id="submit" data-code="{$zpMessage.zpCode}" data-toEmail="" data-toContent="">发表评价</button>
             </div>
         </div>
-        <!-- 评价列表-->
-        <ul class="discList f-marTop-30 ">
-            <li class="item f-clearfix f-paddTopBtm-20">
-                <!-- 头像-->
-                <a href="#">
-                    <img src="./../user/img/header.jpg" class="f-float-l">
-                </a>
-                <!-- 内容-->
-                <div class="rightBox f-float-l">
-                    <div class="info">
-                        <span class="name">昵称</span>
-                        <span class="time">2017-1-2</span>
+        {if $discussList|count gt 0}
+            <!-- 评价列表-->
+            <ul class="m-discList f-marTop-30" id="discList">
+                {foreach $discussList as $item}
+                <li class="item f-clearfix f-paddTopBtm-20">
+                    <!-- 头像-->
+                    <div class="img f-float-l">
+                        <img src="/thesis/src/{$item.img}">
                     </div>
-                    <p class="content">
-                        内容内容
-                    </p>
-                </div>
-            </li>
-            <li class="item f-clearfix f-paddTopBtm-20">
-                <!-- 头像-->
-                <a href="#">
-                    <img src="./../user/img/header.jpg" class="f-float-l">
-                </a>
-                <!-- 内容-->
-                <div class="rightBox f-float-l">
-                    <div class="info">
-                        <span class="name">昵称</span>
-                        <span class="time">2017-1-2</span>
+                    <!-- 内容-->
+                    <div class="rightBox f-float-l">
+                        <div class="innerBox">
+                            <div class="info">
+                                <span class="name">{$item.email}</span>
+                                <span class="time">{$item.time}</span>
+                            </div>
+                            <p class="content">
+                                {$item.content}
+                            </p>
+                            {if $item.toEmail neq ''}
+                            <div class="toContent f-marBtm-10 f-marTop-10">
+                                <span class="toname">{$item.toEmail}</span>说:
+                                <p class="reply">{$item.toContent}</p>
+                            </div>
+                            {/if}
+                            <p class="bar">
+                                <button data-code="{$item.zpCode}" data-toEmail="{$item.email}" data-toContent="{$item.content}" class="replyBtn">回复</button>
+                            </p>
+                        </div>
+
                     </div>
-                    <p class="content">
-                        内容内容
-                    </p>
-                </div>
-            </li>
-        </ul>
+                </li>
+                {/foreach}
+            </ul>
+            {else}
+            <p>暂无评价</p>
+        {/if}
     </div>
 </div>
 <!-- 页脚-->

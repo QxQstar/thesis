@@ -39,6 +39,11 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_GET)){
     $smarty->assign('otherZP',$otherZP);
     $smarty->assign('role',$_SESSION['role']);
     $smarty->assign('isLog',true);
+    //获取这个作品的所有评价
+    $sql = "select designermessage.email,designermessage.img,discuss.time,discuss.toEmail,discuss.toContent,discuss.content,discuss.zpCode from designermessage,discuss where discuss.zpCode='$code' and discuss.email=designermessage.email order by time desc";
+    $query = $mysql->query($sql,$conn);
+    $discussList = $mysql->findAll($query);
+    $smarty->assign('discussList',$discussList);
     $smarty->display('adminZPdetail.tpl');
 
 }else if(empty($_GET)){

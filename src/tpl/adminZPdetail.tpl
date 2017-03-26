@@ -36,7 +36,6 @@
                         <span class="limit" title="不通过"></span>
                     {/if}
                     {if $role gt 1}
-                        {*<span class="delete"></span>*}
                         <a href="/thesis/src/PHP/show/adminEditZP.php?zpCode={$zpMessage.zpCode}" class="link">
                             <span class="edit"></span>
                         </a>
@@ -78,54 +77,41 @@
             评论
             <span class="num">{$zpMessage.discussNum}</span>
         </h1>
-        <!-- 评论框-->
-        {*<div class="discBox">*}
-            {*<div>*}
-                {*<label for="import">*}
-                    {*<textarea class="import" id='import' placeholder="扯淡，吐槽，表扬，鼓励...想说啥就说啥！"></textarea>*}
-
-                {*</label>*}
-                {*<span class="notice" id="notice">0/300</span>*}
-            {*</div>*}
-            {*<div class="f-text-r">*}
-                {*<button class="discBtn f-marTop-20" id="submit">发表评价</button>*}
-            {*</div>*}
-        {*</div>*}
         <!-- 评价列表-->
-        <ul class="discList f-marTop-30 ">
-            <li class="item f-clearfix f-paddTopBtm-20">
-                <!-- 头像-->
-                <a href="#">
-                    <img src="./../user/img/header.jpg" class="f-float-l">
-                </a>
-                <!-- 内容-->
-                <div class="rightBox f-float-l">
-                    <div class="info">
-                        <span class="name">昵称</span>
-                        <span class="time">2017-1-2</span>
-                    </div>
-                    <p class="content">
-                        内容内容
-                    </p>
-                </div>
-            </li>
-            <li class="item f-clearfix f-paddTopBtm-20">
-                <!-- 头像-->
-                <a href="#">
-                    <img src="./../user/img/header.jpg" class="f-float-l">
-                </a>
-                <!-- 内容-->
-                <div class="rightBox f-float-l">
-                    <div class="info">
-                        <span class="name">昵称</span>
-                        <span class="time">2017-1-2</span>
-                    </div>
-                    <p class="content">
-                        内容内容
-                    </p>
-                </div>
-            </li>
-        </ul>
+        {if $discussList|count gt 0}
+            <!-- 评价列表-->
+            <ul class="m-discList f-marTop-30" id="discList">
+                {foreach $discussList as $item}
+                    <li class="item f-clearfix f-paddTopBtm-20">
+                        <!-- 头像-->
+                        <div class="img f-float-l">
+                            <img src="/thesis/src/{$item.img}">
+                        </div>
+                        <!-- 内容-->
+                        <div class="rightBox f-float-l">
+                            <div class="innerBox">
+                                <div class="info">
+                                    <span class="name">{$item.email}</span>
+                                    <span class="time">{$item.time}</span>
+                                </div>
+                                <p class="content">
+                                    {$item.content}
+                                </p>
+                                {if $item.toEmail neq ''}
+                                    <div class="toContent f-marBtm-10 f-marTop-10">
+                                        <span class="toname">{$item.toEmail}</span>说:
+                                        <p class="reply">{$item.toContent}</p>
+                                    </div>
+                                {/if}
+                            </div>
+
+                        </div>
+                    </li>
+                {/foreach}
+            </ul>
+        {else}
+            <p>暂无评价</p>
+        {/if}
     </div>
 </div>
 <!-- 页脚-->

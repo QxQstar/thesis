@@ -375,5 +375,29 @@ Ajax.prototype.deleteSysMess = function (data) {
         }
     });
 };
+/**
+ * 发表评价
+ * @param data 要发送的数据
+ */
+Ajax.prototype.submitReply = function (data) {
+    $.ajax({
+       type:'POST',
+        data:data,
+        dataType:'json',
+        url:'/thesis/src/PHP/submitReply/index.php',
+        success:function (result) {
+            if(result.status){
+                location.reload();
+            }else{
+                if(result.url){
+                    alert(result.msg);
+                    if(result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;
