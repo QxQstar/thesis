@@ -22,8 +22,12 @@
             <div class="handle">
                 <span class="zp" title="我的作品">{$zpNum}</span>
                 <span class="fen" title="我的粉丝">{$focusNum}</span>
-                <a href="#" class="link">
-                    <span class="message" title="未读的消息">{$noteNum}</span>
+                <a href="/thesis/src/PHP/show/notes.php" class="link">
+                    {if $noteNum gt 0}
+                        <span class="message on" title="未读的消息">{$noteNum}</span>
+                    {else}
+                        <span class="message" title="未读的消息">{$noteNum}</span>
+                    {/if}
                 </a>
                 <a href="/thesis/src/PHP/show/setMessage.php" class="link" title="编辑个人信息">
                     <span class="edit"></span>

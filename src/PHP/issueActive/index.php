@@ -41,8 +41,15 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_POST) && !empty($_F
             $result['status'] = 0;
             $result['msg'] = '上传失败';
         }else{
-            $arr = array('time'=>date('Y-m-d'),'form'=>'system','email'=>'all','status'=>0,'content'=>'又有一个新的活动发布了,快去看看吧！活动有效时间：'.$sTime.'至'.$eTime.'。活动标题：'.$title);
-            $inseresult = $mysql->insert('note',$arr,$conn);
+            $insertID = mysqli_insert_id($conn);
+            //给每一位设计师都发布一条信息
+            $sql = "select email from designermessage";
+            $query = $mysql->query($sql,$conn);
+            $desiList = $mysql->findAll($query);
+            foreach ($desiList as $item){
+                $arr = array('time'=>date('Y-m-d'),'form'=>'system','email'=>$item['email'],'status'=>0,'content'=>'<h2 class="title"><a href="/thesis/src/PHP/show/activeDetail.php?code='.$insertID.'"> '.$title.'</a></h2><p class="content">又有一个新的活动发布了,快去看看吧！</p><p class="info">活动有效时间：'.$sTime.'至'.$eTime.'</p>');
+                $inseresult = $mysql->insert('note',$arr,$conn);
+            }
             if(!$inseresult){
                 $result['status'] = 0;
                 $result['msg'] = '上传失败';

@@ -95,7 +95,7 @@
                                     <span class="time">{$item.time}</span>
                                 </div>
                                 <p class="content">
-                                    {$item.content}
+                                    {$item.content|nl2br}
                                 </p>
                                 {if $item.toEmail neq ''}
                                     <div class="toContent f-marBtm-10 f-marTop-10">

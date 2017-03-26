@@ -18,9 +18,11 @@
     .g-main .m-header,
     .g-main .m-page,
     .g-main .m-zpList,
-    .g-main .m-zpListBox,
+    .g-main .m-zpListBox{
+        width: 95%;
+    }
     .g-main .m-type{
-        width: 90%;
+        width: 100%;
     }
     .g-main .m-zpListBox .zpList{
         width: 100%;
@@ -58,6 +60,9 @@
 .g-main .desc span{
     font-size: 12px;
     color: #888;
+}
+.g-main .desc .message.on{
+    color: #ff3300;
 }
 .g-main .desc span+span,
 .g-main .desc a{
@@ -137,7 +142,7 @@
 /*作品类型*/
 .g-main .m-type{
     margin-bottom: -10px;
-    width: 790px;
+    /*width: 790px;*/
     height: 40px;
     line-height: 40px;
 }

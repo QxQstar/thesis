@@ -399,5 +399,30 @@ Ajax.prototype.submitReply = function (data) {
         }
     });
 };
+/**
+ * 删除消息
+ * @param data 发送的数据，对象。要删除消息的id
+ * @param removeElem 要移除的元素
+ */
+Ajax.prototype.deleteNotes = function (data,removeElem) {
+    $.ajax({
+       type:'GET',
+        data:data,
+        url:'/thesis/src/PHP/deleteNotes/index.php',
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                removeElem.remove();
+            }else{
+                if(result.url){
+                    alert(result.msg);
+                    if(result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;

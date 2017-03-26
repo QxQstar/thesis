@@ -31,7 +31,7 @@ if(isset($_SESSION['email'])){
     $query = $mysql->query($sql,$conn);
     $focusList = $mysql->findAll($query);
     //该设计师未读的消息
-    $sql = "select * from note where email='$email'or email='all' and status=0";
+    $sql = "select * from note where email='$email' and status=0";
     $query = $mysql->query($sql,$conn);
     $noteNum = mysqli_num_rows($query);
     //这个设计师的资料

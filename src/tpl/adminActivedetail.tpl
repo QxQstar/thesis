@@ -38,7 +38,7 @@
                     <span class="zp">{$num}</span>
                 </div>
                 <div class="detail">
-                    {$activeMess.intro}
+                    {$activeMess.intro|nl2br}
                 </div>
             </div>
         </div>

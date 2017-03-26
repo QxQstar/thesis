@@ -20,7 +20,7 @@
             <img src="/thesis/src/{$zpMessage.img}">
             <div class="desc">
                 <p class="title">{$zpMessage.title}</p>
-                <p class="detail">{$zpMessage.desc}</p>
+                <p class="detail">{$zpMessage.desc|nl2br}</p>
                 <div class="handle">
                     {if $me eq true}
                         {if $zpMessage.status eq '2'}

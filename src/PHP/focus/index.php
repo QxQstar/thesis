@@ -26,6 +26,9 @@ if(!empty($_SESSION) && isset($_SESSION['email']) && isset($_POST)){
         //向关注表中插入一条数据
         $result = $mysql->insert('focus',array('beEmail'=>$beEmail,'email'=>$email),$conn);
         if($result){
+            $arr = array('time'=>date('Y-m-d'),'form'=>$email,'email'=>$beEmail,'status'=>0,'content'=>'<h2 class="title"><a href="/thesis/src/PHP/show/designerHome.php?email='.$email.'">设计师'.$email.'</a>关注了你！ </h2><p class="content">设计师'.$email.'关注了你！</p>');
+            //向消息表中插入一条数据
+            $mysql->insert('note',$arr,$conn);
             echo json_encode(array('status'=>1,'msg'=>'关注成功','data'=>'取消关注'));
         }else{
             echo json_encode(array('status'=>0,'msg'=>'关注失败'));
@@ -39,7 +42,11 @@ if(!empty($_SESSION) && isset($_SESSION['email']) && isset($_POST)){
         $result = $mysql->del('focus',"beEmail='$beEmail' and email='$email'",$conn);
 
         if(!$result){
+            $arr = array('time'=>date('Y-m-d'),'form'=>$email,'email'=>$beEmail,'status'=>0,'content'=>'<h2 class="title"><a href="/thesis/src/PHP/show/designerHome.php?email='.$email.'">设计师'.$email.'</a>取消了对你的关注！ </h2><p class="content">设计师'.$email.'取消了对你的关注！</p>');
+            //向消息表中插入一条数据
+            $mysql->insert('note',$arr,$conn);
             echo json_encode(array('status'=>1,'msg'=>'取消关注成功','data'=>'关注'));
+
         }else{
             echo json_encode(array('status'=>0,'msg'=>'取消关注失败'));
         }

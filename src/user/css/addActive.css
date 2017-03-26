@@ -20,9 +20,17 @@
     vertical-align: top;
 }
 .m-addActive .body .insert{
+    position: relative;
     width: 100%;
     margin-left: 63px;
     padding-right: 60px;
+}
+.m-addActive .body .num{
+    font-size: 12px;
+    color: #888888;
+    position: absolute;
+    right: 70px;
+    bottom: -15px;
 }
 .m-addActive .body input{
     height: 35px;
@@ -40,11 +48,15 @@
 .m-addActive .body .time{
     width: 45%;
 }
+.m-addActive .body .geshi{
+    font-size: 12px;
+    color: #888888;
+}
 .m-addActive .body .gap{
     vertical-align: middle;
 }
 .m-addActive .body .choice{
-    display: block;
+    display: inline-block;
     height: 35px;
     line-height: 35px;
     width: 100px;
