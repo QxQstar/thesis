@@ -5,6 +5,12 @@
 require('./../css/adminUserList.css');
 var $ = require('jquery');
 var ajax = require('./ajax.js');
+var search = require('./search.js');
+var userList = $('#userList');
+
+
+//搜索用户
+search.getUser($('#searchBox'),userList);
 /**
  * 删除用户
  * @param userList 用户列表
@@ -40,4 +46,13 @@ function deleteUser(userList) {
         })
 
 }
-deleteUser($('#userList'));
+deleteUser(userList);
+/**
+ * 回调函数
+ */
+function callback() {
+    deleteUser(userList);
+}
+//搜索用户
+search.getUser($('#searchBox'),userList,callback);
+

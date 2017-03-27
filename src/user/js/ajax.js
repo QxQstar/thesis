@@ -424,5 +424,318 @@ Ajax.prototype.deleteNotes = function (data,removeElem) {
         }
     });
 };
+/**
+ * 搜索作品
+ * @param data 发送的数据，对象，作品标题
+ * @param list 容纳搜索结果的元素
+ * @param callback 回调函数
+ */
+Ajax.prototype.searchZP = function (data,list,callback) {
+    $.ajax({
+       type:'GET',
+        url:'/thesis/src/PHP/searchZP/index.php',
+        data:data,
+        dataType:'json',
+        success:function (result) {
+            if(result.status){
+                if(result.length >0){
+                    //前台搜索作品
+                    if(data.role === 'desi'){
+                        var htmlStr = "",showStr;
+                        $.each(result.data,function (index,item) {
+                            if(data.status == 'hot'){
+                                showStr = '<span class="good">'+ item.likeNum +'</span>';
+                            }else{
+                                showStr = '<span class="time">'+ item.time +'</span>';
+                            }
+                            htmlStr +=
+                                '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30">' +
+                                '<a href="/thesis/src/PHP/show/zpDetail.php?code='+item.zpCode+'" class="img">' +
+                                '<img src="/thesis/src/'+item.img+'">'+
+                                '</a>'+
+                                '<div class="desc">' +
+                                '<p class="title">' +
+                                '<a href="/thesis/src/PHP/show/zpDetail.php?code='+item.zpCode+'">'+item.title+'</a>'+
+                                '</p>'+
+                                '<div class="handle">' +
+                                showStr+
+                                '</div>'+
+                                '</div>'+
+                                '</li>'
+                        });
+                        list.html(htmlStr);
+                    }
+                    //后台搜索作品
+                    else{
+                        var htmlStr = "",deleteEdit,role,check;
+                        role = result.role|0;
+                        $.each(result.data,function (index,item) {
+                            if(role < 1){
+                                deleteEdit = '';
+                            }else{
+                                deleteEdit =
+                                    '<span class="delete" data-code="'+item.zpCode+'"></span>'+
+                                    '<a href="/thesis/src/PHP/show/adminEditZP.php?zpCode='+item.zpCode+'" class="link">' +
+                                        '<span class="edit"></span>'+
+                                    '</a>';
+                            }
+                            if(item.status === '0'){
+                                check =
+                                    '<span class="agree" title="通过"></span>'+
+                                    ' <span class="limit" title="不通过"></span>';
+                            }else if(item.status === '2'){
+                                check =
+                                    '<span class="good">'+item.likeNum+'</span>';
+                            }else{
+                                check = '';
+                            }
+                            htmlStr +=
+                                '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+item.zpCode+'">' +
+                                    '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'" class="img">' +
+                                        '<img src="/thesis/src/'+item.img+'">'+
+                                    '</a>'+
+                                    '<div class="desc">' +
+                                        '<p class="title">' +
+                                            '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'">'+item.title+'</a>'+
+                                        '</p>'+
+                                        '<div class="handle">' +
+                                            '<span class="time">'+item.time+'</span>'+
+                                            check+
+                                            deleteEdit+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                        list.html(htmlStr);
+                    }
+                    if(typeof callback === 'function'){
+                        callback();
+                    }
+                }else{
+                    //没有相关内容
+                }
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
+/**
+ * 搜索用户
+ * @param data 发送的数据，对象，账或者昵称
+ * @param list 容纳搜索结果的元素
+ * @param callback 回调函数
+ */
+Ajax.prototype.searchUser = function (data,list,callback) {
+    $.ajax({
+        type:'GET',
+        data:data,
+        dataType:'json',
+        url:'/thesis/src/PHP/searchUser/index.php',
+        success:function (result) {
+            if(result.status){
+                if(result.length > 0){
+                    //如果在前台搜索设计师
+                    if(data.status === 'desi'){
+                        var htmlStr = '',link,name;
+                        $.each(result.data,function (index,item) {
+                            if(result.isLog && item.email == result.curEmail){
+                                link = '<a href="/thesis/src/PHP/show/userCenter.php" class="img">';
+                            }else{
+                                link = '<a href="/thesis/src/PHP/show/designerHome.php?email='+item.email+'" class="img">';
+                            }
+                            if(item.nickname){
+                                name = item.nickname;
+                            }else{
+                                name = item.email;
+                            }
+                            htmlStr +=
+                                '<li class="item f-float-l">' +
+                                    link+
+                                        '<img src="/thesis/src/'+item.img+'">'+
+                                    '</a>'+
+                                    '<div class="desc">' +
+                                        '<p class="title">' +
+                                            name+
+                                        '</p>'+
+                                        '<div class="handle">' +
+                                            '<span class="fen">'+item.focus+'</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                        list.html(htmlStr);
+                    }
+                    //后台搜索设计师
+                    else if(data.status === 'admin' && data.table === 'designermessage'){
+                        var nickname,htmlStr='';
+                        $.each(result.data,function (index, item) {
+                            if(item.nickname){
+                                nickname = item.nickname;
+                            }else{
+                                nickname = 'null';
+                            }
+                            htmlStr +=
+                                '<li class="items">' +
+                                    '<div class="f-clearfix">' +
+                                        '<div class="right f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">'+item.time+'</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<button type="button" class="delete" data-code="'+item.email+'"></button>'+
+                                            '</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<a class="edit" href="/thesis/src/PHP/show/adminEditUser.php?email='+item.email+'"></a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="left f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">账号:</span><a href="/thesis/src/PHP/show/designerHome.php?role=admin&&email='+item.email+'">'+item.email+'</a>'+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">昵称:</span>'+nickname+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">密码:</span>'+item.password+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                        list.html(htmlStr);
+                    }
+                    //后台搜索管理员
+                    else{
+                        var htmlStr = '';
+                        $.each(result.data,function (index,item) {
+                            htmlStr +=
+                                '<li class="items">' +
+                                    '<div class="f-clearfix">' +
+                                        '<div class="right f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">'+item.time+'</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<button type="button" class="delete" data-code="'+item.code+'"></button>'+
+                                            '</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<a class="edit" href="/thesis/src/PHP/show/adminEditAd.php?code='+item.code+'"></a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="left f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">账号:</span>'+item.code+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">角色:</span>'+item.info+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">密码:</span>'+item.password+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                        list.html(htmlStr);
+                    }
+                    if(typeof callback === 'function'){
+                        callback();
+                    }
+                }else{
+                    //没有相关内容
+                }
+
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
+/**
+ * 搜索活动
+ * @param data 发送的数据，对象
+ * @param list 容纳搜索结果的元素
+ * @param callback 回调函数
+ */
+Ajax.prototype.searchActive = function (data,list,callback) {
+    $.ajax({
+        type:'GET',
+        data:data,
+        dataType:'json',
+        url:'/thesis/src/PHP/searchActive/index.php',
+        success:function (result) {
+            if(result.status){
+                if(result.length > 0){
+                    var right,status,htmlStr='';
+                    $.each(result.data,function (index,item) {
+                        if(item.status == '1'){
+                            status = '<span class="status">(进行中)</span>';
+                        }else if(item.status == '2'){
+                            status ='<span class="status">(即将开始)</span>';
+                        }else{
+                            status ='<span class="status">(已结束)</span>';
+                        }
+                        if(result.role <= 0){
+                            right = '<span class="zp">'+item.zpNum+'</span>'
+                        }else if(result.role <= 1){
+                            right =
+                                '<div class="f-float-l right">' +
+                                    '<span class="zp">'+item.zpNum+'</span>'+
+                                    '<a href="/thesis/src/PHP/show/adminEditActive.php?code='+item.activeCode+'" class="link">' +
+                                        '<span class="edit"></span>'+
+                                    '</a>'+
+                                '</div>';
+                        }else{
+                            right =
+                                '<div class="f-float-l right">' +
+                                    '<span class="zp">'+item.zpNum+'</span>'+
+                                    '<a href="/thesis/src/PHP/show/adminEditActive.php?code='+item.activeCode+'" class="link">' +
+                                        '<span class="edit"></span>'+
+                                    '</a>'+
+                                    '<span class="delete" data-code="'+item.activeCode+'"></span>'+
+                                '</div>';
+                        }
+                        htmlStr +=
+                            '<li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="'+item.activeCode+'">' +
+                                '<div class="head f-marBtm-10">' +
+                                    '<h1 class="title">' +
+                                        '<a href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">'+item.title+'</a>'+ status+
+                                    '</h1>'+
+                                    '<div class="desc">' +
+                                        '<div class="handle f-clearfix">' +
+                                            '<span class="time f-float-l">'+item.sTime+'-'+item.eTime+'</span>'+
+                                            right+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="imgBox">' +
+                                    '<a class="img" href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">' +
+                                        '<img src="/thesis/src/'+item.img+'">'+
+                                    '</a>'+
+                                '</div>'+
+                            '</li>';
+                    });
+                    list.html(htmlStr);
+                    if(typeof callback === 'function'){
+                        callback();
+                    }
+                }else{
+                    //无相关内容
+                }
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;

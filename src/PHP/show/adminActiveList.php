@@ -16,7 +16,7 @@ session_start();
 $mysql = new mysql();
 if(!empty($_SESSION) && isset($_SESSION['code'])){
     //根据活动结束的事件升序
-    $sql = "select * from activemessage order by eTime asc";
+    $sql = "select * from activemessage order by status desc,eTime asc";
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findAll($query);
     for($i = 0,$len=count($result);$i < $len;$i++){

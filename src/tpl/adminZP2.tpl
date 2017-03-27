@@ -16,7 +16,7 @@
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 搜索框-->
     <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
-        <div class="searchBox">
+        <div class="searchBox" data-role="admin" id="searchBox">
             <input type="text" placeholder="输入作品标题" class="content f-float-l" id="content">
             <input type="button" value="提交" class="btn f-float-l" id="submit">
         </div>

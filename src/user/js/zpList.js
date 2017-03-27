@@ -5,7 +5,10 @@ require('./../css/production.css');
 var $ = require('jquery');
 var checkZp = require('./checkZP.js');
 var ajax = require('./ajax.js');
-checkZp.start($('#list'));
+var search = require('./search.js');
+var list = $('#list');
+checkZp.start(list);
+
 /**
  * 删除作品
  * @param zpList 作品列表
@@ -28,4 +31,13 @@ function deleteZP(zpList) {
             ajax.deleteZP(data);
         });
 }
-deleteZP($('#list'));
+deleteZP(list);
+/**
+ * 搜索完作品之后要执行的回调函数
+ */
+function callback() {
+    deleteZP(list);
+    checkZp.start(list);
+}
+//搜索作品
+search.getZP($('#searchBox'),list,callback)

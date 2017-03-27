@@ -23,7 +23,7 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
         $smarty->display('limit.tpl');
     }else{
         //获取设计师列表
-        $sql = "select * from designermessage";
+        $sql = "select * from designermessage order by focus desc,email asc";
         $query = $mysql->query($sql,$conn);
         $desiList = $mysql->findAll($query);
         $smarty->assign('desiList',$desiList);

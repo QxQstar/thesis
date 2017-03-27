@@ -14,9 +14,17 @@
 {include file="header.tpl"}
 <!-- 主要内容-->
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
+    <!-- 搜索框-->
+    <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
+        <div class="searchBox" id="searchBox" data-role="desi">
+            <input type="text" placeholder="输入活动标题" class="content f-float-l" id="content">
+            <input type="button" value="提交" class="btn f-float-l" id="submit">
+        </div>
+
+    </div>
     {if $length gt 0}
     <!-- 活动列表-->
-    <ul class="m-list f-marTop-30 f-center">
+    <ul class="m-list f-marTop-30 f-center" id="activeList">
         {foreach $result as $item}
         <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="{$item.activeCode}">
             <div class="head f-marBtm-10">

@@ -23,7 +23,7 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
         $smarty->display('limit.tpl');
     }else{
         //获取管理员列表
-        $sql = "select adminmessage.code,adminmessage.password,adminmessage.time,role.info from adminmessage,role where role < 3 and adminmessage.role = role.code";
+        $sql = "select adminmessage.code,adminmessage.password,adminmessage.time,role.info from adminmessage,role where adminmessage.role < 3 and adminmessage.role = role.code";
         $query = $mysql->query($sql,$conn);
         $adminList = $mysql->findAll($query);
         $smarty->assign('adminList',$adminList);

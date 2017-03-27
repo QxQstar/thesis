@@ -17,8 +17,8 @@
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 搜索框-->
     <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
-        <div class="searchBox">
-            <input type="text" placeholder="输入用户昵称/账号" class="content f-float-l" id="content">
+        <div class="searchBox" id="searchBox" data-role="admin">
+            <input type="text" placeholder="输入设计师昵称/账号" class="content f-float-l" id="content">
             <input type="button" value="提交" class="btn f-float-l" id="submit">
             <a id="add" class="btn f-float-l addBtn" href="/thesis/src/PHP/show/adminDesSignin.php">添加设计师</a>
         </div>

@@ -4,6 +4,8 @@
 require('./../css/activeList.css');
 var $ = require('jquery');
 var ajax = require('./ajax.js');
+var activeList = $('#activeList');
+var search = require('./search.js');
 /**
  * 删除活动
  * @param activeList 活动列表
@@ -28,4 +30,13 @@ function deleteActive(activeList){
         })
 
 }
-deleteActive($('#activeList'));
+deleteActive(activeList);
+/**
+ * 回调函数
+ */
+function callback() {
+    deleteActive(activeList);
+}
+//搜索活动
+search.getActive($('#searchBox'),activeList,callback);
+

@@ -16,7 +16,7 @@
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 搜索框-->
     <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
-        <div class="searchBox">
+        <div class="searchBox" id="searchBox" data-status="new" data-role="desi">
             <input type="text" placeholder="输入作品标题" class="content f-float-l" id="content">
             <input type="button" value="提交" class="btn f-float-l" id="submit">
         </div>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- 作品列表-->
-    <ul class="m-list f-marTop-30  f-center">
+    <ul class="m-list f-marTop-30  f-center" id="list" >
         {foreach $list as $item}
             <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30">
                 <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}" class="img">
@@ -57,5 +57,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/production.js"></script>
 </body>
 </html>
