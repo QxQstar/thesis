@@ -26,7 +26,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_GET['code'])){
     $eTime = $activeMess['eTime'];
     //如果活动开始时间小于现在的时间，结束的时间大于现在的时间，则说明当前的活动处于进行中
     if(strtotime($sTime) < time() && strtotime($eTime) > time()){
-        $status = '1';
+        $status = '2';
     }
     //活动已经结束
     elseif (strtotime($sTime) < time() && strtotime($eTime) < time()){
@@ -34,7 +34,7 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && isset($_GET['code'])){
     }
     //活动即将开始
     elseif (strtotime($sTime) > time() && strtotime($eTime) > time()){
-        $status = '2';
+        $status = '1';
     }
     if($activeMess['status'] != $status){
         $mysql->update('acticemessage',"activeCode='$code'",$conn);

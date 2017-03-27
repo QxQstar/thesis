@@ -26,9 +26,9 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_POST) && !empty($_F
     $allowExt=array('jpeg','jpg','png');
 
     if(strtotime($sTime) > time()){
-        $status = '2';
-    }else{
         $status = '1';
+    }else{
+        $status = '2';
     }
     $result=uploadFile($fileInfo,'./../../uploads',false,$allowExt);
     if($result['status']){
@@ -73,9 +73,9 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_POST) && isset($_PO
     $eTime = $_POST['eTime'];
     $desc = $_POST['desc'];
     if(strtotime($sTime) > time()){
-        $status = '2';
-    }else{
         $status = '1';
+    }else{
+        $status = '2';
     }
     $arr = array('sTime'=>$sTime,'eTime'=>$eTime,'title'=>$title,'intro'=>$desc,'status'=>$status);
     $inseresult = $mysql->update('activemessage',$arr,"activeCode='$activeCode'",$conn);

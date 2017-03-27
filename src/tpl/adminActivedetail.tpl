@@ -24,9 +24,9 @@
         <div class="intro">
             <h1 class="title">
                 {$activeMess.title}
-                {if $activeMess.status eq '1'}
+                {if $activeMess.status eq '2'}
                     <span class="status">(进行中)</span>
-                    {elseif $activeMess.status eq '2'}
+                    {elseif $activeMess.status eq '1'}
                     <span class="status">(即将开始)</span>
                     {else}
                     <span class="status">(已结束)</span>

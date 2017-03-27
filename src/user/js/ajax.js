@@ -673,9 +673,9 @@ Ajax.prototype.searchActive = function (data,list,callback) {
                 if(result.length > 0){
                     var right,status,htmlStr='';
                     $.each(result.data,function (index,item) {
-                        if(item.status == '1'){
+                        if(item.status == '2'){
                             status = '<span class="status">(进行中)</span>';
-                        }else if(item.status == '2'){
+                        }else if(item.status == '1'){
                             status ='<span class="status">(即将开始)</span>';
                         }else{
                             status ='<span class="status">(已结束)</span>';

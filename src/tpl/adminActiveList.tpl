@@ -32,9 +32,9 @@
                         <h1 class="title">
                             <a href="/thesis/src/PHP/show/adminActivedetail.php?code={$item.activeCode}">{$item.title}</a>
 
-                            {if $item.status eq '1'}
+                            {if $item.status eq '2'}
                                 <span class="status">(进行中)</span>
-                            {elseif $item.status eq '2'}
+                            {elseif $item.status eq '1'}
                                 <span class="status">(即将进行)</span>
                             {else}
                                 <span class="status">(已结束)</span>
