@@ -54,7 +54,7 @@
         <div class="m-recommend f-marTop-30 f-center">
             <h2 class="title f-marBtm-10">推荐作品</h2>
             <!-- 推荐的作品列表-->
-            <ul class="list f-clearfix">
+            <ul class="list f-clearfix m-otherZp m-otherZp" id="otherZP">
                 {foreach $zpList as $item}
                     <li class="item f-float-l f-marBtm-10">
                         <a class="img" href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}">
@@ -76,5 +76,6 @@
 <!-- 页脚-->
 <div class="g-footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/activeDetail.js"></script>
 </body>
 </html>

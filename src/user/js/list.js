@@ -5,13 +5,14 @@ var $ = require('jquery');
 function AssignList(){
 }
 /**
- * Èë¿Ú
+ * å…¥å£
  */
 AssignList.prototype.start = function(){
     var hotPro,newPro,otherPro;
     hotPro = $('#hotPro');
     newPro = $('#newPro');
     otherPro = $('#otherZP');
+
     if(hotPro.length >0){
         this
             . __assign(hotPro)
@@ -28,8 +29,8 @@ AssignList.prototype.start = function(){
     }
 };
 /**
- * ¶ÔÁÐ±í½øÐÐ²¼¾Ö
- * @param list ÁÐ±í
+ * å¯¹åˆ—è¡¨è¿›è¡Œå¸ƒå±€
+ * @param list åˆ—è¡¨
  * @returns {AssignList}
  * @private
  */
@@ -40,20 +41,24 @@ AssignList.prototype.__assign = function(list){
     imgs.each(function(index,cur){
         var $cur;
         $cur = $(cur);
-        //$cur.on('load',me.__layoutS.bind(me));
-        me
-            .__layoutS.call(me,$cur)
+        if(window.screen.width < 789){
+            me.__change.call(me,$cur);
+        }else{
+            me
+                .__layoutS.call(me,$cur)
+        }
+
     });
     return this;
 };
 /**
- * °ó¶¨ÊÂ¼þ
- * @param elem jquery ÔªËØ
+ * ç»‘å®šäº‹ä»¶
+ * @param elem jquery å…ƒç´ 
  * @returns {AssignList}
  * @private
  */
 AssignList.prototype.__blindEvent = function(elem){
-
+    if(window.screen.width < 789) return this;
     var imgBoxs,me;
     me = this;
     imgBoxs = elem.find('.img');
@@ -65,49 +70,75 @@ AssignList.prototype.__blindEvent = function(elem){
     return this;
 };
 /**
- * ¸Ä±äÍ¼Æ¬´óÐ¡
+ * æ”¹å˜å›¾ç‰‡å¤§å°
  * @param event
  * @private
  */
 AssignList.prototype.__change = function(event){
-    if($(window).width() < 789){
-        return this;
-    }
     var $target,parent,PH,PW,TH,TW;
-    $target = $(event.target);
-    if($target.attr('class') === 'img'){
-        parent = $target;
-        $target = $target.children('img');
-    }else{
+    if(event.length > 0){
+        $target = event;
         parent = $target.parent('.img');
+    }else{
+        $target = $(event.target);
+        if($target.attr('class') === 'img'){
+            parent = $target;
+            $target = $target.children('img');
+        }else{
+            parent = $target.parent('.img');
+        }
     }
+
     PH = parent.height();
     PW = parent.width();
-    TH = $target.data('originH');
-    TW = $target.data('originW');
-    //Èç¹ûÍ¼Æ¬ºÜ¿í
+    TH = $target[0].naturalHeight;
+    TW = $target[0].naturalWidth;
+    //å¦‚æžœå›¾ç‰‡å¾ˆå®½
     if(TW / TH > PW / PH){
-        $target
-            .width(PW)
-            .height(PW * TH / TW)
-            .css({
-                left:-(PW - PW) /2 +'px',
-                top:-((PW * TH / TW)-PH)/2 + 'px'
-            })
+        if(window.screen.width < 789){
+            $target
+                .css({
+                    width:PW + 'px',
+                    height:PW * TH / TW + 'px',
+                    left:-(PW - PW)/2 + 'px',
+                    top:-((PW * TH / TW)-PH) + 'px'
+            });
+        }else{
+            $target
+                .stop(false,true)
+                .animate({
+                    width:PW + 'px',
+                    height:PW * TH / TW + 'px',
+                    left:-(PW - PW)/2 + 'px',
+                    top:-((PW * TH / TW)-PH)/2 +'px'
+                });
+        }
 
     }else{
-        $target
-            .height(PH)
-            .width(TW / TH * PH)
-            .css({
-                left:-((TW / TH * PH) - PW) /2 + 'px',
-                top:-(PH-PH)/2 + 'px'
-            })
+        if(window.screen.width < 789){
+            $target
+                .css({
+                    width:TW / TH * PH + 'px',
+                    height:PH + 'px',
+                    left:-((TW / TH * PH) - PW) /2 + 'px',
+                    top:-(PH-PH)/2 + 'px'
+                });
+        }else{
+            $target
+                .stop(false,true)
+                .animate({
+                    width:TW / TH * PH + 'px',
+                    height:PH + 'px',
+                    left:-((TW / TH * PH) - PW) /2 + 'px',
+                    top:-(PH-PH)/2 + 'px'
+                });
+        }
+
     }
 };
 /**
- * ³õÊ¼»¯Î»ÖÃ
- * @param event ÊÂ¼þ¶ÔÏó
+ * åˆå§‹åŒ–ä½ç½®
+ * @param event äº‹ä»¶å¯¹è±¡
  */
 AssignList.prototype.__layoutS = function(event){
     var $target,parent,PW,PH,TW,TH;
@@ -123,22 +154,18 @@ AssignList.prototype.__layoutS = function(event){
         parent = $target.parent('.img');
     }
     PH = parent.height();
-    PW = parent.width();
-    TW = $target.width();
-    TH = $target.height();
-    if(!$target.data('originW')){
-        $target.data({
-            'originW':TW,
-            'originH':TH
-        });
-    }
+
+    PW = parent.width(); console.log(PH,PW);
+    TW = $target[0].naturalWidth;
+    TH = $target[0].naturalHeight;
     $target
-        .css({
-            left:-($target.data('originW')-PW)/2 +'px',
-            top:-($target.data('originH')-PH)/2 + 'px'
-        })
-        .width($target.data('originW'))
-        .height($target.data('originH'));
+        .stop(false,true)
+        .animate({
+            left:-(TW-PW)/2 +'px',
+            top:-(TH-PH)/2 + 'px',
+            width:TW,
+            height:TH
+        });
 };
 
 var assignList = new AssignList();

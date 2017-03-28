@@ -44,7 +44,7 @@
                 </a>
                 <div class="desc">
                     <p class="title">
-                        <a href="#">{$item.title}</a>
+                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}">{$item.title}</a>
                     </p>
                     <p class="handel">
                         <span class="good">{$item.likeNum}</span>
@@ -72,9 +72,9 @@
                 <div class="desc">
                     <p class="title">
                         {if $item.nickname eq null}
-                            <a href="#">{$item.email}</a>
+                            <a href="/thesis/src/PHP/show/designerHome.php?email={$item.email}">{$item.email}</a>
                             {else}
-                            <a href="#">{$item.nickname}</a>
+                            <a href="/thesis/src/PHP/show/designerHome.php?email={$item.email}">{$item.nickname}</a>
                         {/if}
                     </p>
                     <p class="handel">
@@ -101,7 +101,7 @@
                 </a>
                 <div class="desc">
                     <p class="title">
-                        <a href="#">{$item.title}</a>
+                        <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}">{$item.title}</a>
                     </p>
                     <p class="handel">
                         <span class="time">{$item.time}</span>

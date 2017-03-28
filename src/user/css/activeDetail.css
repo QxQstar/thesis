@@ -107,3 +107,16 @@
     color: #ffffff;
     background-color: #ff3300;
 }
+.g-main .m-otherZp .img{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 140px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.g-main .m-otherZp img{
+    position: absolute;
+    width: auto;
+    max-width: none;
+}
