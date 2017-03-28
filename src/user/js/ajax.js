@@ -737,5 +737,14 @@ Ajax.prototype.searchActive = function (data,list,callback) {
         }
     });
 };
+/**
+ * 加载活动
+ * @param data 要发送的数据
+ * @param loadAfter  加载结束要执行函数
+ * @param loadBefore 加载之前要执行的函数
+ */
+Ajax.prototype.loadingActive = function (data,loadAfter,loadBefore) {
+
+};
 var ajax = new Ajax();
 module.exports = ajax;

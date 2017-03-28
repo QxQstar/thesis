@@ -24,7 +24,7 @@
     </div>
     {if $length gt 0}
     <!-- 活动列表-->
-    <ul class="m-list f-marTop-30 f-center" id="activeList">
+    <ul class="m-list f-marTop-30 f-center" id="activeList" data-maxPage="3">
         {foreach $result as $item}
         <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="{$item.activeCode}">
             <div class="head f-marBtm-10">
@@ -64,7 +64,7 @@
     {/if}
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer" id="footer"></div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/activeList.js"></script>
 </body>

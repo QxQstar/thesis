@@ -6,6 +6,10 @@ var $ = require('jquery');
 var ajax = require('./ajax.js');
 var activeList = $('#activeList');
 var search = require('./search.js');
+var scrollLoading = require('./scrollLoading.js');
+
+//滚动加载
+scrollLoading.start(activeList,'activemessage');
 /**
  * 删除活动
  * @param activeList 活动列表
@@ -39,4 +43,3 @@ function callback() {
 }
 //搜索活动
 search.getActive($('#searchBox'),activeList,callback);
-
