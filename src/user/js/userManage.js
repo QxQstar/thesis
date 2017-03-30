@@ -42,9 +42,10 @@ function deleteUser(userList) {
                 code:$target.attr('data-code')
             };
             if(role == 'desi'){
-                if(confirm('设计师删除后，它的作品也一并删除。是否确定删除？')){
+                layer.confirm('设计师删除后，它的作品也一并删除。是否确定删除？',function (index) {
+                    layer.close(index);
                     ajax.deleteUser(data,$target.parents('.items'));
-                }
+                })
             }else{
                 ajax.deleteUser(data,$target.parents('.items'));
             }

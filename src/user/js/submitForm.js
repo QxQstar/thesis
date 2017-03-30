@@ -204,8 +204,10 @@ SubmitForm.prototype.__submit = function(event){
     result = this.__check(this.exclude);
     //如果验证没有通过
     if(!result.status){
-        alert(result.msg);
-        location.reload();
+        layer.alert(result.msg,function () {
+            location.reload();
+        });
+
     }else{
 
         if(!this.file || this.isSupportFormData()){

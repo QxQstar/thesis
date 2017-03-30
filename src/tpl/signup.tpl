@@ -10,6 +10,7 @@
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/signup.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
+    <script type="text/javascript" src="/thesis/layer/layer.js"></script>
 </head>
 <body>
 <div class="g-main f-center" >

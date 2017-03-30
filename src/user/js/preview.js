@@ -44,19 +44,24 @@ Preview.prototype.fileChange = function (event) {
     type = file.type;
     this.type = type;
     if(type !== 'image/png' && type !== 'image/jpg' && type !== 'image/jpeg'){
-        alert('文件格式不正确');
-        if(this.boxElem.attr('id') !== this.fileParent.attr('id')){
-            this.fileParent.find('#warp').show();
+        layer.alert('文件格式不正确',function (index) {
+            if(me.boxElem.attr('id') !== me.fileParent.attr('id')){
+                me.fileParent.find('#warp').show();
+            }
+            layer.close(index);
+            return me;
+        });
+
+    }else{
+        reader = new FileReader();
+        if(file){
+            reader.readAsDataURL(file);
         }
-        return this;
+        reader.onload = function () {
+            me.show(reader);
+        }
     }
-    reader = new FileReader();
-    if(file){
-        reader.readAsDataURL(file);
-    }
-    reader.onload = function () {
-        me.show(reader);
-    }
+
 };
 /**
  * 显示
@@ -81,19 +86,23 @@ Preview.prototype.show = function (reader) {
             }else{
                 img.attr('src',img.attr('presrc'))
             }
-            alert('图片尺寸不符合规定');
+            layer.alert('图片尺寸不符合规定');
             return false;
+
         }
-        if(controlW &&img[0].naturalWidth !== ( controlW |0 )){
+        else if(controlW &&img[0].naturalWidth !== ( controlW |0 )){
             if(!has){
                 img.attr('src','');
             }else{
                 img.attr('src',img.attr('presrc'))
             }
-            alert('图片尺寸不符合规定');
+            layer.alert('图片尺寸不符合规定');
             return false;
         }
-        return true;
+        else {
+            return true;
+        }
+
     };
     me = this;
     //图片加载结束的处理程序

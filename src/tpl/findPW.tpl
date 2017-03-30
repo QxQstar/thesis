@@ -7,6 +7,7 @@
     <link type="text/css" href="/thesis/src/user/build/css/common.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/verify.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
+    <script type="text/javascript" src="/thesis/layer/layer.js"></script>
 </head>
 <body>
 

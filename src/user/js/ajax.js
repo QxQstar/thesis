@@ -25,30 +25,39 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
             success:function(result){
                 //系统上传头像
                 if(url === 'systemAdmin'){
-                    alert(result.msg);
-                    location.reload();
+                    layer.alert(result.msg,function () {
+                        location.reload();
+                    });
+
                 }
                 //上传作品
                 if(url === 'issueZP'){
                     if(result.status){
-                        alert(result.msg);
-                        if(result.url){
-                            location.href='/thesis/src/PHP/show/'+result.url;
-                        }
+                        layer.alert(result.msg,function () {
+                            if(result.url){
+                                location.href='/thesis/src/PHP/show/'+result.url;
+                            }
+                        });
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 if(url === 'issueActive'){
                     if(result.status){
-                        alert(result.msg);
-                        if(result.url){
-                            location.href='/thesis/src/PHP/show/'+result.url;
-                        }
+                        layer.alert(result.msg,function () {
+                            if(result.url){
+                                location.href='/thesis/src/PHP/show/'+result.url;
+                            }
+                        });
+
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
             }
@@ -64,38 +73,52 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
 
                 //系统添加权限和安全问题
                 if(url === 'systemAdmin'){
-                    alert(result.msg);
-                    location.reload();
+                    layer.alert(result.msg,function () {
+                        location.reload();
+                    });
+
                 }
                 //设计师注册
                 if(url ==='signin'){
                     if(result.status){
-                        alert(result.msg);
-                        location.href='/thesis/src/PHP/show/signup.php';
+                        layer.alert(result.msg,function () {
+                            location.href='/thesis/src/PHP/show/signup.php';
+                        });
+
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //添加设计师
                 if(url ==='adminDesSignin'){
                     if(result.status){
-                        alert(result.msg);
-                        location.href = '/thesis/src/PHP/show/adminDesiList.php';
+                        layer.alert(result.msg,function () {
+                            location.href = '/thesis/src/PHP/show/adminDesiList.php';
+                        });
+
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //添加管理员
                 if(url ==='adminSignin'){
                     if(result.status){
-                        alert(result.msg);
-                        location.href = '/thesis/src/PHP/show/adminAdList.php';
+                        layer.alert(result.msg,function () {
+                            location.href = '/thesis/src/PHP/show/adminAdList.php';
+                        });
+
 
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //设计师登录
@@ -113,8 +136,10 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
 
                         }
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //管理员登录
@@ -126,21 +151,28 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                             location.href = prevUrl;
                         }
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //设计师修改自己的资料
                 if(url === 'setMessage'){
                     if(result.status){
-                        if(result.url){
-                            location.href = '/thesis/src/PHP/show/'+result.url;
-                        }else{
-                            location.reload();
-                        }
+                        layer.alert(result.msg,function () {
+                            if(result.url){
+                                location.href = '/thesis/src/PHP/show/'+result.url;
+                            }else{
+                                location.reload();
+                            }
+                        });
+
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
                 //设计师|| 管理员修改密码，找回密码，修改安全问题
@@ -148,22 +180,29 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                     if(result.status){
                         location.href = '/thesis/src/PHP/show/'+result.url;
                     }else{
-                        alert(result.msg);
-                        if(result.url){
-                            location.href = '/thesis/src/PHP/show/'+result.url;
-                        }else{
-                            location.reload();
-                        }
+                        layer.alert(result.msg,function () {
+                            if(result.url){
+                                location.href = '/thesis/src/PHP/show/'+result.url;
+                            }else{
+                                location.reload();
+                            }
+                        });
+
 
                     }
                 }
                 //管理员修改设计师的资料
                 if(url === 'adminSetMessage'){
                     if(result.status && result.url){
-                        location.href = '/thesis/src/PHP/show/'+result.url;
+                        layer.alert(result.msg,function () {
+                            location.href = '/thesis/src/PHP/show/'+result.url;
+                        });
+
                     }else{
-                        alert(result.msg);
-                        location.reload();
+                        layer.alert(result.msg,function () {
+                            location.reload();
+                        });
+
                     }
                 }
             }
@@ -322,10 +361,11 @@ Ajax.prototype.deleteUser = function (data,elem) {
         url:'/thesis/src/PHP/deleteUser/index.php',
         success:function (result) {
             if(!result.status){
-                alert(result.msg);
-                if(result.url){
-                    location.href = '/thesis/src/PHP/show/'+result.url;
-                }
+                layer.alert(result.msg,function () {
+                    if(result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }
+                });
             }else{
                 elem.remove();
             }
@@ -345,12 +385,17 @@ Ajax.prototype.deleteActive = function (data,elem) {
         dataType:'json',
         success:function (result) {
             if(result.status){
-                elem.remove();
+                layer.alert(result.msg,function () {
+                    elem.remove();
+                });
+
             }else{
-                alert(result.msg);
-                if(result.url){
-                    location.href = '/thesis/src/PHP/show/'+result.url;
-                }
+                layer.alert(result.msg,function () {
+                    if(result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }
+                });
+
             }
         }
     });
@@ -367,12 +412,17 @@ Ajax.prototype.deleteSysMess = function (data) {
         dataType:'json',
         success:function (result) {
             if(result.status){
-                location.reload();
+                layer.alert(result.msg,function () {
+                    location.reload();
+                });
+
             }else{
-                alert(result.msg);
-                if(result.url){
-                    location.href = '/thesis/src/PHP/show/'+result.url;
-                }
+                layer.alert(result.msg,function () {
+                    if(result.url){
+                        location.href = '/thesis/src/PHP/show/'+result.url;
+                    }
+                });
+
             }
         }
     });
@@ -392,10 +442,12 @@ Ajax.prototype.submitReply = function (data) {
                 location.reload();
             }else{
                 if(result.url){
-                    alert(result.msg);
-                    if(result.url){
-                        location.href = '/thesis/src/PHP/show/'+result.url;
-                    }
+                    layer.alert(result.msg,function () {
+                        if(result.url){
+                            location.href = '/thesis/src/PHP/show/'+result.url;
+                        }
+                    });
+
                 }
             }
         }
@@ -417,10 +469,12 @@ Ajax.prototype.deleteNotes = function (data,removeElem) {
                 removeElem.remove();
             }else{
                 if(result.url){
-                    alert(result.msg);
-                    if(result.url){
-                        location.href = '/thesis/src/PHP/show/'+result.url;
-                    }
+                    layer.alert(result.msg,function () {
+                        if(result.url){
+                            location.href = '/thesis/src/PHP/show/'+result.url;
+                        }
+                    });
+
                 }
             }
         }

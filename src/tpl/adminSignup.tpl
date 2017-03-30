@@ -10,6 +10,7 @@
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/signup.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
+    <script type="text/javascript" src="/thesis/layer/layer.js"></script>
 </head>
 <body>
 <div class="g-main f-center" >
@@ -22,10 +23,10 @@
             <h2>管理员登录</h2>
         </div>
         <div class="userName f-marBtm-10">
-            <input type="text" placeholder="输入账号" id="code" name="code">
+            <input type="text" placeholder="输入账号" id="code" name="code" data-info="账号">
         </div>
         <div class="password f-marBtm-10">
-            <input type="password" placeholder="输入登录密码" id="password" name="password">
+            <input type="password" placeholder="输入登录密码" id="password" name="password" data-info="密码">
         </div>
         <div class="submit f-marBtm-10">
             <input type="button" id="submit" value="登录">

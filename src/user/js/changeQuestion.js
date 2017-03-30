@@ -3,15 +3,15 @@
  */
 var $ = require('jquery');
 /**
- * Ñ¡ÔñÎÊÌâ
+ * é€‰æ‹©é—®é¢˜
  * @constructor
  */
 function ChangeQuestion(){
     this.selectElem = null;
 }
 /**
- * Èë¿Ú
- * @param selectElem Ñ¡Ôñ¿ò jquery ¶ÔÏó»òÕßÀàÊı×é
+ * å…¥å£
+ * @param selectElem é€‰æ‹©æ¡† jquery å¯¹è±¡æˆ–è€…ç±»æ•°ç»„
  */
 ChangeQuestion.prototype.start = function(selectElem){
     var me;
@@ -30,8 +30,8 @@ ChangeQuestion.prototype.start = function(selectElem){
     }
 };
 /**
- * changeÊÂ¼şµÄ´¦Àíº¯Êı
- * @param event ÊÂ¼ş¶ÔÏó
+ * changeäº‹ä»¶çš„å¤„ç†å‡½æ•°
+ * @param event äº‹ä»¶å¯¹è±¡
  * @private
  */
 ChangeQuestion.prototype.__change = function(event){
@@ -46,9 +46,9 @@ ChangeQuestion.prototype.__change = function(event){
     }
 };
 /**
- * ÏÔÊ¾»òÕßÒş²ØÏÂÀ­ÁĞ±íÖĞµÄÖµ
- * @param id µ±Ç°ÏÂÀ­ÁĞ±íµÄidÖµ
- * @param isShowAll ÏÔÊ¾ÁíÒ»¸öÏÂÀ­ÁĞ±íÖĞµÄÈ«²¿Ñ¡Ïî
+ * æ˜¾ç¤ºæˆ–è€…éšè—ä¸‹æ‹‰åˆ—è¡¨ä¸­çš„å€¼
+ * @param id å½“å‰ä¸‹æ‹‰åˆ—è¡¨çš„idå€¼
+ * @param isShowAll æ˜¾ç¤ºå¦ä¸€ä¸ªä¸‹æ‹‰åˆ—è¡¨ä¸­çš„å…¨éƒ¨é€‰é¡¹
  * @private
  */
 ChangeQuestion.prototype.__showOrHide = function(id,isShowAll){
@@ -66,7 +66,7 @@ ChangeQuestion.prototype.__showOrHide = function(id,isShowAll){
             if(isShowAll){
                 show($cur);
             }else{
-               show($cur);
+                show($cur);
                 $cur.find("option[value='"+ $('#'+id).val() +"']").hide();
             }
         }
