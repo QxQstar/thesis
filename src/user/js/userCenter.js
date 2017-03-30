@@ -3,6 +3,11 @@
  */
 var $ = require('jquery');
 var ajax = require('./ajax.js');
+var scrollLoading = require('./scrollLoading.js');
+var zpList = $('#zpList');
+//滚动加载
+scrollLoading.start(zpList,'productionmessage',2,callback);
+
 function focus(focusList) {
     var deleteIcons;
     if(focusList && focusList.length > 0){
@@ -49,7 +54,14 @@ function deleteZP(zpList) {
                 zpCode:$target.attr('data-code'),
                 role:'desi'
             };
-            ajax.deleteZP(data);
+            ajax.deleteZP(data,$target.parents('.item'));
         });
 }
-deleteZP($('#zpList'));
+deleteZP(zpList);
+/**
+ * 回调函数
+ */
+function callback() {
+    deleteZP(zpList);
+    focus($('#focusList'));
+}

@@ -4,4 +4,10 @@
 require('./../css/production.css');
 var $ = require('jquery');
 var search = require('./search.js');
-search.getZP($('#searchBox'),$('#list'));
+var scrollLoading = require('./scrollLoading.js');
+
+
+var list = $('#list');
+search.getZP($('#searchBox'),list);
+//滚动加载
+scrollLoading.start(list,'productionmessage',2);

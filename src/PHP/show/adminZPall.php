@@ -18,9 +18,12 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
     $sql = "select * from productionmessage order by likeNum desc,time asc";
     $query = $mysql->query($sql,$conn);
     $result = $mysql->findAll($query);
+    $maxpage = ceil(count($result)/8);
+    $result = array_slice($result,0,8);
     $smarty->assign('isLog',true);
     $smarty->assign('result',$result);
     $smarty->assign('length',count($result));
+    $smarty->assign('maxpage',$maxpage);
     $smarty->assign('role',$_SESSION['role']);
     $smarty->display('adminZPall.tpl');
 }else{

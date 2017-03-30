@@ -6,7 +6,12 @@ var $ =require('jquery');
 var submitForm = require('./submitForm.js')();
 var preview = require('./preview.js');
 var controlNum = require('./controlNum.js');
-submitForm.start($('#upload'),'issueZP',true,[]);
+if($('#editZP').length > 0){
+    submitForm.start($('#upload'),'issueZP',true,['img'],[]);
+}else {
+    submitForm.start($('#upload'),'issueZP',true,[]);
+}
+
 //预览功能
 preview.start($('#upload'));
 //限制字数

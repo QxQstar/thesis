@@ -29,7 +29,7 @@
 
     <!-- 作品列表-->
     {if $length gt 0}
-        <ul class="m-list f-marTop-30  f-center" id="list">
+        <ul class="m-list f-marTop-30  f-center" id="list" data-status="0" data-role="admin" data-maxPage="{$maxpage}">
             {foreach $result as $item}
                 <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="{$item.zpCode}">
                     <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
@@ -55,9 +55,12 @@
             {/foreach}
         </ul>
         <!-- 翻页-->
-        <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-            <button type="button" class="page" id="prev">上一页</button>
-            <button type="button" class="page" id="next">下一页</button>
+        {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
+            {*<button type="button" class="page" id="prev">上一页</button>*}
+            {*<button type="button" class="page" id="next">下一页</button>*}
+        {*</div>*}
+        <div class="loading f-text-c f-marTop-10" id="loading">
+            <img src="/thesis/src/user/css/ajax-loader.gif">
         </div>
         {else}
         <p>没有改类型的作品</p>

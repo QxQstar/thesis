@@ -74,15 +74,25 @@ ScrollLoading.prototype.__loading = function () {
         data.role = this.container.attr('data-role');
         ajax.loadingActive(data,this.container,this.__addPage.bind(this),this.__before.bind(this));
     }
+    //加载作品
+    else if(this.table === 'productionmessage'){
+        data.role = this.container.attr('data-role');
+        data.status = this.container.attr('data-status');
+        ajax.loadingZP(data,this.container,this.__after.bind(this),this.__before.bind(this));
+    }
 
 };
 /**
  * 加载完成后的回调
  * @private
  */
-ScrollLoading.prototype.__addPage = function () {
+ScrollLoading.prototype.__after = function () {
+    var me;
+    me = this;
     this.nextPage ++;
     $('#loading').hide();
+    //给window绑定scroll事件
+    $(window).scroll(me.__throttle.bind(me,me.__checkPosition));
     if(this.callback) this.callback();
 };
 /**
@@ -91,6 +101,7 @@ ScrollLoading.prototype.__addPage = function () {
  */
 ScrollLoading.prototype.__before = function () {
     $('#loading').show();
+    $(window).unbind('scroll');
 };
 var scrollLoading = new ScrollLoading();
 module.exports = scrollLoading;

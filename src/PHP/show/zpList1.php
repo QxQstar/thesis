@@ -21,6 +21,8 @@ if(isset($_SESSION['email'])){
     $sql = "select *  from productionmessage where email='$email' and status='1' order by time desc";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);
+    $maxpage = ceil(count($zpList)/8);
+    $zpList = array_slice($zpList,0,8);
     $zpNum = count($zpList);
     //这个设计师被关注的数量
     $sql = "select * from focus where beEmail='$email'";
@@ -51,6 +53,7 @@ if(isset($_SESSION['email'])){
     $smarty->assign('zpNum',$zpNum);
     $smarty->assign('zpList',$zpList);
     $smarty->assign('noteNum',$noteNum);
+    $smarty->assign('maxpage',$maxpage);
     $smarty->assign('focusNum',$focusNum);
     $smarty->assign('focusList',$focusList);
     $smarty->display('zpList1.tpl');

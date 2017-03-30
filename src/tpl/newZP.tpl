@@ -13,7 +13,7 @@
 <!-- 导航条-->
 {include file="header.tpl"}
 <!-- 主要内容-->
-<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+<div class="g-main f-show f-main-bg f-paddBtm-60">
     <!-- 搜索框-->
     <div class="m-search f-marTop-30 f-area-bg f-center f-clearfix">
         <div class="searchBox" id="searchBox" data-status="new" data-role="desi">
@@ -31,7 +31,7 @@
     </div>
 
     <!-- 作品列表-->
-    <ul class="m-list f-marTop-30  f-center" id="list" >
+    <ul class="m-list f-marTop-30  f-center" id="list" data-status="new" data-role="desi" data-maxPage="{$maxpage}">
         {foreach $list as $item}
             <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30">
                 <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}" class="img">
@@ -49,9 +49,12 @@
         {/foreach}
     </ul>
     <!-- 翻页-->
-    <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-        <button type="button" class="page" id="prev">上一页</button>
-        <button type="button" class="page" id="next">下一页</button>
+    {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
+        {*<button type="button" class="page" id="prev">上一页</button>*}
+        {*<button type="button" class="page" id="next">下一页</button>*}
+    {*</div>*}
+    <div class="loading f-text-c f-marTop-10" id="loading">
+        <img src="/thesis/src/user/css/ajax-loader.gif">
     </div>
 </div>
 <!-- 页脚-->

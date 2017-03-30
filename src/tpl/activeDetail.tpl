@@ -44,7 +44,7 @@
         </div>
     </div>
         <!-- 投稿-->
-    {if $activeMess.status eq '1'}
+    {if $activeMess.status eq '2'}
         <div class="m-upload f-center f-text-c f-marTop-30">
             <a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>
         </div>

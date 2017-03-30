@@ -290,8 +290,9 @@ Ajax.prototype.focus = function (data,elem) {
 /**
  * 删除作品
  * @param data 要删除的作品的编号，对象
+ * * @param elem 要删除的节点
  */
-Ajax.prototype.deleteZP = function (data) {
+Ajax.prototype.deleteZP = function (data,elem) {
     $.ajax({
         type:'GET',
         data:data,
@@ -299,12 +300,11 @@ Ajax.prototype.deleteZP = function (data) {
         url:'/thesis/src/PHP/deleteZP/index.php',
         success:function (result) {
             if(!result.status){
-              alert(result.msg);
               if(result.url){
                   location.href = '/thesis/src/PHP/show/'+result.url;
               }
             }else{
-                location.reload();
+                elem.remove();
             }
         }
     });
@@ -672,7 +672,12 @@ Ajax.prototype.searchActive = function (data,list,callback) {
         success:function (result) {
             if(result.status){
                 if(result.length > 0){
-                    var right,status,htmlStr='';
+                    var right,status,htmlStr='',link;
+                    if(result.role <= 0){
+                        link = 'activeDetail.php';
+                    }else{
+                        link = 'adminActivedetail.php';
+                    }
                     $.each(result.data,function (index,item) {
                         if(item.status == '2'){
                             status = '<span class="status">(进行中)</span>';
@@ -683,6 +688,7 @@ Ajax.prototype.searchActive = function (data,list,callback) {
                         }
                         if(result.role <= 0){
                             right = '<span class="zp">'+item.zpNum+'</span>'
+
                         }else if(result.role <= 1){
                             right =
                                 '<div class="f-float-l right">' +
@@ -705,7 +711,7 @@ Ajax.prototype.searchActive = function (data,list,callback) {
                             '<li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="'+item.activeCode+'">' +
                                 '<div class="head f-marBtm-10">' +
                                     '<h1 class="title">' +
-                                        '<a href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">'+item.title+'</a>'+ status+
+                                        '<a href="/thesis/src/PHP/show/'+ link +'?code='+item.activeCode+'">'+item.title+'</a>'+ status+
                                     '</h1>'+
                                     '<div class="desc">' +
                                         '<div class="handle f-clearfix">' +
@@ -715,7 +721,7 @@ Ajax.prototype.searchActive = function (data,list,callback) {
                                     '</div>'+
                                 '</div>'+
                                 '<div class="imgBox">' +
-                                    '<a class="img" href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">' +
+                                    '<a class="img" href="/thesis/src/PHP/show/'+link+'.php?code='+item.activeCode+'">' +
                                         '<img src="/thesis/src/'+item.img+'">'+
                                     '</a>'+
                                 '</div>'+
@@ -756,7 +762,12 @@ Ajax.prototype.loadingActive = function (data,container,loadAfter,loadBefore) {
         },
         success:function (result) {
             if(result.status){
-                var right,status,htmlStr='',beforeHtml = '';
+                var right,status,htmlStr='',beforeHtml,link;
+                if(result.role <= 0){
+                    link = 'activeDetail.php';
+                }else{
+                    link = 'adminActivedetail.php';
+                }
                 $.each(result.data,function (index,item) {
                     if(item.status == '2'){
                         status = '<span class="status">(进行中)</span>';
@@ -789,7 +800,7 @@ Ajax.prototype.loadingActive = function (data,container,loadAfter,loadBefore) {
                         '<li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="'+item.activeCode+'">' +
                         '<div class="head f-marBtm-10">' +
                         '<h1 class="title">' +
-                        '<a href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">'+item.title+'</a>'+ status+
+                        '<a href="/thesis/src/PHP/show/'+link+'?code='+item.activeCode+'">'+item.title+'</a>'+ status+
                         '</h1>'+
                         '<div class="desc">' +
                         '<div class="handle f-clearfix">' +
@@ -799,7 +810,7 @@ Ajax.prototype.loadingActive = function (data,container,loadAfter,loadBefore) {
                         '</div>'+
                         '</div>'+
                         '<div class="imgBox">' +
-                        '<a class="img" href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">' +
+                        '<a class="img" href="/thesis/src/PHP/show/'+link+'?code='+item.activeCode+'">' +
                         '<img src="/thesis/src/'+item.img+'">'+
                         '</a>'+
                         '</div>'+
@@ -811,6 +822,117 @@ Ajax.prototype.loadingActive = function (data,container,loadAfter,loadBefore) {
             }else{
                 if(result.url){
                     location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
+/**
+ * 加载作品
+ * @param data 要发送的数据
+ * @param container 容器，jquery对象
+ * @param loadAfter  加载结束要执行函数
+ * @param loadBefore 加载之前要执行的函数
+ */
+Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
+    $.ajax({
+        type:"GET",
+        url:'/thesis/src/PHP/loadingZP/index.php',
+        dataType:'json',
+        data:data,
+        beforeSend:function () {
+            loadBefore();
+        },
+        success:function (reslut) {
+            if(reslut.status){
+                var htmlStr = '',show,delOrEdit,link,beforeHtml;
+                if(data.status === 'me0' || data.status === 'me2' || data.status === 'me1'){
+                    link = 'zpDetail.php?role=me&&';
+                }else if(data.status === 'new' || data.status === 'hot'){
+                    link ='zpDetail.php?';
+                }else{
+                    link = 'adminZPdetail.php?';
+                }
+                $.each(reslut.data,function (index, elem) {
+                    //前台
+                    if(data.role === 'desi'){
+                        if(data.status === 'me0'){
+                            show = '<span class="time">'+elem.time+'</span>';
+                            delOrEdit = '<span class="delete" data-code="'+elem.zpCode+'"></span>'+
+                                        '<a href="/thesis/src/PHP/show/editZP.php?zpCode='+elem.zpCode+'" class="link">' +
+                                            '<span class="edit"></span>'+
+                                        '</a>'
+                        }else if(data.status ==='me1'){
+                            show = '<span class="time">'+elem.time+'</span>';
+                            delOrEdit = '<span class="delete" data-code="'+elem.zpCode+'"></span>'+
+                                '<a href="/thesis/src/PHP/show/editZP.php?zpCode='+elem.zpCode+'" class="link">' +
+                                '<span class="edit"></span>'+
+                                '</a>'
+                        }else if(data.status === 'me2'){
+                            show =
+                                '<span class="time">'+elem.time+'</span>'+
+                                '<span class="good">'+elem.likeNum+'</span>'+
+                                '<span class="discuss">'+elem.discussNum+'</span>';
+                            delOrEdit = '<span class="delete" data-code="'+elem.zpCode+'"></span>'+
+                                '<a href="/thesis/src/PHP/show/editZP.php?zpCode='+elem.zpCode+'" class="link">' +
+                                '<span class="edit"></span>'+
+                                '</a>'
+                        }else if(data.status === 'new'){
+                            show = '<span class="time">'+elem.time+'</span>';
+                            delOrEdit ='';
+                        }else{
+                            show =
+                                '<span class="good">'+elem.likeNum+'</span>'+
+                                '<span class="discuss">'+elem.discussNum+'</span>';
+                            delOrEdit ='';
+                        }
+                    }
+                    //后台
+                    else{
+                        if(elem.status ==='0'){
+                            show = '<span class="time">'+elem.time+'</span>'+
+                                    '<span class="agree" title="通过"></span>'+
+                                    '<span class="limit" title="不通过"></span>';
+                        }else if(elem.status ==='2'){
+                            show =
+                                '<span class="time">'+elem.time+'</span>'+
+                                '<span class="good">'+elem.likeNum+'</span>'+
+                                '<span class="discuss">'+elem.discussNum+'</span>';
+                        }else{
+                            show = '<span class="time">'+elem.time+'</span>';
+                        }
+                        if(reslut.role > 1){
+                            delOrEdit = '<span class="delete" data-code="'+elem.zpCode+'"></span>'+
+                                        '<a href="/thesis/src/PHP/show/adminEditZP.php?zpCode='+elem.zpCode+'" class="link">' +
+                                            '<span class="edit"></span>'+
+                                        '</a>'
+                        }else{
+                            delOrEdit = '';
+                        }
+                    }
+                    htmlStr +=
+                        '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+elem.zpCode+'">' +
+                            '<a href="/thesis/src/PHP/show/'+link+'code='+elem.zpCode+'" class="img">' +
+                                '<img src="/thesis/src/'+elem.img+'">'+
+                            '</a>'+
+                            '<div class="desc">' +
+                                '<p class="title">' +
+                                    '<a href="/thesis/src/PHP/show/'+link+'code='+elem.zpCode+'">'+elem.title+'</a>'+
+                                '</p>'+
+                            '<div class="handle">' +
+                                show+
+                                delOrEdit+
+                            '</div>'+
+                        '</li>';
+                });
+                beforeHtml = container.html();
+                container.html(beforeHtml+htmlStr);
+                loadAfter();
+            }else{
+                if(reslut.url){
+                    location.href = '/thesis/src/PHP/show/'+reslut.url;
                 }else{
                     location.href = '/thesis/src/PHP/show/index.php';
                 }

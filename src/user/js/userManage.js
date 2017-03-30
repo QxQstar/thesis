@@ -9,6 +9,7 @@ var search = require('./search.js');
 var userList = $('#userList');
 
 
+
 //搜索用户
 search.getUser($('#searchBox'),userList);
 /**

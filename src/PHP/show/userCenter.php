@@ -18,9 +18,12 @@ session_start();
 if(isset($_SESSION['email'])){
     $email = $_SESSION['email'];
     //这个设计师已经上线作品列表
-    $sql = "select *  from productionmessage where email='$email' and status='2' order by time desc";
+    $sql = "select *  from productionmessage where email='$email' and status='2' order by likeNum desc,time desc";
     $query = $mysql->query($sql,$conn);
     $zpList = $mysql->findAll($query);
+    //可以分多少页
+    $maxpage = ceil(count($zpList)/8);
+    $zpList = array_slice($zpList,0,8);
     $zpNum = count($zpList);
     //这个设计师被关注的数量
     $sql = "select * from focus where beEmail='$email'";
@@ -52,6 +55,7 @@ if(isset($_SESSION['email'])){
     $smarty->assign('zpList',$zpList);
     $smarty->assign('noteNum',$noteNum);
     $smarty->assign('focusNum',$focusNum);
+    $smarty->assign('maxpage',$maxpage);
     $smarty->assign('focusList',$focusList);
     $smarty->display('userCenter.tpl');
 }

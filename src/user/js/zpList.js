@@ -6,9 +6,13 @@ var $ = require('jquery');
 var checkZp = require('./checkZP.js');
 var ajax = require('./ajax.js');
 var search = require('./search.js');
+var scrollLoading = require('./scrollLoading.js');
+
+
 var list = $('#list');
 checkZp.start(list);
-
+//滚动加载
+scrollLoading.start(list,'productionmessage',2,callback);
 /**
  * 删除作品
  * @param zpList 作品列表
@@ -28,7 +32,7 @@ function deleteZP(zpList) {
                 zpCode:$target.attr('data-code'),
                 role:'admin'
             };
-            ajax.deleteZP(data);
+            ajax.deleteZP(data,$target.parents('.item'));
         });
 }
 deleteZP(list);
@@ -40,4 +44,4 @@ function callback() {
     checkZp.start(list);
 }
 //搜索作品
-search.getZP($('#searchBox'),list,callback)
+search.getZP($('#searchBox'),list,callback);

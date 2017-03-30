@@ -18,10 +18,13 @@ $mysql = new mysql();
 $sql = "select * from productionmessage where status='2'order by likeNum desc,discussNum desc";
 $query = $mysql->query($sql,$conn);
 $result = $mysql->findAll($query);
+$maxpage = ceil(count($result)/8);
+$result = array_slice($result,0,8);
 if(isset($_SESSION['email'])){
     $smarty->assign('isLog',true);
 }else{
     $smarty->assign('isLog',false);
 }
 $smarty->assign('list',$result);
+$smarty->assign('maxpage',$maxpage);
 $smarty->display('hotZP.tpl');

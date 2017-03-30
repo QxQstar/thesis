@@ -45,14 +45,16 @@
         </ul>
         {if $zpNum gt 0}
             <!-- 未通过作品列表-->
-            <ul class="m-zpList zpList" id="zpList">
+            <ul class="m-zpList zpList" id="zpList" data-role="desi" data-status="me1" data-maxPage="{$maxpage}">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
                         <a href="/thesis/src/PHP/show/zpDetail.php?role=me&&code={$zpItem.zpCode}" class="img">
                             <img src="/thesis/src/{$zpItem.img}">
                         </a>
                         <div class="desc">
-                            <p class="title">{$zpItem.title}</p>
+                            <p class="title">
+                                <a href="/thesis/src/PHP/show/zpDetail.php?code={$zpItem.zpCode}">{$zpItem.title}</a>
+                            </p>
                             <div class="handel">
                                 <span class="time">{$zpItem.time}</span>
                                 <span class="delete" data-code="{$zpItem.zpCode}"></span>
@@ -66,9 +68,12 @@
                 {/foreach}
             </ul>
             <!-- 翻页-->
-            <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-                <button type="button" class="page" id="prev">上一页</button>
-                <button type="button" class="page" id="next">下一页</button>
+            {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
+                {*<button type="button" class="page" id="prev">上一页</button>*}
+                {*<button type="button" class="page" id="next">下一页</button>*}
+            {*</div>*}
+            <div class="loading f-text-c f-marTop-10" id="loading">
+                <img src="/thesis/src/user/css/ajax-loader.gif">
             </div>
         {else}
             <p>没有该类型的作品</p>
