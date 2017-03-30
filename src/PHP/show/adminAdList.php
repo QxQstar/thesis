@@ -26,6 +26,9 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
         $sql = "select adminmessage.code,adminmessage.password,adminmessage.time,role.info from adminmessage,role where adminmessage.role < 3 and adminmessage.role = role.code";
         $query = $mysql->query($sql,$conn);
         $adminList = $mysql->findAll($query);
+        $maxpage = ceil(count($adminList)/40);
+        $adminList = array_slice($adminList,0,40);
+        $smarty->assign('maxpage',$maxpage);
         $smarty->assign('adminList',$adminList);
         $smarty->display('adminAdList.tpl');
     }

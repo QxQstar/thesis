@@ -80,6 +80,11 @@ ScrollLoading.prototype.__loading = function () {
         data.status = this.container.attr('data-status');
         ajax.loadingZP(data,this.container,this.__after.bind(this),this.__before.bind(this));
     }
+    //加载用户
+    else{
+        data.role = this.container.attr('data-role');
+        ajax.loadingUser(data,this.container,this.__after.bind(this),this.__before.bind(this));
+    }
 
 };
 /**

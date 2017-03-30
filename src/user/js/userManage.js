@@ -6,10 +6,16 @@ require('./../css/adminUserList.css');
 var $ = require('jquery');
 var ajax = require('./ajax.js');
 var search = require('./search.js');
+var scrollLoading = require('./scrollLoading.js');
 var userList = $('#userList');
 
+//滚动加载
 
-
+if ($('#admin').length > 0){
+    scrollLoading.start(userList,'adminmessage',2,callback);
+}else{
+    scrollLoading.start(userList,'designermessage',2,callback);
+}
 //搜索用户
 search.getUser($('#searchBox'),userList);
 /**
@@ -37,10 +43,10 @@ function deleteUser(userList) {
             };
             if(role == 'desi'){
                 if(confirm('设计师删除后，它的作品也一并删除。是否确定删除？')){
-                    ajax.deleteUser(data);
+                    ajax.deleteUser(data,$target.parents('.items'));
                 }
             }else{
-                ajax.deleteUser(data);
+                ajax.deleteUser(data,$target.parents('.items'));
             }
 
 

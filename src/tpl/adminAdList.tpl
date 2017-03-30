@@ -60,7 +60,7 @@
 
 
             </div>
-            <ul class="body" id="userList">
+            <ul class="body" id="userList" data-maxPage="{$maxpage}" data-role="admin">
                 {foreach $adminList as $item}
                     <li class="items">
                         <div class="f-clearfix">
@@ -90,11 +90,10 @@
                 {/foreach}
             </ul>
         </div>
-        <!-- 翻页-->
-        <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-            <button type="button" class="page" id="prev">上一页</button>
-            <button type="button" class="page" id="next">下一页</button>
+        <div class="loading f-text-c f-marTop-10" id="loading">
+            <img src="/thesis/src/user/css/ajax-loader.gif">
         </div>
+
     {else}
         <p> 不存在设计师</p>
     {/if}

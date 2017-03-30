@@ -312,8 +312,9 @@ Ajax.prototype.deleteZP = function (data,elem) {
 /**
  * 删除用户
  * @param data 要删除用户的编号。对象
+ * * @param elem 要删除的节点
  */
-Ajax.prototype.deleteUser = function (data) {
+Ajax.prototype.deleteUser = function (data,elem) {
     $.ajax({
         type:'GET',
         data:data,
@@ -326,7 +327,7 @@ Ajax.prototype.deleteUser = function (data) {
                     location.href = '/thesis/src/PHP/show/'+result.url;
                 }
             }else{
-                location.reload();
+                elem.remove();
             }
         }
     });
@@ -933,6 +934,137 @@ Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
             }else{
                 if(reslut.url){
                     location.href = '/thesis/src/PHP/show/'+reslut.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
+/**
+ * 加载用户
+ * @param data 要发送的数据
+ * @param container 容器，jquery对象
+ * @param loadAfter  加载结束要执行函数
+ * @param loadBefore 加载之前要执行的函数
+ */
+Ajax.prototype.loadingUser = function (data, container, loadAfter, loadBefore) {
+    $.ajax({
+        type:"GET",
+        url:'/thesis/src/PHP/loadingUser/index.php',
+        dataType:'json',
+        data:data,
+        beforeSend:function () {
+            loadBefore();
+        },
+        success:function (result) {
+            if(result.status){
+                var htmlStr = '',beforeHtml;
+                //前台加载设计师
+                if(data.role === 'desi'){
+                    var link,name;
+                    $.each(result.data,function (index,item) {
+                        if(item.email == result.curEmail){
+                            link = '<a href="/thesis/src/PHP/show/userCenter.php" class="img">';
+                        }else{
+                            link = '<a href="/thesis/src/PHP/show/designerHome.php?email='+item.email+'" class="img">';
+                        }
+                        if(item.nickname){
+                            name = item.nickname;
+                        }else{
+                            name = item.email;
+                        }
+                        htmlStr +=
+                            '<li class="item f-float-l">' +
+                                link+
+                                    '<img src="/thesis/src/'+item.img+'">'+
+                                '</a>'+
+                                '<div class="desc">' +
+                                    '<p class="title">' +
+                                         name+
+                                    '</p>'+
+                                    '<div class="handle">' +
+                                        '<span class="fen">'+item.focus+'</span>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</li>';
+                    });
+                }
+                //后台加载
+                else{
+                    //设计师
+                    if(data.table === 'designermessage'){
+                        var nickname;
+                        $.each(result.data,function (index, item) {
+                            if(item.nickname){
+                                nickname = item.nickname;
+                            }else{
+                                nickname = 'null';
+                            }
+                            htmlStr +=
+                                '<li class="items">' +
+                                    '<div class="f-clearfix">' +
+                                        '<div class="right f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">'+item.time+'</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<button type="button" class="delete" data-code="'+item.email+'"></button>'+
+                                            '</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<a class="edit" href="/thesis/src/PHP/show/adminEditUser.php?email='+item.email+'"></a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="left f-float-r f-clearfix">' +
+                                             '<div class="item f-float-l">' +
+                                                    '<span class="info">账号:</span><a href="/thesis/src/PHP/show/designerHome.php?role=admin&&email='+item.email+'">'+item.email+'</a>'+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">昵称:</span>'+nickname+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">密码:</span>'+item.password+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                    }
+                    //管理员
+                    else{
+                        $.each(result.data,function (index,item) {
+                            htmlStr +=
+                                '<li class="items">' +
+                                    '<div class="f-clearfix">' +
+                                        '<div class="right f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">'+item.time+'</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<button type="button" class="delete" data-code="'+item.code+'"></button>'+
+                                            '</div>'+
+                                            '<div class="item icon f-float-l">' +
+                                                '<a class="edit" href="/thesis/src/PHP/show/adminEditAd.php?code='+item.code+'"></a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="left f-float-r f-clearfix">' +
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">账号:</span>'+item.code+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">角色:</span>'+item.info+
+                                            '</div>'+
+                                            '<div class="item f-float-l">' +
+                                                '<span class="info">密码:</span>'+item.password+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</li>';
+                        });
+                    }
+                }
+            beforeHtml = container.html();
+            container.html(beforeHtml+htmlStr);
+            loadAfter();
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
                 }else{
                     location.href = '/thesis/src/PHP/show/index.php';
                 }

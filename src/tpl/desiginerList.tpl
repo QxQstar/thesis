@@ -28,7 +28,7 @@
     {if $desiMess|count gt 0}
         <!-- 设计师列表-->
         <div class="m-listBox f-area-bg f-center f-marTop-30 f-paddTopBtm-20 f-paddLR-30">
-            <ul class="m-list f-clearfix" id="userList">
+            <ul class="m-list f-clearfix" id="userList" data-role="desi" data-maxPage="{$maxpage}">
                 {foreach $desiMess as $item}
                 <li class="item f-float-l">
                     {if $isLog eq true and $curEmail eq $item.email}
@@ -54,10 +54,8 @@
                 {/foreach}
             </ul>
         </div>
-        <!-- 翻页-->
-        <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-            <button type="button" class="page" id="prev">上一页</button>
-            <button type="button" class="page" id="next">下一页</button>
+        <div class="loading f-text-c f-marTop-10" id="loading">
+            <img src="/thesis/src/user/css/ajax-loader.gif">
         </div>
         {else}
         <p>还没有设计师</p>

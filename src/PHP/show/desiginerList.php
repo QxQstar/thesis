@@ -25,5 +25,8 @@ if(!empty($_SESSION) && isset($_SESSION['email'])){
 $sql = "select * from designermessage order by focus desc,email asc";
 $query = $mysql->query($sql,$conn);
 $desiMess = $mysql->findAll($query);
+$maxpage = ceil(count($desiMess)/24);
+$desiMess = array_slice($desiMess,0,24);
+$smarty->assign('maxpage',$maxpage);
 $smarty->assign('desiMess',$desiMess);
 $smarty->display('desiginerList.tpl');
