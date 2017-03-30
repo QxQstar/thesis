@@ -334,8 +334,9 @@ Ajax.prototype.deleteUser = function (data) {
 /**
  * 删除活动
  * @param data 发送的数据，对象。活动编号
+ * @param elem 要删除的节点
  */
-Ajax.prototype.deleteActive = function (data) {
+Ajax.prototype.deleteActive = function (data,elem) {
     $.ajax({
         data:data,
         type:"GET",
@@ -343,7 +344,7 @@ Ajax.prototype.deleteActive = function (data) {
         dataType:'json',
         success:function (result) {
             if(result.status){
-                location.reload();
+                elem.remove();
             }else{
                 alert(result.msg);
                 if(result.url){
@@ -740,11 +741,82 @@ Ajax.prototype.searchActive = function (data,list,callback) {
 /**
  * 加载活动
  * @param data 要发送的数据
+ * @param container 容器，jquery对象
  * @param loadAfter  加载结束要执行函数
  * @param loadBefore 加载之前要执行的函数
  */
-Ajax.prototype.loadingActive = function (data,loadAfter,loadBefore) {
-
+Ajax.prototype.loadingActive = function (data,container,loadAfter,loadBefore) {
+    $.ajax({
+        data:data,
+        type:'GET',
+        dataType:'json',
+        url:'/thesis/src/PHP/loadActive/index.php',
+        beforeSend:function () {
+            loadBefore();
+        },
+        success:function (result) {
+            if(result.status){
+                var right,status,htmlStr='',beforeHtml = '';
+                $.each(result.data,function (index,item) {
+                    if(item.status == '2'){
+                        status = '<span class="status">(进行中)</span>';
+                    }else if(item.status == '1'){
+                        status ='<span class="status">(即将开始)</span>';
+                    }else{
+                        status ='<span class="status">(已结束)</span>';
+                    }
+                    if(result.role <= 0){
+                        right = '<span class="zp">'+item.zpNum+'</span>'
+                    }else if(result.role <= 1){
+                        right =
+                            '<div class="f-float-l right">' +
+                            '<span class="zp">'+item.zpNum+'</span>'+
+                            '<a href="/thesis/src/PHP/show/adminEditActive.php?code='+item.activeCode+'" class="link">' +
+                            '<span class="edit"></span>'+
+                            '</a>'+
+                            '</div>';
+                    }else{
+                        right =
+                            '<div class="f-float-l right">' +
+                            '<span class="zp">'+item.zpNum+'</span>'+
+                            '<a href="/thesis/src/PHP/show/adminEditActive.php?code='+item.activeCode+'" class="link">' +
+                            '<span class="edit"></span>'+
+                            '</a>'+
+                            '<span class="delete" data-code="'+item.activeCode+'"></span>'+
+                            '</div>';
+                    }
+                    htmlStr +=
+                        '<li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="'+item.activeCode+'">' +
+                        '<div class="head f-marBtm-10">' +
+                        '<h1 class="title">' +
+                        '<a href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">'+item.title+'</a>'+ status+
+                        '</h1>'+
+                        '<div class="desc">' +
+                        '<div class="handle f-clearfix">' +
+                        '<span class="time f-float-l">'+item.sTime+'-'+item.eTime+'</span>'+
+                        right+
+                        '</div>'+
+                        '</div>'+
+                        '</div>'+
+                        '<div class="imgBox">' +
+                        '<a class="img" href="/thesis/src/PHP/show/adminActivedetail.php?code='+item.activeCode+'">' +
+                        '<img src="/thesis/src/'+item.img+'">'+
+                        '</a>'+
+                        '</div>'+
+                        '</li>';
+                });
+                beforeHtml = container.html();
+                container.html(beforeHtml + htmlStr);
+                loadAfter();
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
 };
 var ajax = new Ajax();
 module.exports = ajax;

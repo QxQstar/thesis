@@ -82,6 +82,7 @@
     margin-left: 5px;
     background-color: #ff3300;
     border: 1px solid#ff3300;
+    line-height: 30px;
 }
 @media all and (max-width: 650px) {
     .g-main .m-search{
@@ -113,6 +114,7 @@
         height: 30px;
     }
     .g-main .m-search .addBtn{
+        display: none;
         width: 150px;
         float: none;
         margin-top: 20px;
@@ -148,6 +150,9 @@
     font-size: 12px;
     color: #888;
 }
+.g-main .desc .link{
+    margin-left: 15px;
+}
 .g-main .desc span+span{
     margin-left: 10px;
 }
@@ -161,6 +166,32 @@
 .g-main .desc .good:before{
     width: 19px;
     background-position: -54px 0;
+}
+.g-main .desc .edit:before{
+    width: 16px;
+    background-position: -436px 0;
+}
+.g-main .desc .edit:hover:before{
+    background-position: -418px 0;
+}
+.g-main .desc .delete:before{
+    width: 15px;
+    background-position: -373px 0;
+}
+.g-main .desc .delete:hover:before{
+    background-position: -390px 0;
+}
+.g-main .desc .right{
+    margin-left: 20px;
+}
+@media all and (max-width: 600px) {
+    .g-main .desc .right{
+        margin-left: 10px;
+    }
+    .g-main .desc .edit,
+    .g-main .desc .delete{
+        display: none;
+    }
 }
 .g-main .desc .discuss:before{
     width: 15px;
@@ -182,16 +213,6 @@
     width: 100%;
 }
 
-
-/*��ҳ*/
-/*��ҳ*/
-.g-main .m-page .page{
-    height: 30px;
-    width: 70px;
-    background-color: #888888;
-    color: #ffffff;
-    font-size: 14px;
-    margin-left: 10px;
-    border: none;
-    cursor: pointer;
+.g-main .loading{
+    display: none;
 }

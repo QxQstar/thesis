@@ -24,7 +24,7 @@
     </div>
     {if $length gt 0}
     <!-- 活动列表-->
-    <ul class="m-list f-marTop-30 f-center" id="activeList" data-maxPage="3">
+    <ul class="m-list f-marTop-30 f-center" id="activeList" data-maxPage="{$maxpage}" data-role="desi">
         {foreach $result as $item}
         <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="{$item.activeCode}">
             <div class="head f-marBtm-10">
@@ -54,11 +54,13 @@
         </li>
         {/foreach}
     </ul>
-    <!-- 翻页-->
-    <div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">
-        <button type="button" class="page" id="prev">上一页</button>
-        <button type="button" class="page" id="next">下一页</button>
-    </div>
+    {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
+        {*<button type="button" class="page" id="prev">上一页</button>*}
+        {*<button type="button" class="page" id="next">下一页</button>*}
+    {*</div>*}
+        <div class="loading f-text-c f-marTop-10" id="loading">
+            <img src="/thesis/src/user/css/ajax-loader.gif">
+        </div>
         {else}
         <p>不存在活动</p>
     {/if}

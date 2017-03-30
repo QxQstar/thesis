@@ -9,7 +9,7 @@ var search = require('./search.js');
 var scrollLoading = require('./scrollLoading.js');
 
 //滚动加载
-scrollLoading.start(activeList,'activemessage');
+scrollLoading.start(activeList,'activemessage',2,callback);
 /**
  * 删除活动
  * @param activeList 活动列表
@@ -29,7 +29,7 @@ function deleteActive(activeList){
                 activeCode:target.attr('data-code')
             };
             if(confirm('活动删除之后，该活动的作品也会一并删除，是否确定删除？')){
-                ajax.deleteActive(data);
+                ajax.deleteActive(data,target.parents('.item'));
             }
         })
 

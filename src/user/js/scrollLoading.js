@@ -11,19 +11,24 @@ function ScrollLoading(){
     this.nextPage = 2;
     this.container = null;
     this.maxPage = 1;
+    this.callback = null;
 }
 /**
  * 入口
  * @param container 容纳数据的容器，jquery对象
  * @param table 数据表
  * @param nextPage 要加载的页
+ * @param callback 回调函数
  */
-ScrollLoading.prototype.start = function (container,table,nextPage) {
+ScrollLoading.prototype.start = function (container,table,nextPage,callback) {
     var me;
     if(!container || container.length <= 0) container = $('body');
+    this.container = container;
     if(!table) return this;
+    this.table = table;
     if(typeof nextPage !== 'undefined') this.nextPage = nextPage;
     if(typeof container.attr('data-maxPage') !== 'undefined') this.maxPage = container.attr('data-maxPage') | 0;
+    if(typeof callback === 'function') this.callback = callback;
     me =  this;
     //给window绑定scroll事件
     $(window).scroll(me.__throttle.bind(me,me.__checkPosition));
@@ -48,8 +53,8 @@ ScrollLoading.prototype.__checkPosition = function () {
         me.__loading();
     }
     //提示无更多数据
-    if(me.maxPage < me.nextPage){
-        me.container.append($('<p>无更多数据</p>'));
+    if(me.maxPage < me.nextPage && $('#noData').length <= 0){
+        me.container.append($('<p id="noData">无更多数据</p>'));
     }
 
 };
@@ -64,14 +69,21 @@ ScrollLoading.prototype.__loading = function () {
         page:this.nextPage,
         maxPage:this.maxPage
     };
-    ajax.loadingActive(data,this.__addPage,this.__before);
+    //加载活动
+    if(this.table === 'activemessage'){
+        data.role = this.container.attr('data-role');
+        ajax.loadingActive(data,this.container,this.__addPage.bind(this),this.__before.bind(this));
+    }
+
 };
 /**
- * 将下一页加1
+ * 加载完成后的回调
  * @private
  */
 ScrollLoading.prototype.__addPage = function () {
     this.nextPage ++;
+    $('#loading').hide();
+    if(this.callback) this.callback();
 };
 /**
  *  显示正在加载
