@@ -29,9 +29,12 @@ if(isset($_SESSION['email'])){
     $query = $mysql->query($sql,$conn);
     $focusNum = mysqli_num_rows($query);
     //这个设计师关注的设计师
-    $sql = "select img,designermessage.email,nickname from  focus,designermessage where  focus.email='$email' and focus.beEmail=designermessage.email";
+    $sql = "select img,designermessage.email,nickname from  focus,designermessage where  focus.email='$email' and focus.beEmail=designermessage.email order by focus desc,beEmail desc";
     $query = $mysql->query($sql,$conn);
     $focusList = $mysql->findAll($query);
+    //可以分多少页
+    $focuspage  = ceil(count($focusList)/9);
+    $focusList = array_slice($focusList,0,9);
     //该设计师未读的消息
     $sql = "select * from note where email='$email' and status=0";
     $query = $mysql->query($sql,$conn);
@@ -54,6 +57,7 @@ if(isset($_SESSION['email'])){
     $smarty->assign('zpList',$zpList);
     $smarty->assign('noteNum',$noteNum);
     $smarty->assign('maxpage',$maxpage);
+    $smarty->assign('focuspage',$focuspage);
     $smarty->assign('focusNum',$focusNum);
     $smarty->assign('focusList',$focusList);
     $smarty->display('zpList1.tpl');

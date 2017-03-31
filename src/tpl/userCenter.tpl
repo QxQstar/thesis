@@ -69,11 +69,7 @@
                     </li>
                 {/foreach}
             </ul>
-            <!-- 翻页-->
-            {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
-                {*<button type="button" class="page" id="prev">上一页</button>*}
-                {*<button type="button" class="page" id="next">下一页</button>*}
-            {*</div>*}
+
             <div class="loading f-text-c f-marTop-10" id="loading">
                 <img src="/thesis/src/user/css/ajax-loader.gif">
             </div>
@@ -82,25 +78,33 @@
         {/if}
 
         <!-- 关注-->
-        <div class="m-focus" id="focusList">
+        <div class="m-focus">
             <h2 class="title">关注的设计师</h2>
-            <ul class="list f-clearfix">
-                {foreach $focusList as $focusItem}
-                    <li class="item f-float-l">
-                        <span class="delete" data-code="{$focusItem.email}"></span>
-                        <a href="/thesis/src/PHP/show/designerHome.php?email={$focusItem.email}">
-                            <img src="/thesis/src/{$focusItem.img}">
-                        </a>
-                        {if $focusItem.nickname neq null}
-                            <p class="name">{$focusItem.nickname}</p>
-                            {else}
-                            <p class="name">{$focusItem.email}</p>
-                        {/if}
-                    </li>
-                    {foreachelse}
-                    还没有关注的设计师
-                {/foreach}
-            </ul>
+            {if $focusList|count gt 0}
+                <ul class="list f-clearfix" id="focusList" data-maxPage="{$focuspage}">
+                    {foreach $focusList as $focusItem}
+                        <li class="item f-float-l">
+                            <span class="delete" data-code="{$focusItem.email}"></span>
+                            <a href="/thesis/src/PHP/show/designerHome.php?email={$focusItem.email}">
+                                <img src="/thesis/src/{$focusItem.img}">
+                            </a>
+                            {if $focusItem.nickname neq null}
+                                <p class="name">{$focusItem.nickname}</p>
+                                {else}
+                                <p class="name">{$focusItem.email}</p>
+                            {/if}
+                        </li>
+                    {/foreach}
+                </ul>
+                {else}
+                没有关注设计师
+            {/if}
+            {if $focuspage gt 1}
+                <div class="turnPage f-marTop-10" id="turnPage" data-curEmail="{$message.email}">
+                    <button type="button" id="prevPage" class="off prevPage"></button>
+                    <button type="button" id="nextPage" class="nextPage"></button>
+                </div>
+            {/if}
         </div>
 
     </div>

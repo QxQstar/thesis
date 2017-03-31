@@ -120,18 +120,6 @@
     width: 100%;
 }
 
-/*·­Ò³*/
-.g-main .m-page .page{
-    height: 30px;
-    width: 70px;
-    background-color: #888888;
-    color: #ffffff;
-    font-size: 14px;
-    margin-left: 10px;
-    border: none;
-    cursor: pointer;
-}
-
 .g-main .m-zpListBox .m-page{
     position: absolute;
     left: 0;
@@ -243,4 +231,23 @@
     .g-main .m-focus{
         display: none;
     }
+}
+.m-focus .turnPage button{
+    width: 20px;
+    height: 13px;
+    background: url('./../img/icon.png') no-repeat;
+    cursor: pointer;
+}
+.m-focus .turnPage button+button{
+    margin-left: 5px;
+}
+.m-focus .turnPage .prevPage{
+    background-position: -922px 0;
+}
+.m-focus .turnPage .nextPage{
+    background-position: -900px 0;
+ }
+.m-focus .turnPage .off{
+    opacity: .4;
+
 }

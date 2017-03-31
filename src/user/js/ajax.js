@@ -1126,5 +1126,52 @@ Ajax.prototype.loadingUser = function (data, container, loadAfter, loadBefore) {
         }
     });
 };
+/**
+ * 翻页
+ * @param data 要发送的数据
+ * @param list 容器
+ * @param before 请求发送前的回调
+ * @param after 请求成功的回调
+ */
+Ajax.prototype.turnPage = function (data, list, before, after) {
+    $.ajax({
+        type:'GET',
+        data:data,
+        url:'/thesis/src/PHP/turnPage/index.php',
+        dataType:'json',
+        beforeSend:function () {
+            before();
+        },
+        success:function (result) {
+            if(result.status){
+                var htmlStr = '';
+                $.each(result.data,function (index,focusItem) {
+                    var name;
+                    if(focusItem.nickname){
+                        name = focusItem.nickname;
+                    }else{
+                        name = focusItem.email;
+                    }
+                    htmlStr +=
+                        '<li class="item f-float-l">' +
+                            '<span class="delete" data-code="'+focusItem.email+'"></span>'+
+                            '<a href="/thesis/src/PHP/show/designerHome.php?email='+focusItem.email+'">' +
+                                '<img src="/thesis/src/'+focusItem.img+'">'+
+                            '</a>'+
+                            '<p class="name">'+name+'</p>'+
+                        '</li>';
+                });
+                list.html(htmlStr);
+                after();
+            }else{
+                if(result.url){
+                    location.href = '/thesis/src/PHP/show/'+result.url;
+                }else{
+                    location.href = '/thesis/src/PHP/show/index.php';
+                }
+            }
+        }
+    });
+};
 var ajax = new Ajax();
 module.exports = ajax;
