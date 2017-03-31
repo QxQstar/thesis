@@ -38,6 +38,7 @@
     </form>
 
 </div>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/signup.js"></script>
 </body>
 </html>

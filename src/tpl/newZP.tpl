@@ -48,11 +48,6 @@
             </li>
         {/foreach}
     </ul>
-    <!-- 翻页-->
-    {*<div class="m-page f-area-bg f-marTop-30 f-text-r f-center f-paddTopBtm-20 f-paddLR-30">*}
-        {*<button type="button" class="page" id="prev">上一页</button>*}
-        {*<button type="button" class="page" id="next">下一页</button>*}
-    {*</div>*}
     <div class="loading f-text-c f-marTop-10" id="loading">
         <img src="/thesis/src/user/css/ajax-loader.gif">
     </div>

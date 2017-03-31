@@ -48,6 +48,7 @@
         </div>
     </form>
 </div>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/adminDesSignin.js"></script>
 </body>
 </html>

@@ -31,13 +31,13 @@ ScrollLoading.prototype.start = function (container,table,nextPage,callback) {
     if(typeof callback === 'function') this.callback = callback;
     me =  this;
     //给window绑定scroll事件
-    $(window).scroll(me.__throttle.bind(me,me.__checkPosition));
+    $(window).scroll(me.__throttle.__bind(me,me.__checkPosition));
 };
 ScrollLoading.prototype.__throttle = function (callback) {
     var me ;
     me = this;
     clearTimeout(callback.id);
-    callback.id = setTimeout(callback.bind(me),50);
+    callback.id = setTimeout(callback.__bind(me),50);
 };
 /**
  * 检查滚动的距离
@@ -72,18 +72,18 @@ ScrollLoading.prototype.__loading = function () {
     //加载活动
     if(this.table === 'activemessage'){
         data.role = this.container.attr('data-role');
-        ajax.loadingActive(data,this.container,this.__addPage.bind(this),this.__before.bind(this));
+        ajax.loadingActive(data,this.container,this.__addPage.__bind(this),this.__before.__bind(this));
     }
     //加载作品
     else if(this.table === 'productionmessage'){
         data.role = this.container.attr('data-role');
         data.status = this.container.attr('data-status');
-        ajax.loadingZP(data,this.container,this.__after.bind(this),this.__before.bind(this));
+        ajax.loadingZP(data,this.container,this.__after.__bind(this),this.__before.__bind(this));
     }
     //加载用户
     else{
         data.role = this.container.attr('data-role');
-        ajax.loadingUser(data,this.container,this.__after.bind(this),this.__before.bind(this));
+        ajax.loadingUser(data,this.container,this.__after.__bind(this),this.__before.__bind(this));
     }
 
 };
@@ -97,7 +97,7 @@ ScrollLoading.prototype.__after = function () {
     this.nextPage ++;
     $('#loading').hide();
     //给window绑定scroll事件
-    $(window).scroll(me.__throttle.bind(me,me.__checkPosition));
+    $(window).scroll(me.__throttle.__bind(me,me.__checkPosition));
     if(this.callback) this.callback();
 };
 /**

@@ -54,7 +54,7 @@ SubmitForm.prototype.start = function(formElem,url,haveFile,exclude,notSubmit){
 
     submit
         .unbind('click')
-        .on('click',me.__submit.bind(me));
+        .on('click',me.__submit.__bind(me));
     return this;
 };
 /**
@@ -214,7 +214,6 @@ SubmitForm.prototype.__submit = function(event){
             ajax.submitForm(this.url,result.data,this.file,location.href);
         }else{
             this.fromElem.submit();
-
         }
     }
     return this;

@@ -14,8 +14,11 @@ function ChangeQuestion(){
  * @param selectElem 选择框 jquery 对象或者类数组
  */
 ChangeQuestion.prototype.start = function(selectElem){
-    var me;
+    var me,changeHandle;
     me = this;
+    changeHandle = function (event) {
+        me.__bind(me.__change,event);
+    };
     if(selectElem){
         this.selectElem = selectElem;
         selectElem.each(function(index,cur){
@@ -23,7 +26,8 @@ ChangeQuestion.prototype.start = function(selectElem){
             $cur = $(cur);
             $cur
                 .unbind('change')
-                .on('change',me.__change.bind(me));
+                // .on('change',me.__change.bind(me));
+                .on('change',changeHandle)
         })
     }else{
         return this;
@@ -71,6 +75,21 @@ ChangeQuestion.prototype.__showOrHide = function(id,isShowAll){
             }
         }
     })
+};
+/**
+ * 兼容es5中的bind
+ * @param func 要调用的函数
+ * @param event 函数的参数
+ * @private
+ */
+ChangeQuestion.prototype.__bind = function (func,event) {
+    var me;
+    me = this;
+    if(typeof func.bind() === 'function'){
+            func.bind(me,event)();
+    }else{
+        func.call(me,event);
+    }
 };
 var changeQuestion = new ChangeQuestion();
 module.exports = changeQuestion;

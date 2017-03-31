@@ -37,6 +37,7 @@
     </form>
 
 </div>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/adminSignup.js"></script>
 </body>
 </html>

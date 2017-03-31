@@ -2,30 +2,30 @@
  * Created by star on 2017/3/12.
  */
 /**
- * ¿ÕÖµÊäÈëµÄ×ÖÊı
+ * ç©ºå€¼è¾“å…¥çš„å­—æ•°
  * @constructor
  */
 function ControlNum(){
-    //ÊäÈë±íµ¥
+    //è¾“å…¥è¡¨å•
     this.insetBox = null;
-    //ÏÔÊ¾µ±Ç°×ÖÊıµÄÔªËØ
+    //æ˜¾ç¤ºå½“å‰å­—æ•°çš„å…ƒç´ 
     this.showElem = null;
-    //ÄÜ¹»ÊäÈëµÄ×î´ó×ÖÊı
+    //èƒ½å¤Ÿè¾“å…¥çš„æœ€å¤§å­—æ•°
     this.maxNum = 0;
 }
 /**
- * Èë¿Ú
- * @param insetBox ÊäÈë¿ò£¬jquery ¶ÔÏó
- * @param showElem ÏÔÊ¾×ÖÊıµÄÔªËØ jquery ¶ÔÏó
- * @param maxNum ×î´ó×ÖÊı
+ * å…¥å£
+ * @param insetBox è¾“å…¥æ¡†ï¼Œjquery å¯¹è±¡
+ * @param showElem æ˜¾ç¤ºå­—æ•°çš„å…ƒç´  jquery å¯¹è±¡
+ * @param maxNum æœ€å¤§å­—æ•°
  */
 ControlNum.prototype.start = function(insetBox,showElem,maxNum){
     var me;
     me = this;
-    if(insetBox){
+    if(insetBox && insetBox.length > 0){
         this.insetBox = insetBox;
     }
-    if(showElem){
+    if(showElem && showElem.length > 0){
         this.showElem = showElem;
     }
     if(maxNum){
@@ -35,13 +35,13 @@ ControlNum.prototype.start = function(insetBox,showElem,maxNum){
         showElem.html(me.insetBox.val().trim().length + '/' + me.maxNum);
         insetBox
             .unbind('keyup')
-            .on('keyup',me.insert.bind(me));
+            .on('keyup',me.__bind(me.insert));
     }else{
         return this;
     }
 };
 /**
- * ÊäÈë
+ * è¾“å…¥
  */
 ControlNum.prototype.insert = function(){
     var me,curNum,chars;
@@ -56,6 +56,22 @@ ControlNum.prototype.insert = function(){
         me.showElem.css('color','#444');
     }
     me.showElem.html(curNum + '/'+me.maxNum);
+};
+/**
+ * å…¼å®¹es5ä¸­çš„bindæ–¹æ³•
+ * @param func è¦è°ƒç”¨çš„å‡½æ•°
+ * @private
+ */
+ControlNum.prototype.__bind = function (func) {
+    var me;
+    me = this;
+    if(typeof func.bind === 'function'){
+        return func.bind(me);
+    }else{
+        return function () {
+            func.call(me);
+        };
+    }
 };
 var controlNum = new ControlNum();
 

@@ -59,6 +59,7 @@
         </div>
     </form>
 </div>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/adminSignin.js"></script>
 </body>
 </html>

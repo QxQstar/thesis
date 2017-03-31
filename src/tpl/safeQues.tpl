@@ -58,7 +58,8 @@
 </div>
 <!-- 页脚-->
 <div class="g-footer"></div>
-<script type="text/javascript" src="/thesis/src/user/build/js/systemAdmin.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/systemAdmin.js"></script>
+
 </body>
 </html>

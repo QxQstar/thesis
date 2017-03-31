@@ -29,7 +29,7 @@ Preview.prototype.start = function (boxElem,fileParent,callback) {
     if(this.__isSupport() && this.boxElem){
         chooseFile = this.fileParent.find('input[type="file"]');
         chooseFile
-            .on('change',me.fileChange.bind(me))
+            .on('change',me.fileChange.__bind(me))
     }
 };
 /**

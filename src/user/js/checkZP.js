@@ -27,14 +27,15 @@ CheckZP.prototype.addEvent = function () {
     me = this;
     item = this.zpList.find('.item');
     item.each(function (index,cur) {
+        var $cur;
         $cur = $(cur);
         limit = $cur.find('.limit');
         agree = $cur.find('.agree');
         //绑定事件
         limit
-            .on('click',me.limit.bind(me));
+            .on('click',me.limit);
         agree
-            .on('click',me.agree.bind(me));
+            .on('click',me.agree);
     });
 
 };

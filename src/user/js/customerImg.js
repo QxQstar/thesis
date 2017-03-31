@@ -27,7 +27,6 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
     me = this;
     this.isSupport = this.__isSupport();
     warpBox = warp.parent();
-    console.log(this.isSupport);
     if(!this.isSupport) {
         addButton = $('<p class="addItem f-float-l f-text-c">你的浏览器不支持自定义头像，可更换高版本的浏览器自定义头像</p>');
         warpBox.append(addButton);
@@ -45,7 +44,7 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
         this.url = url;
     }
     //预览
-    preview.start(previewBox,warpBox,shear.start.bind(shear,previewBox));
+    preview.start(previewBox,warpBox,shear.start.__bind(shear,previewBox));
     this.previewBox = previewBox;
 
     //绑定事件，确定和取消
@@ -53,12 +52,12 @@ CustomerImg.prototype.start = function (warp,previewBox,url) {
     previewBox
         .find('#reset')
         .unbind('click')
-        .on('click',me.__dispose.bind(me));
+        .on('click',me.__dispose.__bind(me));
     //2.确定
     previewBox
         .find('#submit')
         .unbind('click')
-        .on('click',me.__submit.bind(me));
+        .on('click',me.__submit.__bind(me));
 };
 /**
  * 清理

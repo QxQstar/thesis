@@ -43,12 +43,6 @@
             </div>
         </div>
     </div>
-    {*{if $activeMess.status eq '1'}*}
-        {*<!-- 投稿-->*}
-        {*<div class="m-upload f-center f-text-c f-marTop-30">*}
-            {*<a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>*}
-        {*</div>*}
-    {*{/if}*}
     {if $num gt 0}
         <!-- 推荐作品-->
         <div class="m-recommend f-marTop-30 f-center">

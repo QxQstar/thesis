@@ -50,7 +50,7 @@ Spread.prototype.__blindEvent = function(type){
     me = this;
     control
         .unbind(type)
-        .on(type,me.__handler.bind(me));
+        .on(type,me.__handler.__bind(me));
 };
 Spread.prototype.__handler = function(event){
     var control,box,me;

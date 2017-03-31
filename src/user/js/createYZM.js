@@ -5,7 +5,7 @@ var $ = require('jquery');
 function CreateYZM() {
     this.yzmBox = null;
     this.isSupport = null;
-    this.text = ['2','3','4','5','6','7','8','9','a','b','c','A','B','C','D','d','F','G','g','H','h'];
+    this.text = ['3','4','5','6','7','8','9','a','b','c','A','B','C','D','d','F','G','g','H','h','J','j','M','m','N','n'];
 }
 /**
  * 入口
@@ -22,7 +22,7 @@ CreateYZM.prototype.start = function (yzmBox) {
    this.__createYZM();
     yzmBox
         .unbind('click')
-        .on('click',me.__createYZM.bind(me));
+        .on('click',me.__bind(me.__createYZM));
 
     return this;
 };
@@ -81,7 +81,7 @@ CreateYZM.prototype.__textYZM = function () {
             fontSize:'20px',
             color:'#444'
 
-        })
+        });
     this.yzmBox.html(span);
 };
 CreateYZM.prototype.__getText = function () {
@@ -104,6 +104,20 @@ CreateYZM.prototype.__getText = function () {
 CreateYZM.prototype.__isSupportCanvas = function () {
     var canvas = document.createElement('canvas');
     return canvas.getContext ? true : false;
-}
+};
+/**
+ * 兼容es5中的bind
+ * @param func 要调用的函数
+ * @private
+ */
+CreateYZM.prototype.__bind = function (func) {
+    if(typeof func.bind === 'function'){
+        return func.bind(this);
+    }else{
+        return function () {
+            func.call(this);
+        }
+    }
+};
 var createYZM = new CreateYZM();
 module.exports = createYZM;

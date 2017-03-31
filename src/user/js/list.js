@@ -65,7 +65,7 @@ AssignList.prototype.__blindEvent = function(elem){
     imgBoxs.each(function(index,cur){
         var $cur;
         $cur = $(cur);
-        $cur.hover(me.__change.bind(me),me.__layoutS.bind(me));
+        $cur.hover(me.__change.__bind(me),me.__layoutS.__bind(me));
     });
     return this;
 };

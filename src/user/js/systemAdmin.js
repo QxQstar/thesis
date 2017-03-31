@@ -12,7 +12,7 @@ var spreadBtn = $('#spread');
 spread.start(spreadBtn,addSystemImg,spreadBtn.html(),'关闭');
 //如果有图片预览
 if($('#preview').length > 0){
-    preview.start(addSystemImg,addSystemImg,previewCallback.bind(this,addSystemImg.find('#bottom')));
+    preview.start(addSystemImg,addSystemImg,previewCallback.__bind(this,addSystemImg.find('#bottom')));
 }
 submitForm.start(addSystemImg,'systemAdmin',true,[],[]);
 //预览结束的回调函数
