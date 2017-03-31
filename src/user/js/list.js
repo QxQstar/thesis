@@ -43,9 +43,11 @@ AssignList.prototype.__assign = function(list){
         $cur = $(cur);
         if(window.screen.width < 789){
             me.__change.call(me,$cur);
+            $cur.on('load',me.__change.__bind(me,$cur));
         }else{
             me
-                .__layoutS.call(me,$cur)
+                .__layoutS.call(me,$cur);
+            $cur.on('load',me.__layoutS.__bind(me,$cur));
         }
 
     });

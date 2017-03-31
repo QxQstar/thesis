@@ -78,6 +78,9 @@ ScrollLoading.prototype.__loading = function () {
     else if(this.table === 'productionmessage'){
         data.role = this.container.attr('data-role');
         data.status = this.container.attr('data-status');
+        if(this.container.attr('data-email')){
+            data.email = this.container.attr('data-email');
+        }
         ajax.loadingZP(data,this.container,this.__after.__bind(this),this.__before.__bind(this));
     }
     //加载用户

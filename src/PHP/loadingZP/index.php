@@ -70,6 +70,16 @@ if(!empty($_GET)){
         }
         $sql = "select *  from ".$table." where status='2' order by likeNum desc ,time desc limit ".$start.",8";
         $role = $_SESSION['role'];
+    }elseif ($status === 'home'){
+        $email = $_GET['email'];
+        if($_GET['role'] === 'admin'){
+            if(empty($_SESSION) || !isset($_SESSION['code'])){
+                echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
+                exit();
+            }
+        }
+        $sql = "select *  from ".$table." where status='2' and email='".$email."' order by likeNum desc,discussNum desc,time desc limit ".$start.",8";
+        $role = 0;
     }
     $query = $mysql->query($sql,$conn);
     $data = $mysql->findAll($query);

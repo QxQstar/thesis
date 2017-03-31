@@ -905,12 +905,13 @@ Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
                 var htmlStr = '',show,delOrEdit,link,beforeHtml;
                 if(data.status === 'me0' || data.status === 'me2' || data.status === 'me1'){
                     link = 'zpDetail.php?role=me&&';
-                }else if(data.status === 'new' || data.status === 'hot'){
+                }else if(data.status === 'new' || data.status === 'hot' || (data-status === 'home' && data.role === 'desi')){
                     link ='zpDetail.php?';
                 }else{
                     link = 'adminZPdetail.php?';
                 }
                 $.each(reslut.data,function (index, elem) {
+                    show = "";
                     //前台
                     if(data.role === 'desi'){
                         if(data.status === 'me0'){
@@ -938,7 +939,12 @@ Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
                             show = '<span class="time">'+elem.time+'</span>';
                             delOrEdit ='';
                         }else{
-                            show =
+                            if(data.status === 'home'){
+                                show = '<span class="time">'+elem.time+'</span>';
+                            }else{
+                                show = '';
+                            }
+                            show +=
                                 '<span class="good">'+elem.likeNum+'</span>'+
                                 '<span class="discuss">'+elem.discussNum+'</span>';
                             delOrEdit ='';
@@ -950,7 +956,7 @@ Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
                             show = '<span class="time">'+elem.time+'</span>'+
                                     '<span class="agree" title="通过"></span>'+
                                     '<span class="limit" title="不通过"></span>';
-                        }else if(elem.status ==='2'){
+                        }else if(elem.status ==='2' || data.status === 'home'){
                             show =
                                 '<span class="time">'+elem.time+'</span>'+
                                 '<span class="good">'+elem.likeNum+'</span>'+

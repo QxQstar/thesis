@@ -37,11 +37,14 @@ if(!empty($_GET) && isset($_GET['email'])){
     $query = $mysql->query($sql,$conn);
     $desigerMess = $mysql->findOne($query);
     //获得这个设计师已经上线的作品数量和作品信息
-    $sql = "select * from productionmessage where email='$email' and status='2'";
+    $sql = "select * from productionmessage where email='$email' and status='2' order by likeNum desc,discussNum desc,time desc";
     $query=$mysql->query($sql,$conn);
     $zpNum = mysqli_num_rows($query);
+    //最多分多少页
+    $maxpage = ceil($zpNum/6);
     if($zpNum > 0){
         $zpMessage = $mysql->findAll($query);
+        $zpMessage = array_slice($zpMessage,0,6);
     }else{
         $zpMessage = array();
     }
@@ -58,6 +61,7 @@ if(!empty($_GET) && isset($_GET['email'])){
     $smarty->assign('desigerMess',$desigerMess);
 
     $smarty->assign('zpNum',$zpNum);
+    $smarty->assign('maxpage',$maxpage);
     $smarty->assign('zpMessage',$zpMessage);
     $smarty->assign('fenNum',$fenNum);
     $smarty->display('desiginerHome.tpl');
