@@ -64,6 +64,11 @@
                 {/foreach}
             </ul>
         </div>
+        {else}
+        <div class="f-noHave f-marTop-40 f-text-c">
+            <img src="/thesis/src/user/build/img/nohave.png">
+            <p>这个活动还没有作品</p>
+        </div>
     {/if}
 
 </div>

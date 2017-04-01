@@ -47,11 +47,11 @@
             <!-- 未通过作品列表-->
             <ul class="m-zpList zpList" id="zpList" data-role="desi" data-status="me1" data-maxPage="{$maxpage}">
                 {foreach $zpList as $zpItem}
-                    <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
+                    <li class="item f-area-bg f-text-c f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
                         <a href="/thesis/src/PHP/show/zpDetail.php?role=me&&code={$zpItem.zpCode}" class="img">
                             <img src="/thesis/src/{$zpItem.img}">
                         </a>
-                        <div class="desc">
+                        <div class="desc f-text-l">
                             <p class="title">
                                 <a href="/thesis/src/PHP/show/zpDetail.php?code={$zpItem.zpCode}">{$zpItem.title}</a>
                             </p>
@@ -71,7 +71,10 @@
                 <img src="/thesis/src/user/css/ajax-loader.gif">
             </div>
         {else}
-            <p>没有该类型的作品</p>
+            <div class="f-noHave m-zpList zpList f-marTop-40 f-text-c">
+                <img src="/thesis/src/user/build/img/nohave.png">
+                <p>没有数据</p>
+            </div>
         {/if}
         <!-- 关注-->
         <div class="m-focus">

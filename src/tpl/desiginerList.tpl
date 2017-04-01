@@ -58,7 +58,10 @@
             <img src="/thesis/src/user/css/ajax-loader.gif">
         </div>
         {else}
-        <p>还没有设计师</p>
+        <div class="f-noHave f-marTop-40 f-text-c">
+            <img src="/thesis/src/user/build/img/nohave.png">
+            <p>还没有设计师</p>
+        </div>
     {/if}
 </div>
 <!-- 页脚-->

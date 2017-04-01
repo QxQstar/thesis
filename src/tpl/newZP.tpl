@@ -29,7 +29,7 @@
             </h1>
         </div>
     </div>
-
+    {if $list|count gt 0}
     <!-- 作品列表-->
     <ul class="m-list f-marTop-30  f-center" id="list" data-status="new" data-search="%%" data-role="desi" data-maxPage="{$maxpage}">
         {foreach $list as $item}
@@ -51,6 +51,12 @@
     <div class="loading f-text-c f-marTop-10" id="loading">
         <img src="/thesis/src/user/css/ajax-loader.gif">
     </div>
+        {else}
+        <div class="f-noHave f-marTop-40 f-text-c">
+            <img src="/thesis/src/user/build/img/nohave.png">
+            <p>没有数据</p>
+        </div>
+    {/if}
 </div>
 <!-- 页脚-->
 <div class="g-footer"></div>

@@ -494,6 +494,7 @@ Ajax.prototype.searchZP = function (data,list,callback) {
         dataType:'json',
         success:function (result) {
             if(result.status){
+                var htmlStr = "";
                 if(result.length >0){
                     list.attr({
                         'data-maxPage':result.maxpage,
@@ -501,7 +502,7 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                     });
                     //前台搜索作品
                     if(data.role === 'desi'){
-                        var htmlStr = "",showStr;
+                        var showStr;
                         $.each(result.data,function (index,item) {
                             if(data.status == 'hot'){
                                 showStr = '<span class="good">'+ item.likeNum +'</span>';
@@ -509,11 +510,11 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                                 showStr = '<span class="time">'+ item.time +'</span>';
                             }
                             htmlStr +=
-                                '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30">' +
+                                '<li class="item f-marTop-20 f-text-c f-area-bg f-paddTopBtm-20 f-paddLR-30">' +
                                 '<a href="/thesis/src/PHP/show/zpDetail.php?code='+item.zpCode+'" class="img">' +
                                 '<img src="/thesis/src/'+item.img+'">'+
                                 '</a>'+
-                                '<div class="desc">' +
+                                '<div class="desc f-text-l">' +
                                 '<p class="title">' +
                                 '<a href="/thesis/src/PHP/show/zpDetail.php?code='+item.zpCode+'">'+item.title+'</a>'+
                                 '</p>'+
@@ -527,7 +528,7 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                     }
                     //后台搜索作品
                     else{
-                        var htmlStr = "",deleteEdit,role,check;
+                        var deleteEdit,role,check;
                         role = result.role|0;
                         $.each(result.data,function (index,item) {
                             if(role < 1){
@@ -550,11 +551,11 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                                 check = '';
                             }
                             htmlStr +=
-                                '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+item.zpCode+'">' +
+                                '<li class="item f-marTop-20 f-text-c f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+item.zpCode+'">' +
                                     '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'" class="img">' +
                                         '<img src="/thesis/src/'+item.img+'">'+
                                     '</a>'+
-                                    '<div class="desc">' +
+                                    '<div class="desc f-text-c">' +
                                         '<p class="title">' +
                                             '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'">'+item.title+'</a>'+
                                         '</p>'+
@@ -568,11 +569,18 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                         });
                         list.html(htmlStr);
                     }
-                    if(typeof callback === 'function'){
-                        callback();
-                    }
                 }else{
-                    //没有相关内容
+                    list.attr({
+                        'data-maxPage':0,
+                        'data-search':data.content
+                    });
+                    htmlStr = '<div class="no-result f-text-c">' +
+                                    '<img src="/thesis/src/user/build/img/blank2.png" style="width:70%">'+
+                                '</div>';
+                    list.html(htmlStr);
+                }
+                if(typeof callback === 'function'){
+                    callback();
                 }
             }else{
                 if(result.url){
@@ -598,6 +606,7 @@ Ajax.prototype.searchUser = function (data,list,callback) {
         url:'/thesis/src/PHP/searchUser/index.php',
         success:function (result) {
             if(result.status){
+                var htmlStr = '';
                 if(result.length > 0){
                     list.attr({
                         'data-maxPage':result.maxpage,
@@ -605,7 +614,7 @@ Ajax.prototype.searchUser = function (data,list,callback) {
                     });
                     //如果在前台搜索设计师
                     if(data.status === 'desi'){
-                        var htmlStr = '',link,name;
+                        var link,name;
                         $.each(result.data,function (index,item) {
                             if(result.isLog && item.email == result.curEmail){
                                 link = '<a href="/thesis/src/PHP/show/userCenter.php" class="img">';
@@ -636,7 +645,7 @@ Ajax.prototype.searchUser = function (data,list,callback) {
                     }
                     //后台搜索设计师
                     else if(data.status === 'admin' && data.table === 'designermessage'){
-                        var nickname,htmlStr='';
+                        var nickname;
                         $.each(result.data,function (index, item) {
                             if(item.nickname){
                                 nickname = item.nickname;
@@ -673,7 +682,6 @@ Ajax.prototype.searchUser = function (data,list,callback) {
                     }
                     //后台搜索管理员
                     else{
-                        var htmlStr = '';
                         $.each(result.data,function (index,item) {
                             htmlStr +=
                                 '<li class="items">' +
@@ -707,9 +715,18 @@ Ajax.prototype.searchUser = function (data,list,callback) {
                         callback();
                     }
                 }else{
-                    //没有相关内容
+                    list.attr({
+                        'data-maxPage':0,
+                        'data-search':data.content
+                    });
+                    htmlStr = '<div class="no-result f-text-c">' +
+                        '<img src="/thesis/src/user/build/img/blank2.png" style="width:70%">'+
+                        '</div>';
+                    list.html(htmlStr);
                 }
-
+                if(typeof callback === 'function'){
+                    callback();
+                }
             }else{
                 if(result.url){
                     location.href = '/thesis/src/PHP/show/'+result.url;
@@ -734,12 +751,13 @@ Ajax.prototype.searchActive = function (data,list,callback) {
         url:'/thesis/src/PHP/searchActive/index.php',
         success:function (result) {
             if(result.status){
+                var htmlStr='';
                 if(result.length > 0){
                     list.attr({
                         'data-maxPage':result.maxpage,
                         'data-search':data.content
                     });
-                    var right,status,htmlStr='',link;
+                    var right,status,link;
                     if(result.role <= 0){
                         link = 'activeDetail.php';
                     }else{
@@ -799,7 +817,17 @@ Ajax.prototype.searchActive = function (data,list,callback) {
                         callback();
                     }
                 }else{
-                    //无相关内容
+                    list.attr({
+                        'data-maxPage':0,
+                        'data-search':data.content
+                    });
+                    htmlStr = '<div class="no-result f-text-c">' +
+                        '<img src="/thesis/src/user/build/img/blank2.png" style="width:70%">'+
+                        '</div>';
+                    list.html(htmlStr);
+                }
+                if(typeof callback === 'function'){
+                    callback();
                 }
             }else{
                 if(result.url){
@@ -986,11 +1014,11 @@ Ajax.prototype.loadingZP = function (data, container, loadAfter, loadBefore) {
                         }
                     }
                     htmlStr +=
-                        '<li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+elem.zpCode+'">' +
+                        '<li class="item f-marTop-20 f-text-c f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="'+elem.zpCode+'">' +
                             '<a href="/thesis/src/PHP/show/'+link+'code='+elem.zpCode+'" class="img">' +
                                 '<img src="/thesis/src/'+elem.img+'">'+
                             '</a>'+
-                            '<div class="desc">' +
+                            '<div class="desc f-text-l">' +
                                 '<p class="title">' +
                                     '<a href="/thesis/src/PHP/show/'+link+'code='+elem.zpCode+'">'+elem.title+'</a>'+
                                 '</p>'+

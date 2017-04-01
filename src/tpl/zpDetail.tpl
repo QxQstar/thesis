@@ -16,9 +16,9 @@
 <div class="g-main f-show f-main-bg f-paddBtm-60 ">
     <!-- 当前作品-->
     <div class="m-curZp f-area-bg f-center f-marTop-30 f-paddLR-30 f-paddTopBtm-20">
-        <div class="zpBox" id="zpBox" >
+        <div class="zpBox f-text-c" id="zpBox" >
             <img src="/thesis/src/{$zpMessage.img}">
-            <div class="desc">
+            <div class="desc f-text-l">
                 <p class="title">{$zpMessage.title}</p>
                 <p class="detail">{$zpMessage.desc|nl2br}</p>
                 <div class="handle">
@@ -140,7 +140,10 @@
                 {/foreach}
             </ul>
             {else}
-            <p>暂无评价</p>
+            <div class="f-noHave f-marTop-40 f-text-c">
+                <img src="/thesis/src/user/build/img/soft.png">
+                <p>快来抢沙发</p>
+            </div>
         {/if}
     </div>
 </div>

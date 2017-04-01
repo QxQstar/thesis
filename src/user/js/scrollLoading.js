@@ -22,7 +22,7 @@ function ScrollLoading(){
  */
 ScrollLoading.prototype.start = function (container,table,nextPage,callback) {
     var me;
-    if(!container || container.length <= 0) container = $('body');
+    if(!container || container.length <= 0) return;
     this.container = container;
     if(!table) return this;
     this.table = table;
@@ -49,12 +49,12 @@ ScrollLoading.prototype.__checkPosition = function () {
     totalHeight = $(document).height();
     footerH = $('#footer').height();
     me = this;
-    if(totalHeight - footerH <= distance && me.maxPage >= me.nextPage){
+    if(totalHeight - footerH-300 <= distance && me.maxPage >= me.nextPage){
         me.__loading();
     }
     //提示无更多数据
-    if(me.maxPage < me.nextPage && $('#noData').length <= 0){
-        me.container.append($('<p id="noData">无更多数据</p>'));
+    if(me.maxPage < me.nextPage && $('#noData').length <= 0 && this.container.find('li').length > 0){
+        me.container.append($('<div id="noData" class="f-noData"><img src="/thesis/src/user/build/img/end.png"/></div>'));
     }
 
 };
@@ -73,7 +73,7 @@ ScrollLoading.prototype.__loading = function () {
     //加载活动
     if(this.table === 'activemessage'){
         data.role = this.container.attr('data-role');
-        ajax.loadingActive(data,this.container,this.__addPage.__bind(this),this.__before.__bind(this));
+        ajax.loadingActive(data,this.container,this.__after.__bind(this),this.__before.__bind(this));
     }
     //加载作品
     else if(this.table === 'productionmessage'){

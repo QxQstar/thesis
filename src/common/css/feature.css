@@ -1,5 +1,5 @@
 /* ************
-    ======¹¦ÄÜÑùÊ½======
+    ======ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½======
 * *************/
 .f-float-l{
     float: left;
@@ -58,6 +58,8 @@
     padding-bottom: 100px;
     min-height: 100%;
     padding-top: 60px;
+    z-index: 10;
+    margin-top: -60px;
 }
 .f-paddTopBtm-20{
     padding-top: 20px;
@@ -73,7 +75,10 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
+    .f-show{
+        padding-top: 50px;
+        margin-top: -50px;
+    }
     .f-paddLR-30{
         padding-left: 20px;
         padding-right: 20px;
@@ -97,4 +102,32 @@
 }
 .f-area-bg{
     background-color: #ffffff;
+}
+.f-notice{
+    color: #ff3300;
+}
+.f-sign-bg{
+    background: url("./../../user/img/signBg.jpg") no-repeat center;
+}
+.loading{
+    display: none;
+}
+.f-noData{
+    position: absolute;
+    bottom: -30px;
+    width: 238px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+@media all and (max-width: 600px) {
+    .f-noData{
+        width: 150px;
+    }
+}
+.f-noHave{
+    font-size: 25px;
+    color: #888888;
+    line-height: 1.7;
 }
