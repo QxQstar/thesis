@@ -77,7 +77,7 @@
         <div class="m-focus">
             <h2 class="title">关注的设计师</h2>
             {if $focusList|count gt 0}
-                <ul class="list f-clearfix" id="focusList" data-maxPage="{$focuspage}">
+                <ul class="list f-clearfix" id="focusList" data-search="%%" data-maxPage="{$focuspage}">
                     {foreach $focusList as $focusItem}
                         <li class="item f-float-l">
                             <span class="delete" data-code="{$focusItem.email}"></span>

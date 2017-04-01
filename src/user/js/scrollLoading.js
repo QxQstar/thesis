@@ -67,7 +67,8 @@ ScrollLoading.prototype.__loading = function () {
     data={
         table:this.table,
         page:this.nextPage,
-        maxPage:this.maxPage
+        maxPage:this.maxPage,
+        search:this.container.attr('data-search')
     };
     //加载活动
     if(this.table === 'activemessage'){

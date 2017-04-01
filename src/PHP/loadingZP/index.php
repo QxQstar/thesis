@@ -24,6 +24,7 @@ if(!empty($_GET)){
     $num = 8;
     $role = 0;
     $start = $page*$num;
+    $content = $_GET['search'];
     if($status === 'me2'){
         if(empty($_SESSION) || !isset($_SESSION['email'])){
             echo json_encode(array('status'=>0,'msg'=>"设计师没有登录",'url'=>'signup.php'));
@@ -46,29 +47,29 @@ if(!empty($_GET)){
         $email = $_SESSION['email'];
         $sql = "select *  from ".$table."where status='1' order by time desc limit ".$start.",8";
     }elseif ($status === 'new'){
-        $sql = "select *  from ".$table." where status='2' order by time desc,likeNum desc limit ".$start.",8";
+        $sql = "select *  from ".$table." where status='2' and title like '".$content."' order by time desc,likeNum desc limit ".$start.",8";
     }elseif ($status === 'hot'){
-        $sql = "select *  from ".$table." where status='2' order by likeNum desc,discussNum desc limit ".$start.",8";
+        $sql = "select *  from ".$table." where status='2' and title like '".$content."' order by likeNum desc,discussNum desc limit ".$start.",8";
     }elseif ($status === 'all'){
         if(empty($_SESSION) || !isset($_SESSION['code'])){
             echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
             exit();
         }
-        $sql = "select *  from ".$table." order by likeNum desc,time asc limit ".$start.",8";
+        $sql = "select *  from ".$table." where title like '".$content."' order by likeNum desc,time asc limit ".$start.",8";
         $role = $_SESSION['role'];
     }elseif ($status === '0'){
         if(empty($_SESSION) || !isset($_SESSION['code'])){
             echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
             exit();
         }
-        $sql = "select *  from ".$table." where status='0' order by time asc limit ".$start.",8";
+        $sql = "select *  from ".$table." where status='0' and title like '".$content."' order by time asc limit ".$start.",8";
         $role = $_SESSION['role'];
     }elseif ($status === '2'){
         if(empty($_SESSION) || !isset($_SESSION['code'])){
             echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
             exit();
         }
-        $sql = "select *  from ".$table." where status='2' order by likeNum desc ,time desc limit ".$start.",8";
+        $sql = "select *  from ".$table." where status='2' and title like '".$content."' order by likeNum desc ,time desc limit ".$start.",8";
         $role = $_SESSION['role'];
     }elseif ($status === 'home'){
         $email = $_GET['email'];

@@ -31,7 +31,8 @@ if(!empty($_GET)){
             exit();
         }
     }
-    $sql = "select * from ".$table." order by status desc,eTime asc limit ".$start.",8";
+    $content = $_GET['search'];
+    $sql = "select * from ".$table." where title like '".$content."' order by status desc,eTime asc limit ".$start.",8";
     $query = $mysql->query($sql,$conn);
     $actives = $mysql->findAll($query);
     echo json_encode(array('status'=>1,'msg'=>"搜索成功",'data'=>$actives,'role'=>$role,'length'=>count($actives)));

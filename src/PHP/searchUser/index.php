@@ -33,6 +33,11 @@ if(!empty($_GET)){
                     $sql = "select * from " . $table . " where email like'" . $content . "' or nickname like '" . $content . "' order by focus desc,email asc ";
                 }
             }
+            $query = $mysql->query($sql,$conn);
+            $userList = $mysql->findAll($query);
+            //最多可以分多少页
+            $maxpage = ceil(count($userList)/40);
+            $userList = array_slice($userList,0,40);
         }else{
             echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
         }
@@ -47,10 +52,14 @@ if(!empty($_GET)){
             $email = '';
         }
         $sql = "select * from ".$table." where email like'".$content."' or nickname like '".$content."' order by focus desc,email asc ";
+        $query = $mysql->query($sql,$conn);
+        $userList = $mysql->findAll($query);
+        //最多可以分多少页
+        $maxpage = ceil(count($userList)/24);
+        $userList = array_slice($userList,0,24);
     }
-    $query = $mysql->query($sql,$conn);
-    $userList = $mysql->findAll($query);
-    echo json_encode(array('status'=>1,'msg'=>'搜索成功','length'=>count($userList),'isLog'=>$isLog,'curEmail'=>$email,'data'=>$userList));
+
+    echo json_encode(array('status'=>1,'msg'=>'搜索成功','length'=>count($userList),'isLog'=>$isLog,'curEmail'=>$email,'data'=>$userList,'maxpage'=>$maxpage));
 }else{
     echo json_encode(array('status'=>0,'msg'=>"发生错误",'url'=>'index.php'));
 }

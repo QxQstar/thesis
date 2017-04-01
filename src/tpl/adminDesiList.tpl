@@ -61,7 +61,7 @@
 
 
             </div>
-            <ul class="body" id="userList" data-role="admin" data-maxPage="{$maxpage}">
+            <ul class="body" id="userList" data-role="admin" data-search="%%" data-maxPage="{$maxpage}">
                 {foreach $desiList as $item}
                 <li class="items">
                     <div class="f-clearfix">

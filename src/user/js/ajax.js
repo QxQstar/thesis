@@ -495,6 +495,10 @@ Ajax.prototype.searchZP = function (data,list,callback) {
         success:function (result) {
             if(result.status){
                 if(result.length >0){
+                    list.attr({
+                        'data-maxPage':result.maxpage,
+                        'data-search':data.content
+                    });
                     //前台搜索作品
                     if(data.role === 'desi'){
                         var htmlStr = "",showStr;
@@ -595,6 +599,10 @@ Ajax.prototype.searchUser = function (data,list,callback) {
         success:function (result) {
             if(result.status){
                 if(result.length > 0){
+                    list.attr({
+                        'data-maxPage':result.maxpage,
+                        'data-search':data.content
+                    });
                     //如果在前台搜索设计师
                     if(data.status === 'desi'){
                         var htmlStr = '',link,name;
@@ -727,6 +735,10 @@ Ajax.prototype.searchActive = function (data,list,callback) {
         success:function (result) {
             if(result.status){
                 if(result.length > 0){
+                    list.attr({
+                        'data-maxPage':result.maxpage,
+                        'data-search':data.content
+                    });
                     var right,status,htmlStr='',link;
                     if(result.role <= 0){
                         link = 'activeDetail.php';

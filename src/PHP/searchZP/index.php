@@ -39,7 +39,10 @@ if(!empty($_GET)){
 
     $query = $mysql->query($sql,$conn);
    $zpList = $mysql->findAll($query);
-   echo json_encode(array('status'=>1,'data'=>$zpList,'role'=>$role,'msg'=>'搜索成功','length'=>count($zpList)));
+    //最多可以分多少页
+    $maxpage = ceil(count($zpList)/6);
+    $zpList = array_slice($zpList,0,6);
+   echo json_encode(array('status'=>1,'data'=>$zpList,'role'=>$role,'msg'=>'搜索成功','length'=>count($zpList),'maxpage'=>$maxpage));
 }else{
     echo json_encode(array('status'=>0,'msg'=>"发生错误",'url'=>'index.php'));
 }

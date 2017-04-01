@@ -32,9 +32,9 @@
     <!-- 作品列表-->
     {if $zpNum gt 0}
         {if $admin eq true }
-            <ul class="m-zpList f-center f-marTop-30" data-role="admin" data-maxPage="{$maxpage}" data-status="home" data-email="{$desigerMess.email}" id="list">
+            <ul class="m-zpList f-center f-marTop-30" data-search="%%" data-role="admin" data-maxPage="{$maxpage}" data-status="home" data-email="{$desigerMess.email}" id="list">
             {else}
-            <ul class="m-zpList f-center f-marTop-30" data-role="desi" data-maxPage="{$maxpage}" data-status="home" data-email="{$desigerMess.email}" id="list">
+            <ul class="m-zpList f-center f-marTop-30" data-search="%%" data-role="desi" data-maxPage="{$maxpage}" data-status="home" data-email="{$desigerMess.email}" id="list">
         {/if}
                 {foreach $zpMessage as $item}
                 <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30">

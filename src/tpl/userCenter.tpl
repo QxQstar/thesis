@@ -45,7 +45,7 @@
         </ul>
         {if $zpNum gt 0}
             <!-- 作品列表-->
-            <ul class="m-zpList zpList" id="zpList" data-status="me2" data-maxPage="{$maxpage}" data-role="desi">
+            <ul class="m-zpList zpList" id="zpList" data-search="%%" data-status="me2" data-maxPage="{$maxpage}" data-role="desi">
                 {foreach $zpList as $zpItem}
                     <li class="item f-area-bg f-marTop-20 f-paddTopBtm-20 f-paddLR-30" data-code="{$zpItem.zpCode}">
                         <a href="/thesis/src/PHP/show/zpDetail.php?role=me&&code={$zpItem.zpCode}" class="img">
@@ -81,7 +81,7 @@
         <div class="m-focus">
             <h2 class="title">关注的设计师</h2>
             {if $focusList|count gt 0}
-                <ul class="list f-clearfix" id="focusList" data-maxPage="{$focuspage}">
+                <ul class="list f-clearfix" id="focusList" data-maxPage="{$focuspage}" >
                     {foreach $focusList as $focusItem}
                         <li class="item f-float-l">
                             <span class="delete" data-code="{$focusItem.email}"></span>

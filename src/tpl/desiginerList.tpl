@@ -28,7 +28,7 @@
     {if $desiMess|count gt 0}
         <!-- 设计师列表-->
         <div class="m-listBox f-area-bg f-center f-marTop-30 f-paddTopBtm-20 f-paddLR-30">
-            <ul class="m-list f-clearfix" id="userList" data-role="desi" data-maxPage="{$maxpage}">
+            <ul class="m-list f-clearfix" id="userList" data-search="%%" data-role="desi" data-maxPage="{$maxpage}">
                 {foreach $desiMess as $item}
                 <li class="item f-float-l">
                     {if $isLog eq true and $curEmail eq $item.email}

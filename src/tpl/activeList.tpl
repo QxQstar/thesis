@@ -24,7 +24,7 @@
     </div>
     {if $length gt 0}
     <!-- 活动列表-->
-    <ul class="m-list f-marTop-30 f-center" id="activeList" data-maxPage="{$maxpage}" data-role="desi">
+    <ul class="m-list f-marTop-30 f-center" id="activeList" data-maxPage="{$maxpage}" data-role="desi" data-search="%%">
         {foreach $result as $item}
         <li class="item f-paddTopBtm-20 f-paddLR-30 f-area-bg f-marTop-20" data-code="{$item.activeCode}">
             <div class="head f-marBtm-10">

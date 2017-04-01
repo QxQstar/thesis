@@ -21,7 +21,7 @@ if(!empty($_GET)){
     //后台搜索活动
     if($status == 'admin'){
         //判断管理员是否登录
-        if(empty($_SESSION['code'])){
+        if(empty($_SESSION['code']) || !isset($_SESSION['code'])){
             echo json_encode(array('status'=>0,'msg'=>"管理员没有登录",'url'=>'adminSignup.php'));
             exit();
         }
@@ -30,7 +30,10 @@ if(!empty($_GET)){
     $sql = "select * from activemessage where title like '".$content."' order by status desc,eTime asc";
     $query = $mysql->query($sql,$conn);
     $actives = $mysql->findAll($query);
-    echo json_encode(array('status'=>1,'msg'=>"搜索成功",'data'=>$actives,'role'=>$role,'length'=>count($actives)));
+    //最多可以分多少页
+    $maxpage = ceil(count($actives)/6);
+    $actives = array_slice($actives,0,6);
+    echo json_encode(array('status'=>1,'msg'=>"搜索成功",'data'=>$actives,'role'=>$role,'length'=>count($actives),'maxpage'=>$maxpage));
 }else{
     echo json_encode(array('status'=>0,'msg'=>"发生错误",'url'=>'index.php'));
 }

@@ -31,7 +31,7 @@
     </div>
 
     <!-- 作品列表-->
-    <ul class="m-list f-marTop-30  f-center" id="list" data-status="new" data-role="desi" data-maxPage="{$maxpage}">
+    <ul class="m-list f-marTop-30  f-center" id="list" data-status="new" data-search="%%" data-role="desi" data-maxPage="{$maxpage}">
         {foreach $list as $item}
             <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30">
                 <a href="/thesis/src/PHP/show/zpDetail.php?code={$item.zpCode}" class="img">

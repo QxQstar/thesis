@@ -3,6 +3,7 @@
  */
 var $ = require('jquery');
 var ajax = require('./ajax.js');
+var scrollLoading = require('./scrollLoading.js');
 /**
  * 搜索作品
  * @param searchBox 搜索组件，jquery对象
@@ -24,7 +25,13 @@ exports.getZP = function (searchBox,list,callback) {
           status:searchBox.attr('data-status'),
           role:searchBox.attr('data-role')
       };
-      ajax.searchZP(data,list,callback);
+      // ajax.searchZP(data,list,callback);
+        ajax.searchZP(data,list,function () {
+            if(typeof callback === 'function'){
+                callback();
+            }
+            scrollLoading.start(list,'productionmessage',2,callback);
+        })
     };
     //给提交按钮绑定click事件
     submitBtn
@@ -57,7 +64,13 @@ exports.getUser = function (searchBox,list,callback) {
             table:table,
             status:searchBox.attr('data-role')
         };
-        ajax.searchUser(data,list,callback);
+        // ajax.searchUser(data,list,callback);
+        ajax.searchZP(data,list,function () {
+            if(typeof callback === 'function'){
+                callback();
+            }
+            scrollLoading.start(list,table,2,callback);
+        })
     };
     //给提交按钮绑定click事件
     submitBtn
@@ -84,7 +97,14 @@ exports.getActive = function (searchBox,list,callback) {
             content:'%'+content+'%',
             status:searchBox.attr('data-role')
         };
-        ajax.searchActive(data,list,callback);
+        // ajax.searchActive(data,list,callback);
+        ajax.searchZP(data,list,function () {
+            if(typeof callback === 'function'){
+                callback();
+            }
+
+            scrollLoading.start(list,'activemessage',2,callback);
+        })
     };
     //给提交按钮绑定click事件
     submitBtn

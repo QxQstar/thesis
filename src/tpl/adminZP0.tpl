@@ -29,7 +29,7 @@
 
     <!-- 作品列表-->
     {if $length gt 0}
-        <ul class="m-list f-marTop-30  f-center" id="list" data-status="0" data-role="admin" data-maxPage="{$maxpage}">
+        <ul class="m-list f-marTop-30  f-center" id="list" data-search="%%" data-status="0" data-role="admin" data-maxPage="{$maxpage}">
             {foreach $result as $item}
                 <li class="item f-marTop-20 f-area-bg f-paddTopBtm-20 f-paddLR-30" data-code="{$item.zpCode}">
                     <a href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}" class="img">
