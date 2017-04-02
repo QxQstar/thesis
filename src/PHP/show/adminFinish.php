@@ -20,10 +20,10 @@ if(isset($_SESSION['adminFindPW'])){
 if(isset($_SESSION['adminQuestion'])){
     unset($_SESSION['adminQuestion']);
 }
-if(!empty($_SESSION) && isset($_SESSION['email'])){
+if(!empty($_SESSION) && isset($_SESSION['code'])){
     $smarty->assign('isLog',true);
 }else{
     $smarty->assign('isLog',false);
 }
-$smarty->display('finish.tpl');
+$smarty->display('adminFinish.tpl');
 ?>

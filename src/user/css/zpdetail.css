@@ -146,6 +146,9 @@
     font-size: 14px;
     color: #444444;
     line-height: 1.7;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
 }
 .g-main .m-curZp .focus{
     color: #ff3300;

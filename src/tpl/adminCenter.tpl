@@ -29,7 +29,11 @@
         </ul>
         <div class="footer link">
             <a href="/thesis/src/PHP/show/adminModifyPW.php?code={$message.code}">修改密码</a>
+            {if $message.hasQuestion eq '1'}
             <a href="/thesis/src/PHP/show/adminModifyQU.php?code={$message.code}">修改安全问题</a>
+                {else}
+                <a href="/thesis/src/PHP/show/adminModifyQU.php?code={$message.code}">设置安全问题</a>
+            {/if}
         </div>
     </div>
 </div>

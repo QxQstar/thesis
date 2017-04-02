@@ -81,8 +81,6 @@
                     </li>
                 {/foreach}
             </ul>
-        {else}
-            <p>改设计师还没有其他作品</p>
         {/if}
     </div>
 

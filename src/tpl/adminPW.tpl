@@ -54,7 +54,6 @@
                 <span class="col2">
                     <input type="password" class="answer" id="password" name="password"/>
                 </span>
-                <a href="#" class="forget">忘记密码？</a>
             </p>
         </div>
         <div class="footer f-martop-20">

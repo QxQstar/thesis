@@ -49,6 +49,11 @@ if(isset($_SESSION['email'])){
     }else{
         $arrMessage['name'] = $email;
     }
+    if($message['hasQuestion'] == '1'){
+        $smarty->assign('hasQues',1);
+    }else{
+        $smarty->assign('hasQues',0);
+    }
     $arrMessage['intro'] = $message['intro'];
     $arrMessage['img'] = $message['img'];
     $smarty->assign('isLog',true);

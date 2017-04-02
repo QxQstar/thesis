@@ -7,11 +7,11 @@
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
 </head>
 <body>
-    <div class="g-main f-show f-main-bg" style="margin-top: 0">
-        <div class="m-limit f-text-c f-marTop-60">
-            <img src="/thesis/src/user/build/img/limit.png">
-            <h1 style="color: #666">不具备访问权限</h1>
-        </div>
+<div class="g-main f-show f-main-bg" style="margin-top: 0">
+    <div class="m-limit f-text-c f-marTop-60">
+        <img src="/thesis/src/user/build/img/noquestion.png">
+        <h1 style="color: #666">你没有设置安全问题，不能找回密码</h1>
     </div>
+</div>
 </body>
 </html>

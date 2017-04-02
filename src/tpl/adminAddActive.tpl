@@ -97,6 +97,14 @@
             <button type="button" id="submit">发布</button>
         </div>
     </form>
+    <div class="m-notice f-marTop-60 f-text-c">
+        <img src="/thesis/src/user/build/img/notice.png">
+        {if $message eq false}
+        <span>在移动端不能发布活动</span>
+            {else}
+            <span>在移动端不能修改活动信息</span>
+        {/if}
+    </div>
 </div>
 <!-- 页脚-->
 <div class="g-footer"></div>

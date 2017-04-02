@@ -96,7 +96,11 @@
                 </p>
                 <div class="link">
                     <a href="/thesis/src/PHP/show/modifyPW.php?email={$message.email}">修改密码</a>
+                    {if $message.hasQuestion eq '1'}
                     <a href="/thesis/src/PHP/show/modifyQU.php?email={$message.email}">修改安全问题</a>
+                        {else}
+                        <a href="/thesis/src/PHP/show/modifyQU.php?email={$message.email}">设置安全问题</a>
+                    {/if}
                 </div>
                 <button class="save f-float-r" id="submit">保存</button>
             </form>

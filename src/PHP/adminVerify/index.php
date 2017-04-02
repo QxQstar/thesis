@@ -30,7 +30,7 @@ if(!empty($_POST) && isset($_POST['findPW'])){
             $query = $mysql->query($sql,$conn);
             $num = mysqli_num_rows($query);
             if(!$num){
-                echo json_encode(array('status'=>1,'msg'=>'该管理员账号没有安全问题','url'=>'noquestion.php'));
+                echo json_encode(array('status'=>1,'msg'=>'该管理员账号没有安全问题','url'=>'adminnoques.php'));
             }else{
                 $_SESSION['adminFindPW'] = $code;
                 echo json_encode(array('status'=>1,'msg'=>'该管理员账号有安全问题','url'=>'adminQuestion.php'));
@@ -112,7 +112,7 @@ if(!empty($_POST) && isset($_POST['setPW']) && isset($_POST['code'])){
     $newPW = $_POST['password'];
     //试图更新设计师表
     if($mysql->update('adminmessage',array('password'=>$newPW),"code='$zhanghu'",$conn)){
-        echo json_encode(array('status'=>1,'msg'=>'更新成功','url'=>'finish.php'));
+        echo json_encode(array('status'=>1,'msg'=>'更新成功','url'=>'adminFinish.php'));
     }else{
         echo json_encode(array('status'=>0,'msg'=>'更新失败'));
     }

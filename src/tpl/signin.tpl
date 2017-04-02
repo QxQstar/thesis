@@ -12,7 +12,7 @@
     <script type="text/javascript" src="/thesis/layer/layer.js"></script>
 </head>
 <body>
-<div class="g-main">
+<div class="g-main" style="margin-top: 0">
     <h1 class="m-head f-text-c f-marBtm-20">
         <img src="/thesis/src/user/img/logo.png">
         平面设计师站

@@ -9,22 +9,22 @@
 </head>
 <body>
 {if $isLog eq true}
-{include file="header.tpl"}
-<!-- 主要内容-->
+    {include file="adminHeader.tpl"}
+    <!-- 主要内容-->
     <div class="g-main f-show f-main-bg f-paddBtm-60 ">
         <div class="m-finish f-text-c f-marTop-60">
             <img src="/thesis/src/user/build/img/ok.png">
             <span>重置完成</span>
-            <a href="/thesis/src/PHP/show/userCenter.php" style="color: #ff3300;text-decoration: underline">返回个人中心</a>
+            <a href="/thesis/src/PHP/show/adminCenter.php" style="color: #ff3300;text-decoration: underline">返回个人中心</a>
         </div>
     </div>
-    {else}
+{else}
     <!-- 主要内容-->
     <div class="g-main f-show f-sign-bg f-paddBtm-60" style="margin-top: 0">
         <div class="m-finish f-text-c f-marTop-60">
             <img src="/thesis/src/user/build/img/ok.png">
             <span>重置完成</span>
-            <a href="/thesis/src/PHP/show/signup.php" style="color: #ff3300;text-decoration: underline">去登录</a>
+            <a href="/thesis/src/PHP/show/adminSignup.php" style="color: #ff3300;text-decoration: underline">去登录</a>
         </div>
     </div>
 {/if}
@@ -34,6 +34,6 @@
     <!--页脚-->
     <div class="f-footer"></div>
 {/if}
-    <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <body>
 
 <!-- 主要内容-->
-<div class="g-main f-show f-sign-bg f-paddBtm-60" id="admin">
+<div class="g-main f-show f-sign-bg f-paddBtm-60" id="admin" style="margin-top: 0">
     <form class="m-form f-marTop-60 f-area-bg f-center" name="verify" id="verify">
         <h1 class="head f-paddTopBtm-20">
             请输入你需要找回登录密码的账户名

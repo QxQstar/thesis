@@ -6,6 +6,16 @@ var ajax = require('./ajax.js');
 var scrollLoading = require('./scrollLoading.js');
 var zpList = $('#zpList');
 var focusList = $('#focusList');
+
+//判断是否设置了安全问题
+setTimeout(function () {
+    if($('#main').attr('data-hasQues') == '0'){
+        layer.confirm('你好没有设置安全问题。安全问题可用于找回密码，现在就去设置？',function (index) {
+            location.href = '/thesis/src/PHP/show/modifyQU.php?email='+$('#main').attr('data-email');
+        })
+    }
+},3000);
+
 //滚动加载
 scrollLoading.start(zpList,'productionmessage',2,callback);
 

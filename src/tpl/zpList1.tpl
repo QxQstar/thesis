@@ -9,11 +9,12 @@
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/css/desiginerHome.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>
+    <script type="text/javascript" src="/thesis/layer/layer.js"></script>
 </head>
 <body>
 {include file='header.tpl'}
 <!-- 主要内容-->
-<div class="g-main f-show f-main-bg f-paddBtm-60 ">
+<div class="g-main f-show f-main-bg f-paddBtm-60 " data-hasQues="{$hasQues}" data-email="{$message.email}" id="main">
     <div class="m-header f-marTop-40 f-center f-text-c">
         <img src="/thesis/src/{$message.img}">
         <p class="name">{$message.name}</p>

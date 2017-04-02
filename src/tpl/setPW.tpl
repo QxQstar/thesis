@@ -41,7 +41,7 @@
         </ul>
     {else}
     <!-- 主要内容-->
-    <div class="g-main f-show f-sign-bg f-paddBtm-60 ">
+    <div class="g-main f-show f-sign-bg f-paddBtm-60 " style="margin-top: 0">
         <!--进度条-->
         <ul class="m-process f-clearfix f-center f-marTop-60">
             <li class="item f-float-l on">
