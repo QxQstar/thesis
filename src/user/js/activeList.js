@@ -28,9 +28,10 @@ function deleteActive(activeList){
             data = {
                 activeCode:target.attr('data-code')
             };
-            if(confirm('活动删除之后，该活动的作品也会一并删除，是否确定删除？')){
+            layer.confirm('活动删除之后，该活动的作品也会一并删除，是否确定删除？',function (index) {
+                layer.close(index);
                 ajax.deleteActive(data,target.parents('.item'));
-            }
+            })
         })
 
 }

@@ -116,9 +116,6 @@
 .g-main .desc .delete:hover:before{
     background-position: -390px 0;
 }
-.g-main .m-zpList img{
-    width: 100%;
-}
 
 .g-main .m-zpListBox .m-page{
     position: absolute;

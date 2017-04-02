@@ -17,6 +17,7 @@ img{
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 h1,h2{
     padding: 0;
@@ -27,4 +28,23 @@ input[type="button"]{
 }
 input:focus{
     outline: none;
+}
+button:focus{
+    outline: none;
+}
+button{
+    border: none;
+}
+input{
+    border: 1px solid #666666;
+}
+textarea{
+    border: 1px solid #888;
+}
+textarea:focus{
+    border: 1px solid #888;
+}
+.g-main .wangEditor-txt p{
+    color: #888888;
+    font-size: 14px;
 }

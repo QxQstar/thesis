@@ -6,7 +6,6 @@
     <title>发布活动</title>
 
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/common.css">
-
     <!-- 页面样式-->
     <link type="text/css" rel="stylesheet" href="/thesis/src/user/build/css/addActive.css">
     <script type="text/javascript" src="/thesis/src/user/build/js/jquery.js"></script>

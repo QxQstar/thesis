@@ -385,7 +385,8 @@ Ajax.prototype.deleteActive = function (data,elem) {
         dataType:'json',
         success:function (result) {
             if(result.status){
-                layer.alert(result.msg,function () {
+                layer.alert(result.msg,function (index) {
+                    layer.close(index);
                     elem.remove();
                 });
 

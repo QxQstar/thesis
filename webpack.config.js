@@ -21,6 +21,11 @@ module.exports = {
         'zpList':'./src/user/js/zpList.js',
         'userCenter':'./src/user/js/userCenter.js',
         'userManage':'./src/user/js/userManage.js',
+        'activeList':'./src/user/js/activeList.js',
+        'notes':'./src/user/js/notes.js',
+        'production':'./src/user/js/production.js',
+        'desiginerList':'./src/user/js/desiginerList.js',
+        'activeDetail':'./src/user/js/activeDetail.js',
         'jQuery':['jquery']
     },
     output:{
@@ -44,7 +49,7 @@ module.exports = {
             //    loader: 'file-loader'
             //},
             {
-                test:/\.(png|jpg|jpge)$/,
+                test:/\.(png|jpg|jpge|woff|svg|eot|ttf)$/,
                 loader:'url-loader?limit=5000&name=img/[name].[ext]'
             }
         ]

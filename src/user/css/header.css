@@ -4,8 +4,9 @@
     height: 60px;
     background-color: #333333;
     line-height: 60px;
+    z-index: 20;
 }
-/*ÊÖ»ú*/
+/*ï¿½Ö»ï¿½*/
 @media all and (max-width: 600px){
     .g-header{
         position: fixed;
@@ -29,7 +30,7 @@
     bottom: 0;
     margin: auto;
 }
-/*pad and ÊÖ»ú*/
+/*pad and ï¿½Ö»ï¿½*/
 @media all and (max-width: 1000px) {
     .g-header .m-content{
         width: 95%;
@@ -87,7 +88,7 @@
     background-position: -27px 0;
 }
 
-/*ÊÖ»ú*/
+/*ï¿½Ö»ï¿½*/
 @media all and (max-width: 600px) {
     .g-header .logo{
         display: block;
