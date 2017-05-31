@@ -6,7 +6,6 @@
     line-height: 60px;
     z-index: 20;
 }
-/*�ֻ�*/
 @media all and (max-width: 600px){
     .g-header{
         position: fixed;
@@ -30,7 +29,6 @@
     bottom: 0;
     margin: auto;
 }
-/*pad and �ֻ�*/
 @media all and (max-width: 1000px) {
     .g-header .m-content{
         width: 95%;
@@ -45,7 +43,7 @@
     width: 790px;
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 1300px) {
     .g-header .navList{
         left: 160px;
         width: auto;

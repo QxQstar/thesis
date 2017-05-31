@@ -46,7 +46,7 @@
         <!-- 投稿-->
     {if $activeMess.status eq '2'}
         <div class="m-upload f-center f-text-c f-marTop-30">
-            <a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">上传作品</a>
+            <a href="/thesis/src/PHP/show/upload.php?code={$activeMess.activeCode}" class="submit">参加活动</a>
         </div>
     {/if}
     {if $num gt 0}
@@ -79,7 +79,11 @@
 
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer f-text-c">
+    <p>基于PHP技术的平面设计师站</p>
+    <p>指导老师：罗佳</p>
+    <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+</div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/activeDetail.js"></script>
 </body>

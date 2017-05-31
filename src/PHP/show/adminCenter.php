@@ -29,6 +29,11 @@ if(isset($_SESSION['code']) && isset($_SESSION['role'])){
             $message['roleInfo'] = $row['info'];
         }
         $message['code'] = $_SESSION['code'];
+        $code = $_SESSION['code'];
+        $sql = "select hasQuestion from adminmessage where code='$code'";
+        $query = $mysql->query($sql,$conn);
+        $adminMes = $mysql->findOne($query);
+        $message['hasQuestion'] = $adminMes['hasQuestion'];
         $smarty->assign('role',$_SESSION['role']);
         $smarty->assign('message',$message);
         $smarty->assign('isLog',true);

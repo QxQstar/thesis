@@ -13,8 +13,11 @@ spread.start(spreadBtn,addSystemImg,spreadBtn.html(),'关闭');
 //如果有图片预览
 if($('#preview').length > 0){
     preview.start(addSystemImg,addSystemImg,previewCallback.__bind(this,addSystemImg.find('#bottom')));
+    submitForm.start(addSystemImg,'systemAdmin',true,[],[]);
+}else{
+    submitForm.start(addSystemImg,'systemAdmin',false,[],[]);
 }
-submitForm.start(addSystemImg,'systemAdmin',true,[],[]);
+
 //预览结束的回调函数
 function previewCallback(){
     var param1;
@@ -46,13 +49,15 @@ function deleteSystemSet(list){
                 table:table
             };
             if(table == 'role'){
-                if(confirm('这个权限的用户也会被一起删除，是否确定删除？')){
+                layer.confirm('这个权限的用户也会被一起删除，是否确定删除？',function (index) {
+                    layer.close(index);
                     ajax.deleteSysMess(data);
-                }
+                })
             }else{
-                if(confirm('可能会破坏用户数据，是否确定删除？')){
+                layer.confirm('可能会破坏用户数据，是否确定删除？',function (index) {
+                    layer.close(index);
                     ajax.deleteSysMess(data);
-                }
+                })
             }
         })
 }

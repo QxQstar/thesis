@@ -78,23 +78,23 @@ Preview.prototype.show = function (reader) {
     controlH = preView.attr('data-height') ;
     controlW = preView.attr('data-width') ;
     //检查图片的尺寸
-    checkSize = function(img,has){
+    checkSize = function(img){
         if(controlH && img[0].naturalHeight !== ( controlH |0 )){
             //如果预览框还没有图片
-            if(!has){
-                img.attr('src','');
-            }else{
+            if(img.attr('presrc')){
                 img.attr('src',img.attr('presrc'))
+            }else{
+                img.attr('src','');
             }
             layer.alert('图片尺寸不符合规定');
             return false;
 
         }
         else if(controlW &&img[0].naturalWidth !== ( controlW |0 )){
-            if(!has){
-                img.attr('src','');
-            }else{
+            if(img.attr('presrc')){
                 img.attr('src',img.attr('presrc'))
+            }else{
+                img.attr('src','');
             }
             layer.alert('图片尺寸不符合规定');
             return false;
@@ -107,6 +107,9 @@ Preview.prototype.show = function (reader) {
     me = this;
     //图片加载结束的处理程序
     loaded = function () {
+        if(!checkSize(img)){
+            return this;
+        }
         if(me.callback){
             me.callback(me.type);
         }
@@ -122,9 +125,6 @@ Preview.prototype.show = function (reader) {
                 'src':reader.result
             });
         img.attr('style','');
-        if(!checkSize(img,true)){
-            return this;
-        }
 
     }else{
         if(img.length < 1) {
@@ -136,9 +136,6 @@ Preview.prototype.show = function (reader) {
             .on('load',loaded);
         img.attr('src',reader.result);
 
-        if(!checkSize(img,false)){
-            return this;
-        }
     }
 
 

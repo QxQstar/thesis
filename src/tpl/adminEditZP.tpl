@@ -41,7 +41,7 @@
                     <img src="/thesis/src/{$zpMessage.img}" id="preImg">
                 </div>
                 <div class="intro f-marBtm-20 f-marTop-10">
-                    <textarea id="intro" placeholder="图片介绍" name="intro" data-info="作品的描述">{$zpMessage.desc}</textarea>
+                    <textarea id="intro" placeholder="图片介绍" name="intro" data-info="作品的描述">{$zpMessage.intro}</textarea>
                     <span class="num" id="num"></span>
                 </div>
                 <div class="upload f-text-r ">
@@ -50,9 +50,17 @@
             </div>
         </form>
     </div>
+    <div class="m-notice f-marTop-60 f-text-c">
+        <img src="/thesis/src/user/build/img/notice.png">
+        <span>在移动端不能修改作品</span>
+    </div>
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer f-text-c">
+    <p>基于PHP技术的平面设计师站</p>
+    <p>指导老师：罗佳</p>
+    <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+</div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/upload.js"></script>
 </body>

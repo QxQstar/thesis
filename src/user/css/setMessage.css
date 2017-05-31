@@ -18,6 +18,17 @@
     font-weight: normal;
     line-height: 1.7;
 }
+.g-main .m-setMessage .smallS{
+    display: none;
+}
+@media all and (max-width: 600px) {
+    .g-main .m-setMessage .smallS{
+        display: block;
+    }
+    .g-main .m-setMessage .bigS{
+        display: none;
+    }
+}
 .g-main .m-setMessage .head,
 .g-main .m-adminCenter .head{
     width: 100%;
@@ -101,7 +112,8 @@
 .g-main .m-adminCenter .link a:hover{
     color: #ff3300;
 }
-@media all and (max-width: 900px){
+
+@media all and (max-device-width: 1000px){
     .g-main .m-setMessage .upload{
         display: none;
     }
@@ -153,9 +165,11 @@
     right: 0;
     top:0;
     bottom: 0;
-    height: 550px;
-    width: 1000px;
+    height: 500px;
+    width: 90%;
+    max-width: 1000px;
     margin: auto;
+    margin-top: 80px;
     background-color: #FFFFFF;
 }
 .g-main .m-Img .close{
@@ -176,7 +190,7 @@
 .g-main .m-Img .col-1{
     position: relative;
     overflow: hidden;
-    height: 450px;
+    height: 400px;
     width: 450px;
     background-color: #ebebeb;
 }
@@ -206,7 +220,7 @@
     margin-right: 240px;
     margin-left: -10px;
     border: 1px solid #eeeeee;
-    height: 100%;
+    height: 400px;
     overflow: auto;
     padding-bottom: 10px;
 }

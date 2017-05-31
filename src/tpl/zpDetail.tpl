@@ -20,7 +20,7 @@
             <img src="/thesis/src/{$zpMessage.img}">
             <div class="desc f-text-l">
                 <p class="title">{$zpMessage.title}</p>
-                <p class="detail">{$zpMessage.desc|nl2br}</p>
+                <p class="detail">{$zpMessage.intro|nl2br}</p>
                 <div class="handle">
                     {if $me eq true}
                         {if $zpMessage.status eq '2'}
@@ -146,7 +146,11 @@
     </div>
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer f-text-c">
+    <p>基于PHP技术的平面设计师站</p>
+    <p>指导老师：罗佳</p>
+    <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+</div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/zpDetail.js"></script>
 </body>

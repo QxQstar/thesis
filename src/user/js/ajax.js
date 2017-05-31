@@ -67,10 +67,8 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
             type:'POST',
             url:'/thesis/src/PHP/'+url+'/index.php',
             data:data,
-            cache: false,
             dataType:'json',
             success:function(result){
-
                 //系统添加权限和安全问题
                 if(url === 'systemAdmin'){
                     layer.alert(result.msg,function () {
@@ -160,19 +158,16 @@ Ajax.prototype.submitForm = function(url,data,haveFile,prevUrl){
                 //设计师修改自己的资料
                 if(url === 'setMessage'){
                     if(result.status){
-                        layer.alert(result.msg,function () {
-                            if(result.url){
-                                location.href = '/thesis/src/PHP/show/'+result.url;
-                            }else{
-                                location.reload();
-                            }
-                        });
+                        if(result.url){
+                            location.href = '/thesis/src/PHP/show/'+result.url;
+                        }else{
+                            location.reload(true);
+                        }
 
                     }else{
                         layer.alert(result.msg,function () {
                             location.reload();
                         });
-
                     }
                 }
                 //设计师|| 管理员修改密码，找回密码，修改安全问题
@@ -300,7 +295,10 @@ Ajax.prototype.focus = function (data,elem) {
         dataType:'json',
         success:function (result) {
             if(result.status){
-                elem.text(result.data);
+                if(typeof elem.attr('class') === 'string' && elem.attr('class').indexOf('delete') < 0){
+                    elem.text(result.data);
+                }
+
                 if(data.control){
                     elem
                         .attr({
@@ -556,7 +554,7 @@ Ajax.prototype.searchZP = function (data,list,callback) {
                                     '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'" class="img">' +
                                         '<img src="/thesis/src/'+item.img+'">'+
                                     '</a>'+
-                                    '<div class="desc f-text-c">' +
+                                    '<div class="desc f-text-l">' +
                                         '<p class="title">' +
                                             '<a href="/thesis/src/PHP/show/adminZPdetail.php?code='+item.zpCode+'">'+item.title+'</a>'+
                                         '</p>'+

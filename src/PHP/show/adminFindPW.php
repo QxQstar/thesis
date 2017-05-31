@@ -7,6 +7,7 @@
  */
 //管理员找回密码
 //引入smarty配置文件
+session_start();
 require_once('./../config.php');
 if(isset($_SESSION['code'])){
     unset($_SESSION['code']);

@@ -19,6 +19,7 @@ function Shear() {
 /**
  * 入口
  * @param previewBox 预览元素的父元素
+ * @param fileType 文件类型
  * @returns {Shear}
  */
 Shear.prototype.start = function (previewBox,fileType) {
@@ -43,9 +44,9 @@ Shear.prototype.showCanvas = function () {
     preImg = this.previewBox.find('#preImg');
     naturalH = preImg[0].naturalHeight;
     naturalW = preImg[0].naturalWidth;
-    if(naturalH > naturalW && naturalH > 450){
+    if(naturalH > naturalW && naturalH > 400){
         preImg.css({
-            height:'450px',
+            height:'400px',
             width:'auto'
         })
     }

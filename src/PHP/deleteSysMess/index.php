@@ -46,9 +46,6 @@ if(!empty($_SESSION) && isset($_SESSION['code']) && !empty($_GET)){
                 //活动表中活动的作品设置为0
                 $mysql->update('activemessage',array('zpNum'=>0),"",$conn);
             }
-
-
-
         }
         echo json_encode(array('status'=>1,'msg'=>'删除成功'));
     }

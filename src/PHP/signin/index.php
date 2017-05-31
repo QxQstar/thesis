@@ -5,12 +5,12 @@
  * Date: 2017/3/8
  * Time: 9:37
  */
+//设计师注册
 require_once ('./../connect.php');
 require_once('./../config.php');
 require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
-    //注册的是设计师
         $email = $_POST['email'];
         $password = $_POST['password'];
         $role = 0;
@@ -18,14 +18,14 @@ if(!empty($_POST) && isset($_POST['password']) && isset($_POST['email'])){
         $sql = "select * from designermessage where email = '$email'";
         $query = $mysql->query($sql,$conn);
         $num = mysqli_num_rows($query);
-        //如此不存在
+        //如果不存在
         if(!$num){
             //获取默认图像
             $sql = "select img from headimg";
             $query = $mysql->query($sql,$conn);
             $row = $mysql->findOne($query);
             $time = date('Y-m-d');
-            $arr = array('email'=>$email,'time'=>$time,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0);
+            $arr = array('email'=>$email,'intro'=>"",'nickname'=>"",'time'=>$time,'password'=>$password,'role'=>$role,'img'=>$row['img'],'hasQuestion'=>'0','focus'=>0,'question1'=>"",'question2'=>"",'answer1'=>"",'answer2'=>"");
             $insertresult = $mysql->insert('designermessage',$arr,$conn);
             if($insertresult){
                 echo json_encode(array('status'=>1,'msg'=>'注册成功','role'=>$role));

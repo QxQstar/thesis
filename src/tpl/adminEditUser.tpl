@@ -19,8 +19,8 @@
     <!--文字信息的表单-->
     <div class="m-setMessage f-marTop-30 f-center f-paddLR-30 f-paddTopBtm-20 f-area-bg" id="setMessage">
         <div class="head f-clearfix f-marBtm-10">
-            <h1 class="f-float-l">{$message.email}的资料</h1>
-
+            <h1 class="f-float-l bigS">{$message.email}的资料</h1>
+            <h1 class="f-float-l smallS">用户资料</h1>
         </div>
         <div class="body f-clearfix">
             <!--上传头像的表单-->
@@ -90,7 +90,11 @@
 
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer f-text-c">
+    <p>基于PHP技术的平面设计师站</p>
+    <p>指导老师：罗佳</p>
+    <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+</div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
 <script type="text/javascript" src="/thesis/src/user/build/js/setMessage.js"></script>
 </body>

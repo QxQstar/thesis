@@ -8,7 +8,7 @@ var ajax = require('./ajax.js');
  * @constructor
  */
 function SubmitForm(){
-    //要提交的表
+    //要提交的表单
     this.fromElem = null;
     //不验证的表单字段
     this.exclude = null;
@@ -92,14 +92,14 @@ SubmitForm.prototype.__check = function(exclude){
     //开始验证
     for(i = 0,len = elems.length;i<len;i++){
         var $elem = $(elems[i]);
-        if($elem.prop('id') === 'email' && $elem.val().trim().length < 1){
+        if($elem.attr('id') === 'email' && $elem.val().length < 1){
             result = {
                 status:0,
                 msg:'输入电子邮箱'
             };
             break;
         }
-        else if($elem.prop('id') ==='email' && !/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test($elem.val().trim())){
+        else if($elem.attr('id') ==='email' && !/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test($elem.val())){
             result = {
                 status:0,
                 msg:'电子邮箱格式不正确'
@@ -113,44 +113,44 @@ SubmitForm.prototype.__check = function(exclude){
             };
             break;
         }
-        else if(($elem.prop('type') === 'text' || $elem.prop('type') === 'textarea') && $elem.val().trim().length <= 0 && this.__isMust($elem) ){
+        else if(($elem.attr('type') === 'text' || $elem.prop('type') === 'textarea') && $elem.val().length <= 0 && this.__isMust($elem) ){
             result = {
                 status:0,
                 msg:'没有输入'+$elem.attr('data-info')
             };
             break;
-        }else if($elem.prop('id') ==='yzm' && $elem.val().trim().length < 1){
+        }else if($elem.attr('id') ==='yzm' && $elem.val().length < 1){
             result = {
                 status:0,
                 msg:'没有输入验证码'
             };
             break;
-        }else if($elem.prop('id') ==='yzm' && $elem.val().trim() !== $elem.next().attr('data-yzm')){
+        }else if($elem.attr('id') ==='yzm' && $elem.val() !== $elem.next().attr('data-yzm')){
             result = {
                 status:0,
                 msg:'验证码不正确'
             };
             break;
         }
-        else if($elem.prop('id') === 'surePW' && formElem.find('#password').val().trim() !== $elem.val().trim()){
+        else if($elem.attr('id') === 'surePW' && formElem.find('#password').val() !== $elem.val()){
             result = {
                 status:0,
                 msg:'两次密码不一致'
             }
-        }else if($elem.prop('id') === 'password' && $elem.val().trim().length < 6){
+        }else if($elem.attr('id') === 'password' && $elem.val().length < 6){
             result = {
                 status:0,
                 msg:'密码长度小于6'
             };
             break;
-        }else if($elem.prop('type') === 'file' && $elem[0].files.length <= 0 && this.__isMust($elem)){
+        }else if($elem.attr('type') === 'file' && $elem[0].files.length <= 0 && this.__isMust($elem)){
             result = {
                 status:0,
                 msg:'还没有选择文件'
             };
             break;
         }
-        else if($elem.prop('id').indexOf('Time') >= 0 && (check = this.__checkTime($elem)) && check.msg){
+        else if($elem.attr('id').indexOf('Time') >= 0 && (check = this.__checkTime($elem)) && check.msg){
             result = {
                 status:0,
                 msg:check.msg
@@ -160,7 +160,7 @@ SubmitForm.prototype.__check = function(exclude){
         else{
             //如果不需要上传文件
             if(!haveFile){
-                result.data[$elem.prop('name')] = $elem.val().trim();
+                result.data[$elem.prop('name')] = $elem.val();
             }else{
 
                 if(formData){
@@ -168,7 +168,7 @@ SubmitForm.prototype.__check = function(exclude){
                     if($elem.prop('type') === 'file'){
                         formData.append($elem.prop('name'),$elem[0].files[0]);
                     }else{
-                        formData.append($elem.prop('name'),$elem.val().trim());
+                        formData.append($elem.prop('name'),$elem.val());
                     }
                     result.data = formData;
                 }

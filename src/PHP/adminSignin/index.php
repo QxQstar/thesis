@@ -5,12 +5,12 @@
  * Date: 2017/3/8
  * Time: 9:37
  */
+ //管理员添加另外的管理员
 require_once ('./../connect.php');
 require_once('./../config.php');
 require_once ('./../common/mysql.class.php');
 session_start();
 $mysql = new mysql();
-//注册一个新管理员
 if(!empty($_POST) && !isset($_POST['edit']) && isset($_POST['password']) &&  isset($_POST['code']) ){
         $code = $_POST['code'];
         $role = $_POST['role'];
@@ -22,7 +22,7 @@ if(!empty($_POST) && !isset($_POST['edit']) && isset($_POST['password']) &&  iss
         //如果不存在
         if(!$num){
             $time = date('Y-m-d');
-            $arr = array('code'=>$code,'password'=>$password,'role'=>$role,'hasQuestion'=>'0','time'=>$time);
+            $arr = array('code'=>$code,'password'=>$password,'role'=>$role,'hasQuestion'=>'0','time'=>$time,'question1'=>"",'question2'=>"",'answer1'=>"",'answer2'=>"");
             $insertresult = $mysql->insert('adminmessage',$arr,$conn);
             if($insertresult){
                 echo json_encode(array('status'=>1,'msg'=>'添加成功','role'=>$role));

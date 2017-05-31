@@ -40,7 +40,7 @@
         </li>
     </ul>
     {else}
-    <div class="g-main f-show f-sign-bg f-paddBtm-60 " id="admin">
+    <div class="g-main f-show f-sign-bg f-paddBtm-60 " id="admin" style="margin-top: 0">
         <!--进度条-->
         <ul class="m-process f-clearfix f-center f-marTop-60">
             <li class="item f-float-l on">
@@ -109,7 +109,11 @@
     </div>
     <!-- 页脚-->
     {if $isLog eq true}
-        <div class="g-footer"></div>
+        <div class="g-footer f-text-c">
+            <p>基于PHP技术的平面设计师站</p>
+            <p>指导老师：罗佳</p>
+            <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+        </div>
     {/if}
     <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
     <script type="text/javascript" src="/thesis/src/user/build/js/verify.js"></script>

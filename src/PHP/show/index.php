@@ -21,25 +21,25 @@ if(!empty($_SESSION) && isset($_SESSION['email'])){
     $smarty->assign('isLog',false);
 }
 //活动快要结束的三个活动
-$sql = "select * from activemessage order by eTime asc limit 3";
+$sql = "select * from activemessage order by status desc ,eTime asc limit 3";
 $query = $mysql->query($sql,$conn);
 $activeList = $mysql->findAll($query);
 $smarty->assign('activeList',$activeList);
 
 //获取最热门的8个作品
-$sql = "select * from productionmessage order by likeNum desc,discussNum desc limit 8";
+$sql = "select * from productionmessage where status='2' order by likeNum desc,discussNum desc limit 8";
 $query = $mysql->query($sql,$conn);
 $hotZPs = $mysql->findAll($query);
 $smarty->assign('hotZPs',$hotZPs);
 
-//获取热门的8八位设计师
-$sql = "select * from designermessage order by focus desc,email asc limit 8";
+//获取热门的10八位设计师
+$sql = "select * from designermessage order by focus desc,email asc limit 10";
 $query = $mysql->query($sql,$conn);
 $hotDesi = $mysql->findAll($query);
 $smarty->assign('hotDesi',$hotDesi);
 
 //获取最新的8个作品
-$sql = "select * from productionmessage order by time desc,likeNum desc limit 8";
+$sql = "select * from productionmessage where status='2' order by time desc,likeNum desc limit 8";
 $query = $mysql->query($sql,$conn);
 $newZPs = $mysql->findAll($query);
 $smarty->assign('newZPs',$newZPs);

@@ -1,5 +1,5 @@
 <!-- 导航条-->
-<header class="g-header" id="header">
+<div class="g-header" id="header">
     <div class="m-content f-clearfix">
         <img src="/thesis/src/user/img/logo.png" class="logo">
         <div class="control" id="control">
@@ -66,4 +66,4 @@
         </ul>
     </div>
     <div class="mask"></div>
-</header>
+</div>

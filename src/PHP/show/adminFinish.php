@@ -25,5 +25,6 @@ if(!empty($_SESSION) && isset($_SESSION['code'])){
 }else{
     $smarty->assign('isLog',false);
 }
+$smarty->assign('role',$_SESSION['role']);
 $smarty->display('adminFinish.tpl');
 ?>

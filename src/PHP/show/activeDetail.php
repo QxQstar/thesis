@@ -36,7 +36,7 @@ if(!empty($_GET) && isset($_GET['code'])){
         $status = '1';
     }
     if($activeMess['status'] != $status){
-        $mysql->update('acticemessage',"activeCode='$code'",$conn);
+        $mysql->update('activemessage',array('status'=>$status),"activeCode='$code'",$conn);
         $query = $mysql->query($sql,$conn);
         $activeMess = $mysql->findOne($query);
     }

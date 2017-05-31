@@ -82,7 +82,7 @@ CustomerImg.prototype.__dispose = function () {
  * @private
  */
 CustomerImg.prototype.__submit = function () {
-    var cvsMove,data,ia,blob,fd;
+    var cvsMove,data,fd;
     cvsMove = this.previewBox.find('#cvsMove');
     data = cvsMove[0].toDataURL('image/jpg',1);
     fd = {

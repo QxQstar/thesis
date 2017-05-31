@@ -48,7 +48,7 @@
         <div class="m-recommend f-marTop-30 f-center">
             <h2 class="title f-marBtm-10">推荐作品</h2>
             <!-- 推荐的作品列表-->
-            <ul class="list f-clearfix">
+            <ul class="list f-clearfix m-otherZp m-otherZp" id="otherZP">
                 {foreach $zpList as $item}
                 <li class="item f-float-l f-marBtm-10">
                     <a class="img" href="/thesis/src/PHP/show/adminZPdetail.php?code={$item.zpCode}">
@@ -73,7 +73,12 @@
 
 </div>
 <!-- 页脚-->
-<div class="g-footer"></div>
+<div class="g-footer f-text-c">
+    <p>基于PHP技术的平面设计师站</p>
+    <p>指导老师：罗佳</p>
+    <p>组员：骞敬棠，秦小倩，贾从有，杨帆</p>
+</div>
 <script type="text/javascript" src="/thesis/src/user/build/js/common.js"></script>
+<script type="text/javascript" src="/thesis/src/user/build/js/activeDetail.js"></script>
 </body>
 </html>

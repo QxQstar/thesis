@@ -1,5 +1,11 @@
 .g-footer{
     height: 300px;
     width: 100%;
+    padding-top: 100px;
     background-color: #333;
+}
+.g-footer p{
+    font-size: 15px;
+    line-height: 2.0;
+    color: #FFFFFF;
 }

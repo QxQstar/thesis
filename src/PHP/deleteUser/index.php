@@ -49,6 +49,10 @@ function deleteDesi($email,$mysql,$conn){
     }
     //4.从作品表中删除这个设计师作品
     $mysql->del('productionmessage',"email='$email'",$conn);
+    //从消息表中删除这个设计师消息
+    $mysql->del('note',"email='$email'",$conn);
+    //从消息表中删除与这个设计师相关的所以评价
+    $mysql->del('discuss',"email='$email' or toEmail='$email'",$conn);
     //5.从设计师表中删除这个设计师的信息
     $mysql->del('designermessage',"email='$email'",$conn);
     $result = array('status'=>1,'msg'=>'删除成功');

@@ -6,7 +6,6 @@ var $ =require('jquery');
 var wangEditor = require('wangeditor');
 var submitForm = require('./submitForm.js')();
 var preview = require('./preview.js');
-var controlNum = require('./controlNum.js');
 if($('#editZP').length > 0){
     submitForm.start($('#upload'),'issueZP',true,['img'],[]);
 }else {
@@ -37,5 +36,7 @@ editor.config.colors = {
     '#ff0000': '红色'
 };
 editor.create();
-// 初始化编辑器的内容
-editor.$txt.html('<p>添加作品说明让更多人了解你的作品</p>');
+if($('#intro').val().length <=0){
+    // 初始化编辑器的内容
+    editor.$txt.html('<p>添加作品说明让更多人了解你的作品</p>');
+}

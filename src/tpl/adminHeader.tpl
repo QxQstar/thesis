@@ -1,5 +1,5 @@
 <!-- 导航条-->
-<header class="g-header admin" id="header">
+<div class="g-header admin" id="header">
     <div class="m-content f-clearfix">
         <img src="/thesis/src/user/img/adminlogo.png" class="logo">
         <div class="control" id="control">
@@ -60,4 +60,4 @@
         </ul>
     </div>
     <div class="mask"></div>
-</header>
+</div>

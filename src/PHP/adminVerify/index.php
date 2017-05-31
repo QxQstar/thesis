@@ -5,7 +5,6 @@
  * Date: 2017/3/6
  * Time: 17:45
  */
-//找回密码
 //smarty配置文件
 require_once ('./../config.php');
 //数据库连接
@@ -125,7 +124,6 @@ if(!empty($_POST) && isset($_POST['setQU']) && isset($_POST['code'])){
     $answer1 = $_POST['newAnswer1'];
     $answer2 = $_POST['newAnswer2'];
     $zhanghu = $_POST['code'];
-    //试图更新设计师表
     if($mysql->update('adminmessage',array('question1'=>$question1,'question2'=>$question2,'answer1'=>$answer1,'answer2'=>$answer2,'hasQuestion'=>1),"code='$zhanghu'",$conn)){
         echo json_encode(array('status'=>1,'msg'=>'更新成功','url'=>'finish.php'));
     }else{

@@ -5,7 +5,6 @@
  * Date: 2017/3/6
  * Time: 17:45
  */
-    //找回密码
 //smarty配置文件
 require_once ('./../config.php');
 //数据库连接
@@ -14,7 +13,7 @@ require_once ('./../connect.php');
 require_once ('./../common/mysql.class.php');
 $mysql = new mysql();
 session_start();
-//找回密码或修改密码
+//找回密码
 if(!empty($_POST) && isset($_POST['findPW'])){
     //设计师找回密码,email是要找回密码的账号
     if(isset($_POST['email'])){
